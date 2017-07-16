@@ -99,7 +99,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/07/16/传统线程技术/index.html">
 <meta property="og:site_name" content="小涛故事">
 <meta property="og:description" content="创建并启动一个线程方法一12345678910public static void main(String[] args) &amp;#123;    Thread thd01 = new Thread(&quot;thd01&quot;) &amp;#123;        @Override        public void run() &amp;#123;            System.out.println(&quot;the Th">
-<meta property="og:updated_time" content="2017-07-16T08:37:57.189Z">
+<meta property="og:updated_time" content="2017-07-16T08:59:50.205Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="传统线程技术">
 <meta name="twitter:description" content="创建并启动一个线程方法一12345678910public static void main(String[] args) &amp;#123;    Thread thd01 = new Thread(&quot;thd01&quot;) &amp;#123;        @Override        public void run() &amp;#123;            System.out.println(&quot;the Th">
@@ -298,6 +298,11 @@
           
 
           
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
 
           
 
@@ -314,6 +319,7 @@
 
       
         <h2 id="创建并启动一个线程"><a href="#创建并启动一个线程" class="headerlink" title="创建并启动一个线程"></a>创建并启动一个线程</h2><h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">    Thread thd01 = <span class="keyword">new</span> Thread(<span class="string">"thd01"</span>) &#123;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">            System.out.println(<span class="string">"the Thread "</span> + Thread.currentThread().getName() + <span class="string">" is executing."</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line">    thd01.start();</div><div class="line">    System.out.println(<span class="string">"the Thread "</span> + Thread.currentThread().getName() + <span class="string">" is executing."</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<a id="more"></a>
 <h3 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">    Thread thd02 = <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">            System.out.println(<span class="string">"the Thread "</span> + Thread.currentThread().getName() + <span class="string">" is executing."</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">    thd02.setName(<span class="string">"thd02"</span>);</div><div class="line">    thd02.start();</div><div class="line">    System.out.println(<span class="string">"the Thread "</span> + Thread.currentThread().getName() + <span class="string">" is executing."</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="判断输出结果"><a href="#判断输出结果" class="headerlink" title="判断输出结果"></a>判断输出结果</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">    <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">            System.out.println(<span class="string">"the Thread01 "</span> + Thread.currentThread().getName() + <span class="string">" is executing."</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;) &#123;</div><div class="line">        <span class="comment">/** 覆盖了Runnable中定义的方run() */</span></div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">            System.out.println(<span class="string">"the Thread02 "</span> + Thread.currentThread().getName() + <span class="string">" is executing."</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;.start();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
       
@@ -350,10 +356,6 @@
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
-            
-              <a href="/2017/06/28/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
-              </a>
             
           </div>
 
@@ -435,7 +437,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -506,11 +508,11 @@
 
 
 <div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
-  主题 -
+  Theme -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
     NexT.Pisces
   </a>
@@ -518,6 +520,26 @@
 
 
         
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
 
         
       </div>
