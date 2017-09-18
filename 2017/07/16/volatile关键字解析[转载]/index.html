@@ -99,13 +99,13 @@
 <meta property="og:url" content="http://yoursite.com/2017/07/16/volatile关键字解析[转载]/index.html">
 <meta property="og:site_name" content="Yongtao&#39;s Blog">
 <meta property="og:description" content="volatile这个关键字可能很多朋友都听说过，或许也都用过。在Java 5之前，它是一个备受争议的关键字，因为在程序中使用它往往会导致出人意料的结果。在Java 5之后，volatile关键字才得以重获生机。 　　volatile关键字虽然从字面上理解起来比较简单，但是要用好不是一件容易的事情。由于volatile关键字是与Java的内存模型有关的，因此在讲述volatile关键之前，我们先来">
-<meta property="og:image" content="http://images.cnitblog.com/blog/288799/201408/212219343783699.jpg">
-<meta property="og:image" content="http://images.cnitblog.com/blog/288799/201408/212305263939989.jpg">
-<meta property="og:updated_time" content="2017-08-24T05:07:27.005Z">
+<meta property="og:image" content="http://ow3s1jp4x.bkt.clouddn.com/images/20170716/212219343783699.jpg">
+<meta property="og:image" content="http://ow3s1jp4x.bkt.clouddn.com/images/20170716/212305263939989.jpg">
+<meta property="og:updated_time" content="2017-09-18T12:00:09.875Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="volatile关键字解析[转载]">
 <meta name="twitter:description" content="volatile这个关键字可能很多朋友都听说过，或许也都用过。在Java 5之前，它是一个备受争议的关键字，因为在程序中使用它往往会导致出人意料的结果。在Java 5之后，volatile关键字才得以重获生机。 　　volatile关键字虽然从字面上理解起来比较简单，但是要用好不是一件容易的事情。由于volatile关键字是与Java的内存模型有关的，因此在讲述volatile关键之前，我们先来">
-<meta name="twitter:image" content="http://images.cnitblog.com/blog/288799/201408/212219343783699.jpg">
+<meta name="twitter:image" content="http://ow3s1jp4x.bkt.clouddn.com/images/20170716/212219343783699.jpg">
 
 
 
@@ -336,7 +336,7 @@
 <p>　　在早期的CPU当中，是通过在总线上加LOCK#锁的形式来解决缓存不一致的问题。因为CPU和其他部件进行通信都是通过总线来进行的，如果对总线加LOCK#锁的话，也就是说阻塞了其他CPU对其他部件访问（如内存），从而使得只能有一个CPU能使用这个变量的内存。比如上面例子中 如果一个线程在执行 i = i +1，如果在执行这段代码的过程中，在总线上发出了LCOK#锁的信号，那么只有等待这段代码完全执行完毕之后，其他CPU才能从变量i所在的内存读取变量，然后进行相应的操作。这样就解决了缓存不一致的问题。</p>
 <p>　　但是上面的方式会有一个问题，由于在锁住总线期间，其他CPU无法访问内存，导致效率低下。</p>
 <p>　　所以就出现了缓存一致性协议。最出名的就是Intel 的MESI协议，MESI协议保证了每个缓存中使用的共享变量的副本是一致的。它核心的思想是：当CPU写数据时，如果发现操作的变量是共享变量，即在其他CPU中也存在该变量的副本，会发出信号通知其他CPU将该变量的缓存行置为无效状态，因此当其他CPU需要读取这个变量时，发现自己缓存中缓存该变量的缓存行是无效的，那么它就会从内存重新读取。</p>
-<p><img src="http://images.cnitblog.com/blog/288799/201408/212219343783699.jpg" alt="这里写图片描述"></p>
+<p><img src="http://ow3s1jp4x.bkt.clouddn.com/images/20170716/212219343783699.jpg" alt="这里写图片描述"></p>
 <h3 id="并发编程中的三个概念"><a href="#并发编程中的三个概念" class="headerlink" title="并发编程中的三个概念"></a>并发编程中的三个概念</h3><h4 id="原子性"><a href="#原子性" class="headerlink" title="原子性"></a>原子性</h4><p>　原子性：即一个操作或者多个操作 要么全部执行并且执行的过程不会被任何因素打断，要么就都不执行。</p>
 <p>　　一个很经典的例子就是银行账户转账问题：</p>
 <p>　　比如从账户A向账户B转1000元，那么必然包括2个操作：从账户A减去1000元，往账户B加上1000元。</p>
@@ -355,7 +355,7 @@
 <p>　　比如上面的代码中，语句1和语句2谁先执行对最终的程序结果并没有影响，那么就有可能在执行过程中，语句2先执行而语句1后执行。</p>
 <p>　　但是要注意，虽然处理器会对指令进行重排序，但是它会保证程序最终结果会和代码顺序执行结果相同，那么它靠什么保证的呢？再看下面一个例子：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> a = <span class="number">10</span>;    <span class="comment">//语句1</span></div><div class="line"><span class="keyword">int</span> r = <span class="number">2</span>;    <span class="comment">//语句2</span></div><div class="line">a = a + <span class="number">3</span>;    <span class="comment">//语句3</span></div><div class="line">r = a*a;     <span class="comment">//语句4</span></div></pre></td></tr></table></figure></p>
 <p>这段代码有4个语句，那么可能的一个执行顺序是：</p>
-<p><img src="http://images.cnitblog.com/blog/288799/201408/212305263939989.jpg" alt="这里写图片描述"></p>
+<p><img src="http://ow3s1jp4x.bkt.clouddn.com/images/20170716/212305263939989.jpg" alt="这里写图片描述"></p>
 <p>那么可不可能是这个执行顺序呢： 语句2   语句1    语句4   语句3</p>
 <p>　　不可能，因为处理器在进行重排序时是会考虑指令之间的数据依赖性，如果一个指令Instruction 2必须用到Instruction 1的结果，那么处理器会保证Instruction 1会在Instruction 2之前执行。</p>
 <p>　　虽然重排序不会影响单个线程内程序执行的结果，但是多线程呢？下面看一个例子：</p>
