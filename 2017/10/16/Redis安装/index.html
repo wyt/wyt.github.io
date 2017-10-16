@@ -93,16 +93,16 @@
 
 
 
-<meta name="description" content="创建并启动一个线程方法一12345678910public static void main(String[] args) &amp;#123;    Thread thd01 = new Thread(&quot;thd01&quot;) &amp;#123;        @Override        public void run() &amp;#123;            System.out.println(&quot;the Th">
+<meta name="description" content="安装Redis下载安装1234[root@localhost src] wget http://download.redis.io/releases/redis-4.0.2.tar.gz[root@localhost src] tar xzf redis-4.0.2.tar.gz[root@localhost src] cd redis-4.0.2[root@localhost src] make">
 <meta property="og:type" content="article">
-<meta property="og:title" content="传统线程技术">
-<meta property="og:url" content="http://yoursite.com/2017/07/16/传统线程技术/index.html">
+<meta property="og:title" content="Redis安装">
+<meta property="og:url" content="http://yoursite.com/2017/10/16/Redis安装/index.html">
 <meta property="og:site_name" content="Yongtao&#39;s Blog">
-<meta property="og:description" content="创建并启动一个线程方法一12345678910public static void main(String[] args) &amp;#123;    Thread thd01 = new Thread(&quot;thd01&quot;) &amp;#123;        @Override        public void run() &amp;#123;            System.out.println(&quot;the Th">
-<meta property="og:updated_time" content="2017-08-24T05:11:07.137Z">
+<meta property="og:description" content="安装Redis下载安装1234[root@localhost src] wget http://download.redis.io/releases/redis-4.0.2.tar.gz[root@localhost src] tar xzf redis-4.0.2.tar.gz[root@localhost src] cd redis-4.0.2[root@localhost src] make">
+<meta property="og:updated_time" content="2017-10-16T15:03:14.981Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="传统线程技术">
-<meta name="twitter:description" content="创建并启动一个线程方法一12345678910public static void main(String[] args) &amp;#123;    Thread thd01 = new Thread(&quot;thd01&quot;) &amp;#123;        @Override        public void run() &amp;#123;            System.out.println(&quot;the Th">
+<meta name="twitter:title" content="Redis安装">
+<meta name="twitter:description" content="安装Redis下载安装1234[root@localhost src] wget http://download.redis.io/releases/redis-4.0.2.tar.gz[root@localhost src] tar xzf redis-4.0.2.tar.gz[root@localhost src] cd redis-4.0.2[root@localhost src] make">
 
 
 
@@ -130,13 +130,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/07/16/传统线程技术/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/10/16/Redis安装/"/>
 
 
 
 
 
-  <title>传统线程技术 | Yongtao's Blog</title>
+  <title>Redis安装 | Yongtao's Blog</title>
   
 
 
@@ -249,7 +249,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/16/传统线程技术/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/16/Redis安装/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="wangyt">
@@ -266,7 +266,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">传统线程技术</h1>
+          <h1 class="post-title" itemprop="name headline">Redis安装</h1>
         
 
         <div class="post-meta">
@@ -278,8 +278,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-16T16:59:00+08:00">
-                2017-07-16
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-16T22:27:00+08:00">
+                2017-10-16
               </time>
             
 
@@ -313,10 +313,12 @@
       
 
       
-        <h2 id="创建并启动一个线程"><a href="#创建并启动一个线程" class="headerlink" title="创建并启动一个线程"></a>创建并启动一个线程</h2><h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">    Thread thd01 = <span class="keyword">new</span> Thread(<span class="string">"thd01"</span>) &#123;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">            System.out.println(<span class="string">"the Thread "</span> + Thread.currentThread().getName() + <span class="string">" is executing."</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line">    thd01.start();</div><div class="line">    System.out.println(<span class="string">"the Thread "</span> + Thread.currentThread().getName() + <span class="string">" is executing."</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <h2 id="安装Redis"><a href="#安装Redis" class="headerlink" title="安装Redis"></a>安装Redis</h2><h3 id="下载安装"><a href="#下载安装" class="headerlink" title="下载安装"></a>下载安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[root@localhost src] wget http://download.redis.io/releases/redis-4.0.2.tar.gz</div><div class="line">[root@localhost src] tar xzf redis-4.0.2.tar.gz</div><div class="line">[root@localhost src] <span class="built_in">cd</span> redis-4.0.2</div><div class="line">[root@localhost src] make</div></pre></td></tr></table></figure>
 <a id="more"></a>
-<h3 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">    Thread thd02 = <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">            System.out.println(<span class="string">"the Thread "</span> + Thread.currentThread().getName() + <span class="string">" is executing."</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">    thd02.setName(<span class="string">"thd02"</span>);</div><div class="line">    thd02.start();</div><div class="line">    System.out.println(<span class="string">"the Thread "</span> + Thread.currentThread().getName() + <span class="string">" is executing."</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="判断输出结果"><a href="#判断输出结果" class="headerlink" title="判断输出结果"></a>判断输出结果</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">    <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">            System.out.println(<span class="string">"the Thread01 "</span> + Thread.currentThread().getName() + <span class="string">" is executing."</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;) &#123;</div><div class="line">        <span class="comment">/** 覆盖了Runnable中定义的方run() */</span></div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">            System.out.println(<span class="string">"the Thread02 "</span> + Thread.currentThread().getName() + <span class="string">" is executing."</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;.start();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="启动Redis服务"><a href="#启动Redis服务" class="headerlink" title="启动Redis服务"></a>启动Redis服务</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">[root@localhost src]<span class="comment"># pwd</span></div><div class="line">/usr/<span class="built_in">local</span>/src/redis-4.0.1/src</div><div class="line">[root@localhost src]<span class="comment"># ./redis-server </span></div><div class="line">3163:C 12 Jul 04:23:15.614 <span class="comment"># oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo</span></div><div class="line">3163:C 12 Jul 04:23:15.614 <span class="comment"># Redis version=4.0.1, bits=64, commit=00000000, modified=0, pid=3163, just started</span></div><div class="line">3163:C 12 Jul 04:23:15.614 <span class="comment"># Warning: no config file specified, using the default config. In order to specify a config file use ./redis-server /path/to/redis.conf</span></div><div class="line">3163:M 12 Jul 04:23:15.615 * Increased maximum number of open files to 10032 (it was originally <span class="built_in">set</span> to 1024).</div><div class="line">                _._                                                  </div><div class="line">           _.-``__ <span class="string">''</span>-._                                             </div><div class="line">      _.-``    `.  `_.  <span class="string">''</span>-._           Redis 4.0.1 (00000000/0) 64 bit</div><div class="line">  .-`` .-```.  ```\/    _.,_ <span class="string">''</span>-._                                   </div><div class="line"> (    <span class="string">'      ,       .-`  | `,    )     Running in standalone mode</span></div><div class="line"> |`-._`-...-` __...-.``-._|'` _.-<span class="string">'|     Port: 6379</span></div><div class="line"> |    `-._   `._    /     _.-'    |     PID: 3163</div><div class="line">  `-._    `-._  `-./  _.-<span class="string">'    _.-'</span>                                   </div><div class="line"> |`-._`-._    `-.__.-<span class="string">'    _.-'</span>_.-<span class="string">'|                                  </span></div><div class="line"> |    `-._`-._        _.-'_.-<span class="string">'    |           http://redis.io        </span></div><div class="line">  `-._    `-._`-.__.-'_.-<span class="string">'    _.-'</span>                                   </div><div class="line"> |`-._`-._    `-.__.-<span class="string">'    _.-'</span>_.-<span class="string">'|                                  </span></div><div class="line"> |    `-._`-._        _.-'_.-<span class="string">'    |                                  </span></div><div class="line">  `-._    `-._`-.__.-'_.-<span class="string">'    _.-'</span>                                   </div><div class="line">      `-._    `-.__.-<span class="string">'    _.-'</span>                                       </div><div class="line">          `-._        _.-<span class="string">'                                           </span></div><div class="line">              `-.__.-'                                               </div><div class="line"></div><div class="line">3163:M 12 Jul 04:23:15.616 <span class="comment"># WARNING: The TCP backlog setting of 511 cannot be enforced because /proc/sys/net/core/somaxconn is set to the lower value of 128.</span></div><div class="line">3163:M 12 Jul 04:23:15.616 <span class="comment"># Server initialized</span></div><div class="line">3163:M 12 Jul 04:23:15.616 <span class="comment"># WARNING overcommit_memory is set to 0! Background save may fail under low memory condition. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.</span></div><div class="line">3163:M 12 Jul 04:23:15.616 <span class="comment"># WARNING you have Transparent Huge Pages (THP) support enabled in your kernel. This will create latency and memory usage issues with Redis. To fix this issue run the command 'echo never &gt; /sys/kernel/mm/transparent_hugepage/enabled' as root, and add it to your /etc/rc.local in order to retain the setting after a reboot. Redis must be restarted after THP is disabled.</span></div><div class="line">3163:M 12 Jul 04:23:15.616 * DB loaded from disk: 0.000 seconds</div><div class="line">3163:M 12 Jul 04:23:15.616 * Ready to accept connections</div></pre></td></tr></table></figure>
+<h3 id="通过内建的客户端和Redis交互"><a href="#通过内建的客户端和Redis交互" class="headerlink" title="通过内建的客户端和Redis交互"></a>通过内建的客户端和Redis交互</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[root@localhost src] ./redis-cli</div><div class="line">redis&gt; <span class="built_in">set</span> foo bar</div><div class="line">OK</div><div class="line">redis&gt; get foo</div><div class="line"><span class="string">"bar"</span></div></pre></td></tr></table></figure>
+<p>Ref: <a href="https://redis.io/download" target="_blank" rel="external">https://redis.io/download</a></p>
+
       
     </div>
 
@@ -352,15 +354,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/10/15/学习资源/" rel="next" title="学习资源">
+                <i class="fa fa-chevron-left"></i> 学习资源
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/07/16/传统定时器技术/" rel="prev" title="传统定时器技术">
-                传统定时器技术 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -471,7 +473,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建并启动一个线程"><span class="nav-number">1.</span> <span class="nav-text">创建并启动一个线程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#方法一"><span class="nav-number">1.1.</span> <span class="nav-text">方法一</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法二"><span class="nav-number">1.2.</span> <span class="nav-text">方法二</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#判断输出结果"><span class="nav-number">1.3.</span> <span class="nav-text">判断输出结果</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Redis"><span class="nav-number">1.</span> <span class="nav-text">安装Redis</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#下载安装"><span class="nav-number">1.1.</span> <span class="nav-text">下载安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动Redis服务"><span class="nav-number">1.2.</span> <span class="nav-text">启动Redis服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过内建的客户端和Redis交互"><span class="nav-number">1.3.</span> <span class="nav-text">通过内建的客户端和Redis交互</span></a></li></ol></li></ol></div>
             
 
           </div>
