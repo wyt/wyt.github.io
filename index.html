@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next pisces use-motion" lang="zh-Hans">
+<html class="theme-next muse use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -109,7 +109,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Pisces',
+    scheme: 'Muse',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
     fancybox: true,
     motion: true,
@@ -389,7 +389,9 @@
 
       
         
-          <h3 id="Spring-Security-SAML-实现SP"><a href="#Spring-Security-SAML-实现SP" class="headerlink" title="Spring Security SAML 实现SP"></a>Spring Security SAML 实现SP</h3>
+          <h3 id="Spring-Security-SAML-实现SP"><a href="#Spring-Security-SAML-实现SP" class="headerlink" title="Spring Security SAML 实现SP"></a>Spring Security SAML 实现SP</h3><h4 id="下载-sample-application"><a href="#下载-sample-application" class="headerlink" title="下载 sample application"></a>下载 sample application</h4><pre><code>https://github.com/spring-projects/spring-security-saml
+</code></pre><h4 id="配置IDP-metadata"><a href="#配置IDP-metadata" class="headerlink" title="配置IDP metadata"></a>配置IDP metadata</h4><pre><code>修改 /src/main/webapp/WEB-INF/securityContext.xml，告诉系统下载IDP metadata 从给定的url, 超时5s
+</code></pre><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"metadata"</span> <span class="attr">class</span>=<span class="string">"org.springframework.security.saml.metadata.CachingMetadataManager"</span>&gt;</span> </div><div class="line">  <span class="tag">&lt;<span class="name">constructor-arg</span>&gt;</span> </div><div class="line">    <span class="tag">&lt;<span class="name">list</span>&gt;</span> </div><div class="line">      <span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">"org.opensaml.saml2.metadata.provider.HTTPMetadataProvider"</span>&gt;</span> </div><div class="line">        <span class="tag">&lt;<span class="name">constructor-arg</span>&gt;</span> </div><div class="line">          <span class="tag">&lt;<span class="name">value</span> <span class="attr">type</span>=<span class="string">"java.lang.String"</span>&gt;</span>http://idp.ssocircle.com/idp-meta.xml<span class="tag">&lt;/<span class="name">value</span>&gt;</span> </div><div class="line">        <span class="tag">&lt;/<span class="name">constructor-arg</span>&gt;</span>  </div><div class="line">        <span class="tag">&lt;<span class="name">constructor-arg</span>&gt;</span> </div><div class="line">          <span class="tag">&lt;<span class="name">value</span> <span class="attr">type</span>=<span class="string">"int"</span>&gt;</span>5000<span class="tag">&lt;/<span class="name">value</span>&gt;</span> </div><div class="line">        <span class="tag">&lt;/<span class="name">constructor-arg</span>&gt;</span>  </div><div class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"parserPool"</span> <span class="attr">ref</span>=<span class="string">"parserPool"</span>/&gt;</span> </div><div class="line">      <span class="tag">&lt;/<span class="name">bean</span>&gt;</span> </div><div class="line">    <span class="tag">&lt;/<span class="name">list</span>&gt;</span> </div><div class="line">  <span class="tag">&lt;/<span class="name">constructor-arg</span>&gt;</span> </div><div class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></div></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/10/20/Spring Security SAML 实现SP/#more" rel="contents">
@@ -1275,13 +1277,6 @@
 
   
   
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
-
-
 
   
     <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
