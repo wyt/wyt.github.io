@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="安全," />
+  <meta name="keywords" content="Java," />
 
 
 
@@ -93,17 +93,17 @@
 
 
 
-<meta name="description" content="重放攻击（Replay attack）是一种网络攻击，它恶意的欺诈性的重复或拖延正常的数据传输。    ——  [ Wikipedia ]  使用签名认证方式设计的RESTFul API，当请求信息被第三方拦截之后，由于其含有认证信息，当再次发起该请求时，如果没有相应的保护机制，请求会再次通过验证，造成重放攻击的风险。 为避免该问题，通常情况下的做法是：  每次发起HTTP请求，都需要加上tim">
-<meta name="keywords" content="安全">
+<meta name="description" content="理解POJO POJO表示Plain Old Java Object。它是一个java对象的实例，并且不耦合在各种框架扩展中。 比如，想从JMS中取出消息，你需要编写一个类实现MessageListener接口。 1234567891011121314151617public class ExampleListener implements MessageListener &amp;#123;    pu">
+<meta name="keywords" content="Java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Nonce与重放攻击">
-<meta property="og:url" content="http://yoursite.com/2017/07/25/Nonce与重放攻击/index.html">
+<meta property="og:title" content="理解POJO">
+<meta property="og:url" content="http://yoursite.com/2017/12/14/理解POJOs/index.html">
 <meta property="og:site_name" content="Yongtao&#39;s Blog">
-<meta property="og:description" content="重放攻击（Replay attack）是一种网络攻击，它恶意的欺诈性的重复或拖延正常的数据传输。    ——  [ Wikipedia ]  使用签名认证方式设计的RESTFul API，当请求信息被第三方拦截之后，由于其含有认证信息，当再次发起该请求时，如果没有相应的保护机制，请求会再次通过验证，造成重放攻击的风险。 为避免该问题，通常情况下的做法是：  每次发起HTTP请求，都需要加上tim">
-<meta property="og:updated_time" content="2017-10-17T15:13:50.553Z">
+<meta property="og:description" content="理解POJO POJO表示Plain Old Java Object。它是一个java对象的实例，并且不耦合在各种框架扩展中。 比如，想从JMS中取出消息，你需要编写一个类实现MessageListener接口。 1234567891011121314151617public class ExampleListener implements MessageListener &amp;#123;    pu">
+<meta property="og:updated_time" content="2017-12-14T15:55:09.818Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Nonce与重放攻击">
-<meta name="twitter:description" content="重放攻击（Replay attack）是一种网络攻击，它恶意的欺诈性的重复或拖延正常的数据传输。    ——  [ Wikipedia ]  使用签名认证方式设计的RESTFul API，当请求信息被第三方拦截之后，由于其含有认证信息，当再次发起该请求时，如果没有相应的保护机制，请求会再次通过验证，造成重放攻击的风险。 为避免该问题，通常情况下的做法是：  每次发起HTTP请求，都需要加上tim">
+<meta name="twitter:title" content="理解POJO">
+<meta name="twitter:description" content="理解POJO POJO表示Plain Old Java Object。它是一个java对象的实例，并且不耦合在各种框架扩展中。 比如，想从JMS中取出消息，你需要编写一个类实现MessageListener接口。 1234567891011121314151617public class ExampleListener implements MessageListener &amp;#123;    pu">
 
 
 
@@ -131,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/07/25/Nonce与重放攻击/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/12/14/理解POJOs/"/>
 
 
 
 
 
-  <title>Nonce与重放攻击 | Yongtao's Blog</title>
+  <title>理解POJO | Yongtao's Blog</title>
   
 
 
@@ -289,7 +289,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/25/Nonce与重放攻击/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/14/理解POJOs/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="wangyt">
@@ -306,7 +306,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Nonce与重放攻击</h1>
+          <h1 class="post-title" itemprop="name headline">理解POJO</h1>
         
 
         <div class="post-meta">
@@ -318,8 +318,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-25T20:42:00+08:00">
-                2017-07-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-14T22:43:00+08:00">
+                2017-12-14
               </time>
             
 
@@ -341,8 +341,19 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/WEB技术/" itemprop="url" rel="index">
-                    <span itemprop="name">WEB技术</span>
+                  <a href="/categories/编程语言/" itemprop="url" rel="index">
+                    <span itemprop="name">编程语言</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程语言/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
                   </a>
                 </span>
 
@@ -358,7 +369,7 @@
 
           
           
-             <span id="/2017/07/25/Nonce与重放攻击/" class="leancloud_visitors" data-flag-title="Nonce与重放攻击">
+             <span id="/2017/12/14/理解POJOs/" class="leancloud_visitors" data-flag-title="理解POJO">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -386,25 +397,22 @@
       
 
       
-        <blockquote>
-<p>重放攻击（Replay attack）是一种网络攻击，它恶意的欺诈性的重复或拖延正常的数据传输。    —— <a href="https://en.wikipedia.org/wiki/Replay_attack" target="_blank"> [ Wikipedia ]</a></p>
-</blockquote>
-<p>使用签名认证方式设计的RESTFul API，当请求信息被第三方拦截之后，由于其含有认证信息，当再次发起该请求时，如果没有相应的保护机制，请求会再次通过验证，造成重放攻击的风险。</p>
-<p>为避免该问题，通常情况下的做法是：</p>
-<blockquote>
-<p>每次发起HTTP请求，都需要加上timestamp参数，然后把timestamp和其他参数一起进行签名。服务端接收到HTTP请求后，将客户端timestamp与服务端当前时间比较，判断是否超过了请求有效期，比如60s，如果超过了则认为是非法的请求。</p>
-</blockquote>
-<p>如此一来从第一次请求发起的时间算起，60s之后再访问时会被服务端拒绝，但是在60s有效期内，依然可以发起重放攻击。</p>
-<p>解决方案：</p>
-<ol>
-<li>客户端生成一个随机字符串Nonce (Number used once), 并且参与签名</li>
-<li>服务端第一次接收到请求，去缓存中查询Nonce是否存在<ol>
-<li>如果不存在，则认为在有效期内该请求第一次访问，放行；然后将Nonce保存在缓存中，并设置有效期为60s，60s之后该Nonce缓存失效被清除</li>
-<li>如果存在，则认为在有效期内该请求Replay，拒绝提供访问</li>
-</ol>
-</li>
-</ol>
-<p>需要保证的是有效期内并发请求生成随机数的唯一性。</p>
+        <p>理解POJO</p>
+<p>POJO表示Plain Old Java Object。它是一个java对象的实例，并且不耦合在各种框架扩展中。</p>
+<p>比如，想从JMS中取出消息，你需要编写一个类实现<code>MessageListener</code>接口。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ExampleListener</span> <span class="keyword">implements</span> <span class="title">MessageListener</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onMessage</span><span class="params">(Message message)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (message <span class="keyword">instanceof</span> TextMessage) &#123;</div><div class="line">            <span class="keyword">try</span> &#123;</div><div class="line">                System.out.println(((TextMessage) message).getText());</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">catch</span> (JMSException ex) &#123;</div><div class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(ex);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="string">"Message must be of type TextMessage"</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这会使你的代码变得不通用，迁移到其他消息中间件实现时会变的困难。如果你的应用使用了大量的监听器，</p>
+<p>那么基于以上的情形选择AMQP或其它方案将变得几乎不可能。</p>
+<p>基于POJO的实现意味着你的消息处理不需实现具体框架的接口。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Component</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ExampleListener</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@JmsListener</span>(destination = <span class="string">"myDestination"</span>)</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">processOrder</span><span class="params">(String message)</span> </span>&#123;</div><div class="line">    	System.out.println(message);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在这个例子中，你的代码没有直接绑定任何接口。取而代之的是，连接JMS队列的责任被转移到了</p>
+<p>注解中，并且注解更容易更新。当前示例中，你可以用@RabbitListener替换@JmsListener。在其他</p>
+<p>情形下，基于POJO的实现方案可能不使用任何注解。</p>
+<p>这只是一个小例子，它没有对比JMS和Rabbit MQ，而是用以说明代码不绑定接口的意义。通过使用POJO，</p>
+<p>你的代码变得更简单。这样有助于更好的测试，灵活性以及应对以后发生改变的情况。</p>
+<p>Spring及各种组件始终致力于减少代码和类库之间的耦合。这是依赖注入的首要概念，</p>
+<p>即你的服务(指框架组件等)被使用的方式应该是接通应用程序的一部分，而不是服务本身(否则应用和服务发生耦合)。</p>
+<p><a href="https://spring.io/understanding/POJO" target="_blank" rel="external">https://spring.io/understanding/POJO</a></p>
 
       
     </div>
@@ -455,7 +463,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/安全/" rel="tag"># 安全</a>
+            <a href="/tags/Java/" rel="tag"># Java</a>
           
         </div>
       
@@ -468,8 +476,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/18/Java面试题整理/" rel="next" title="Java面试题整理 [doing]">
-                <i class="fa fa-chevron-left"></i> Java面试题整理 [doing]
+              <a href="/2017/11/04/Windows下noinstallZIP方式配置MySQL5.7/" rel="next" title="Windows下noinstallZIP方式配置MySQL5.7">
+                <i class="fa fa-chevron-left"></i> Windows下noinstallZIP方式配置MySQL5.7
               </a>
             
           </div>
@@ -477,10 +485,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/08/21/Linux下安装Mysql/" rel="prev" title="Linux安装Mysql">
-                Linux安装Mysql <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
