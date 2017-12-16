@@ -93,17 +93,17 @@
 
 
 
-<meta name="description" content="理解POJO POJO表示Plain Old Java Object。它是一个java对象的实例，并且不耦合在各种框架扩展中。 比如，想从JMS中取出消息，你需要编写一个类实现MessageListener接口。 1234567891011121314151617public class ExampleListener implements MessageListener &amp;#123;    pu">
+<meta name="description" content="POJO表示Plain Old Java Object。它是一个java对象的实例，并且不耦合在各种框架扩展中。 比如，想从JMS中取出消息，你需要编写一个类实现MessageListener接口。 1234567891011121314151617public class ExampleListener implements MessageListener &amp;#123;    public vo">
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="理解POJO">
 <meta property="og:url" content="http://yoursite.com/2017/12/14/理解POJOs/index.html">
 <meta property="og:site_name" content="Yongtao&#39;s Blog">
-<meta property="og:description" content="理解POJO POJO表示Plain Old Java Object。它是一个java对象的实例，并且不耦合在各种框架扩展中。 比如，想从JMS中取出消息，你需要编写一个类实现MessageListener接口。 1234567891011121314151617public class ExampleListener implements MessageListener &amp;#123;    pu">
-<meta property="og:updated_time" content="2017-12-14T15:55:09.818Z">
+<meta property="og:description" content="POJO表示Plain Old Java Object。它是一个java对象的实例，并且不耦合在各种框架扩展中。 比如，想从JMS中取出消息，你需要编写一个类实现MessageListener接口。 1234567891011121314151617public class ExampleListener implements MessageListener &amp;#123;    public vo">
+<meta property="og:updated_time" content="2017-12-16T11:42:57.013Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="理解POJO">
-<meta name="twitter:description" content="理解POJO POJO表示Plain Old Java Object。它是一个java对象的实例，并且不耦合在各种框架扩展中。 比如，想从JMS中取出消息，你需要编写一个类实现MessageListener接口。 1234567891011121314151617public class ExampleListener implements MessageListener &amp;#123;    pu">
+<meta name="twitter:description" content="POJO表示Plain Old Java Object。它是一个java对象的实例，并且不耦合在各种框架扩展中。 比如，想从JMS中取出消息，你需要编写一个类实现MessageListener接口。 1234567891011121314151617public class ExampleListener implements MessageListener &amp;#123;    public vo">
 
 
 
@@ -397,8 +397,7 @@
       
 
       
-        <p>理解POJO</p>
-<p>POJO表示Plain Old Java Object。它是一个java对象的实例，并且不耦合在各种框架扩展中。</p>
+        <p>POJO表示Plain Old Java Object。它是一个java对象的实例，并且不耦合在各种框架扩展中。</p>
 <p>比如，想从JMS中取出消息，你需要编写一个类实现<code>MessageListener</code>接口。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ExampleListener</span> <span class="keyword">implements</span> <span class="title">MessageListener</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onMessage</span><span class="params">(Message message)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (message <span class="keyword">instanceof</span> TextMessage) &#123;</div><div class="line">            <span class="keyword">try</span> &#123;</div><div class="line">                System.out.println(((TextMessage) message).getText());</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">catch</span> (JMSException ex) &#123;</div><div class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(ex);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="string">"Message must be of type TextMessage"</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>这会使你的代码变得不通用，迁移到其他消息中间件实现时会变的困难。如果你的应用使用了大量的监听器，</p>
