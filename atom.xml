@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-12-16T11:42:57.013Z</updated>
+  <updated>2017-12-20T15:20:06.541Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hibernate5.0快速入门</title>
+    <link href="http://yoursite.com/2017/12/20/Hibernate5.0%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/"/>
+    <id>http://yoursite.com/2017/12/20/Hibernate5.0快速入门/</id>
+    <published>2017-12-20T14:22:00.000Z</published>
+    <updated>2017-12-20T15:20:06.541Z</updated>
+    
+    <content type="html"><![CDATA[<p>参考 <a href="https://docs.jboss.org/hibernate/orm/5.0/userguide/html_single/Hibernate_User_Guide.html" target="_blank" rel="external">Hibernate ORM 5.0 User Guide</a>整理，作为快速入门简明手册。</p><h2 id="体系结构"><a href="#体系结构" class="headerlink" title="体系结构"></a>体系结构</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p><img src="https://docs.jboss.org/hibernate/orm/5.0/userguide/html_single/images/architecture/data_access_layers.svg" alt="这里写图片描述"></p><p>如上图所示：java应用利用Hibernate API 来完成 load, store, query等对其领域数据的操作。</p><p>作为JPA的提供者，Hibernate实现了JPA规范，JPA接口和Hibernate具体的实现关系如下图所示：</p><p><img src="https://docs.jboss.org/hibernate/orm/5.0/userguide/html_single/images/architecture/JPA_Hibernate.svg" alt="这里写图片描述"></p><a id="more"></a><p>SessionFactory (<code>org.hibernate.SessionFactory</code>)</p><p>Session实例工厂，一个线程安全的，不可变的代表应用领域模型到一个数据库的映射。<code>EntityManagerFactory</code>在JPA中等价于SessionFactory</p><p>Session (<code>org.hibernate.Session</code>)</p><p>一个单线程，短暂的对象，使用PoEAA《Patterns of Enterprise Application Architecture》中的“Unit of Work”概念设计。</p><p>Transaction (<code>org.hibernate.Transaction</code>)</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;参考 &lt;a href=&quot;https://docs.jboss.org/hibernate/orm/5.0/userguide/html_single/Hibernate_User_Guide.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hibernate ORM 5.0 User Guide&lt;/a&gt;整理，作为快速入门简明手册。&lt;/p&gt;
+&lt;h2 id=&quot;体系结构&quot;&gt;&lt;a href=&quot;#体系结构&quot; class=&quot;headerlink&quot; title=&quot;体系结构&quot;&gt;&lt;/a&gt;体系结构&lt;/h2&gt;&lt;h3 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h3&gt;&lt;p&gt;&lt;img src=&quot;https://docs.jboss.org/hibernate/orm/5.0/userguide/html_single/images/architecture/data_access_layers.svg&quot; alt=&quot;这里写图片描述&quot;&gt;&lt;/p&gt;
+&lt;p&gt;如上图所示：java应用利用Hibernate API 来完成 load, store, query等对其领域数据的操作。&lt;/p&gt;
+&lt;p&gt;作为JPA的提供者，Hibernate实现了JPA规范，JPA接口和Hibernate具体的实现关系如下图所示：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://docs.jboss.org/hibernate/orm/5.0/userguide/html_single/images/architecture/JPA_Hibernate.svg&quot; alt=&quot;这里写图片描述&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Hibernate" scheme="http://yoursite.com/categories/Hibernate/"/>
+    
+    
+      <category term="Java" scheme="http://yoursite.com/tags/Java/"/>
+    
+  </entry>
   
   <entry>
     <title>理解POJO</title>
