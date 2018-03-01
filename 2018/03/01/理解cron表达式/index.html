@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Java,教程," />
 
 
 
@@ -95,15 +95,17 @@
 
 
 
-<meta name="description" content="The true nobility is in being superior to your previous self. —Hemingway">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Yongtao&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/archives/page/2/index.html">
+<meta name="description" content="A Cron Expressionscron表达式由 秒 分 时 日 月 周 年 字段构成，字段之间使用空格分隔，每个字段可包含任意多个合法的字符 Table A-1 Cron Expressions Allowed Fields and Values    Name Required Allowed Values Allowed Special Characters     Seconds Y">
+<meta name="keywords" content="Java,教程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="理解cron表达式">
+<meta property="og:url" content="http://yoursite.com/2018/03/01/理解cron表达式/index.html">
 <meta property="og:site_name" content="Yongtao&#39;s Blog">
-<meta property="og:description" content="The true nobility is in being superior to your previous self. —Hemingway">
+<meta property="og:description" content="A Cron Expressionscron表达式由 秒 分 时 日 月 周 年 字段构成，字段之间使用空格分隔，每个字段可包含任意多个合法的字符 Table A-1 Cron Expressions Allowed Fields and Values    Name Required Allowed Values Allowed Special Characters     Seconds Y">
+<meta property="og:updated_time" content="2018-03-01T03:50:00.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Yongtao&#39;s Blog">
-<meta name="twitter:description" content="The true nobility is in being superior to your previous self. —Hemingway">
+<meta name="twitter:title" content="理解cron表达式">
+<meta name="twitter:description" content="A Cron Expressionscron表达式由 秒 分 时 日 月 周 年 字段构成，字段之间使用空格分隔，每个字段可包含任意多个合法的字符 Table A-1 Cron Expressions Allowed Fields and Values    Name Required Allowed Values Allowed Special Characters     Seconds Y">
 
 
 
@@ -131,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/page/2/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/03/01/理解cron表达式/"/>
 
 
 
 
 
-  <title>归档 | Yongtao's Blog</title>
+  <title>理解cron表达式 | Yongtao's Blog</title>
   
 
 
@@ -171,7 +173,7 @@
     
   
 
-  <div class="container sidebar-position-left  page-archive  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 	
 	<a href="https://github.com/wyt" target="_blank" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; left: 0; transform: scale(-1, 1);" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style></a>
@@ -281,218 +283,272 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-    <span class="archive-page-counter">
-      
-      
-      
-        
-      
-      嗯..! 目前共计 14 篇日志。 继续努力。
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/01/理解cron表达式/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wangyt">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/starfish.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yongtao's Blog">
     </span>
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">理解cron表达式</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-01T11:00:00+08:00">
+                2018-03-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/03/01/理解cron表达式/" class="leancloud_visitors" data-flag-title="理解cron表达式">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
-      
 
+      
+        <h2 id="A-Cron-Expressions"><a href="#A-Cron-Expressions" class="headerlink" title="A Cron Expressions"></a>A Cron Expressions</h2><p>cron表达式由 <code>秒 分 时 日 月 周 年</code> 字段构成，字段之间使用空格分隔，每个字段可包含任意多个合法的字符</p>
+<p>Table A-1 Cron Expressions Allowed Fields and Values</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Required</th>
+<th style="text-align:center">Allowed Values</th>
+<th style="text-align:center">Allowed Special Characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Seconds</td>
+<td style="text-align:center">Y</td>
+<td style="text-align:center">0-59</td>
+<td style="text-align:center">, - * /</td>
+</tr>
+<tr>
+<td>Minutes</td>
+<td style="text-align:center">Y</td>
+<td style="text-align:center">0-59</td>
+<td style="text-align:center">, - * /</td>
+</tr>
+<tr>
+<td>Hours</td>
+<td style="text-align:center">Y</td>
+<td style="text-align:center">0-23</td>
+<td style="text-align:center">, - * /</td>
+</tr>
+<tr>
+<td>Day of month</td>
+<td style="text-align:center">Y</td>
+<td style="text-align:center">1-31</td>
+<td style="text-align:center">, - * ? / L W</td>
+</tr>
+<tr>
+<td>Month</td>
+<td style="text-align:center">Y</td>
+<td style="text-align:center">1-12 or JAN-DEC</td>
+<td style="text-align:center">, - * /</td>
+</tr>
+<tr>
+<td>Day of week</td>
+<td style="text-align:center">Y</td>
+<td style="text-align:center">1-7 or SUN-SAT</td>
+<td style="text-align:center">, - * ? / L #</td>
+</tr>
+<tr>
+<td>Year</td>
+<td style="text-align:center">N</td>
+<td style="text-align:center">empty,1970-2099</td>
+<td style="text-align:center">, - * /</td>
+</tr>
+</tbody>
+</table>
+<a id="more"></a>
+<h2 id="Special-Characters"><a href="#Special-Characters" class="headerlink" title="Special Characters"></a>Special Characters</h2><p><code>*</code> (“all values”) - used to select all values within a field. For example, “*” in the minute field means “every minute”.</p>
+<p><code>?</code> (“no specific value”) - useful when you need to specify something in one of the two fields in which the character is allowed, but not the other. For example, if I want my trigger to fire on a particular day of the month (say, the 10th), but don’t care what day of the week that happens to be, I would put “10” in the day-of-month field, and “?” in the day-of-week field. See the examples below for clarification.</p>
+<p><code>-</code> - used to specify ranges. For example, “10-12” in the hour field means “the hours 10, 11 and 12”.</p>
+<p>, - used to specify additional values. For example, “MON,WED,FRI” in the day-of-week field means “the days Monday, Wednesday, and Friday”.</p>
+<p><code>/</code> - used to specify increments. For example, “0/15” in the seconds field means “the seconds 0, 15, 30, and 45”. And “5/15” in the seconds field means “the seconds 5, 20, 35, and 50”. You can also specify ‘/’ after the ‘’ character - in this case ‘’ is equivalent to having ‘0’ before the ‘/’. ‘1/3’ in the day-of-month field means “fire every 3 days starting on the first day of the month”.</p>
+<p><code>L</code> (“last”) - has different meaning in each of the two fields in which it is allowed. For example, the value “L” in the day-of-month field means “the last day of the month” - day 31 for January, day 28 for February on non-leap years. If used in the day-of-week field by itself, it simply means “7” or “SAT”. But if used in the day-of-week field after another value, it means “the last xxx day of the month” - for example “6L” means “the last friday of the month”. You can also specify an offset from the last day of the month, such as “L-3” which would mean the third-to-last day of the calendar month. When using the ‘L’ option, it is important not to specify lists, or ranges of values, as you’ll get confusing/unexpected results.</p>
+<p><code>W</code> (“weekday”) - used to specify the weekday (Monday-Friday) nearest the given day. As an example, if you were to specify “15W” as the value for the day-of-month field, the meaning is: “the nearest weekday to the 15th of the month”. So if the 15th is a Saturday, the trigger will fire on Friday the 14th. If the 15th is a Sunday, the trigger will fire on Monday the 16th. If the 15th is a Tuesday, then it will fire on Tuesday the 15th. However if you specify “1W” as the value for day-of-month, and the 1st is a Saturday, the trigger will fire on Monday the 3rd, as it will not ‘jump’ over the boundary of a month’s days. The ‘W’ character can only be specified when the day-of-month is a single day, not a range or list of days.</p>
+<p>The ‘L’ and ‘W’ characters can also be combined in the day-of-month field to yield ‘LW’, which translates to <em>“last weekday of the month”</em>.</p>
+<p><code>#</code> - used to specify “the nth” XXX day of the month. For example, the value of “6#3” in the day-of-week field means “the third Friday of the month” (day 6 = Friday and “#3” = the 3rd one in the month). Other examples: “2#1” = the first Monday of the month and “4#5” = the fifth Wednesday of the month. Note that if you specify “#5” and there is not 5 of the given day-of-week in the month, then no firing will occur that month.</p>
+<p>The legal characters and the names of months and days of the week are not case sensitive. MON is the same as mon.</p>
+<h2 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">0 0 12 * * ?	<span class="comment"># Fire at 12:00 PM (noon) every day</span></div><div class="line">0 15 10 ? * *	<span class="comment"># Fire at 10:15 AM every day</span></div><div class="line">0 15 10 * * ?	<span class="comment"># Fire at 10:15 AM every day</span></div><div class="line">0 15 10 * * ? *	<span class="comment"># Fire at 10:15 AM every day</span></div><div class="line">0 15 10 * * ? 2005	<span class="comment"># Fire at 10:15 AM every day during the year 2005</span></div><div class="line">0 * 14 * * ?	<span class="comment"># Fire every minute starting at 2:00 PM and ending at 2:59 PM, every day</span></div><div class="line">0 0/5 14 * * ?	<span class="comment"># Fire every 5 minutes starting at 2:00 PM and ending at 2:55 PM, every day</span></div><div class="line">0 0/5 14,18 * * ?	<span class="comment"># Fire every 5 minutes starting at 2:00 PM and ending at 2:55 PM, AND fire every 5 minutes starting at 6:00 PM and ending at 6:55 PM, every day</span></div><div class="line">0 0-5 14 * * ?	<span class="comment"># Fire every minute starting at 2:00 PM and ending at 2:05 PM, every day</span></div><div class="line">0 10,44 14 ? 3 WED	<span class="comment"># Fire at 2:10 PM and at 2:44 PM every Wednesday in the month of March</span></div><div class="line">0 15 10 ? * MON-FRI	<span class="comment"># Fire at 10:15 AM every Monday, Tuesday, Wednesday, Thursday and Friday</span></div><div class="line">0 15 10 15 * ?	<span class="comment"># Fire at 10:15 AM on the 15th day of every month</span></div><div class="line">0 15 10 L * ?	<span class="comment"># Fire at 10:15 AM on the last day of every month</span></div><div class="line">0 15 10 ? * 6L	<span class="comment"># Fire at 10:15 AM on the last Friday of every month</span></div><div class="line">0 15 10 ? * 6L	<span class="comment"># Fire at 10:15 AM on the last Friday of every month</span></div><div class="line">0 15 10 ? * 6L 2002-2005	<span class="comment"># Fire at 10:15 AM on every last friday of every month during the years 2002, 2003, 2004, and 2005</span></div><div class="line">0 15 10 ? * 6<span class="comment">#3	# Fire at 10:15 AM on the third Friday of every month</span></div><div class="line">0 0 12 1/5 * ?	<span class="comment"># Fire at 12 PM (noon) every 5 days every month, starting on the first day of the month</span></div><div class="line">0 11 11 11 11 ?	Fire every November 11 at 11:11 AM</div></pre></td></tr></table></figure>
+<p>参考：<a href="http://www.quartz-scheduler.org/documentation/quartz-2.2.x/tutorials/crontrigger.html" target="_blank" rel="external">http://www.quartz-scheduler.org/documentation/quartz-2.2.x/tutorials/crontrigger.html</a></p>
+
+      
+    </div>
+
+    <div>
       
         
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2017">2017</h2>
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechatpay.png" alt="wangyt WeChat Pay"/>
+          <p>微信打赏</p>
         </div>
       
       
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay.png" alt="wangyt Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
 
       
+    </div>
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
+    <div>
+      
         
-            <a class="post-title-link" href="/2017/10/16/Redis安装/" itemprop="url">
-              
-                <span itemprop="name">Redis安装</span>
-              
-            </a>
-        
-      </h2>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-10-16T22:27:00+08:00"
-              content="2017-10-16" >
-          10-16
-        </time>
-      </div>
+      
+    </div>
 
-    </header>
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag"># Java</a>
+          
+            <a href="/tags/教程/" rel="tag"># 教程</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/12/20/Hibernate5.0快速入门/" rel="next" title="Hibernate5.0快速入门">
+                <i class="fa fa-chevron-left"></i> Hibernate5.0快速入门
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
 
-    
-
+    <div class="post-spread">
       
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/10/15/学习资源/" itemprop="url">
-              
-                <span itemprop="name">学习资源</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-10-15T21:23:00+08:00"
-              content="2017-10-15" >
-          10-15
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/10/09/Oracle Scott表MySQL 版本/" itemprop="url">
-              
-                <span itemprop="name">Oracle Scott表MySQL 版本</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-10-09T13:36:20+08:00"
-              content="2017-10-09" >
-          10-09
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/08/21/Linux下安装Mysql/" itemprop="url">
-              
-                <span itemprop="name">Linux安装Mysql</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-08-21T23:52:00+08:00"
-              content="2017-08-21" >
-          08-21
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/07/25/Nonce与重放攻击/" itemprop="url">
-              
-                <span itemprop="name">Nonce与重放攻击</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-07-25T20:42:00+08:00"
-              content="2017-07-25" >
-          07-25
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-  </section>
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/archives/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/page/3/">3</a><a class="extend next" rel="next" href="/archives/page/3/"><i class="fa fa-angle-right"></i></a>
-  </nav>
-
-
+    </div>
+  </div>
 
 
           </div>
@@ -500,6 +556,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -519,8 +579,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/starfish.png"
@@ -615,6 +684,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#A-Cron-Expressions"><span class="nav-number">1.</span> <span class="nav-text">A Cron Expressions</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Special-Characters"><span class="nav-number">2.</span> <span class="nav-text">Special Characters</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Examples"><span class="nav-number">3.</span> <span class="nav-text">Examples</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -717,11 +802,9 @@
   
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
 
 
   
