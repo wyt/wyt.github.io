@@ -95,17 +95,17 @@
 
 
 
-<meta name="description" content="A Cron Expressionscron表达式由 秒 分 时 日 月 周 年 字段构成，字段之间使用空格分隔，每个字段可包含任意多个合法的字符 Table A-1 Cron Expressions Allowed Fields and Values    Name Required Allowed Values Allowed Special Characters     Seconds Y">
+<meta name="description" content="A Cron Expressionscron表达式由 Seconds Minutes Hours Day of month Month Day of week Year 字段构成，字段之间使用空格分隔，每个字段可包含任意多个合法的字符。 Table A-1 Cron Expressions Allowed Fields and Values    Name Required Allowed Val">
 <meta name="keywords" content="Java,教程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="理解cron表达式">
 <meta property="og:url" content="http://yoursite.com/2018/03/01/理解cron表达式/index.html">
 <meta property="og:site_name" content="Yongtao&#39;s Blog">
-<meta property="og:description" content="A Cron Expressionscron表达式由 秒 分 时 日 月 周 年 字段构成，字段之间使用空格分隔，每个字段可包含任意多个合法的字符 Table A-1 Cron Expressions Allowed Fields and Values    Name Required Allowed Values Allowed Special Characters     Seconds Y">
+<meta property="og:description" content="A Cron Expressionscron表达式由 Seconds Minutes Hours Day of month Month Day of week Year 字段构成，字段之间使用空格分隔，每个字段可包含任意多个合法的字符。 Table A-1 Cron Expressions Allowed Fields and Values    Name Required Allowed Val">
 <meta property="og:updated_time" content="2018-03-01T03:50:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="理解cron表达式">
-<meta name="twitter:description" content="A Cron Expressionscron表达式由 秒 分 时 日 月 周 年 字段构成，字段之间使用空格分隔，每个字段可包含任意多个合法的字符 Table A-1 Cron Expressions Allowed Fields and Values    Name Required Allowed Values Allowed Special Characters     Seconds Y">
+<meta name="twitter:description" content="A Cron Expressionscron表达式由 Seconds Minutes Hours Day of month Month Day of week Year 字段构成，字段之间使用空格分隔，每个字段可包含任意多个合法的字符。 Table A-1 Cron Expressions Allowed Fields and Values    Name Required Allowed Val">
 
 
 
@@ -390,7 +390,7 @@
       
 
       
-        <h2 id="A-Cron-Expressions"><a href="#A-Cron-Expressions" class="headerlink" title="A Cron Expressions"></a>A Cron Expressions</h2><p>cron表达式由 <code>秒 分 时 日 月 周 年</code> 字段构成，字段之间使用空格分隔，每个字段可包含任意多个合法的字符</p>
+        <h2 id="A-Cron-Expressions"><a href="#A-Cron-Expressions" class="headerlink" title="A Cron Expressions"></a>A Cron Expressions</h2><p>cron表达式由 <code>Seconds</code> <code>Minutes</code> <code>Hours</code> <code>Day of month</code> <code>Month</code> <code>Day of week</code> <code>Year</code> 字段构成，字段之间使用空格分隔，每个字段可包含任意多个合法的字符。</p>
 <p>Table A-1 Cron Expressions Allowed Fields and Values</p>
 <table>
 <thead>
@@ -447,11 +447,11 @@
 </tbody>
 </table>
 <a id="more"></a>
-<h2 id="Special-Characters"><a href="#Special-Characters" class="headerlink" title="Special Characters"></a>Special Characters</h2><p><code>*</code> (“all values”) - used to select all values within a field. For example, “*” in the minute field means “every minute”.</p>
-<p><code>?</code> (“no specific value”) - useful when you need to specify something in one of the two fields in which the character is allowed, but not the other. For example, if I want my trigger to fire on a particular day of the month (say, the 10th), but don’t care what day of the week that happens to be, I would put “10” in the day-of-month field, and “?” in the day-of-week field. See the examples below for clarification.</p>
-<p><code>-</code> - used to specify ranges. For example, “10-12” in the hour field means “the hours 10, 11 and 12”.</p>
-<p>, - used to specify additional values. For example, “MON,WED,FRI” in the day-of-week field means “the days Monday, Wednesday, and Friday”.</p>
-<p><code>/</code> - used to specify increments. For example, “0/15” in the seconds field means “the seconds 0, 15, 30, and 45”. And “5/15” in the seconds field means “the seconds 5, 20, 35, and 50”. You can also specify ‘/’ after the ‘’ character - in this case ‘’ is equivalent to having ‘0’ before the ‘/’. ‘1/3’ in the day-of-month field means “fire every 3 days starting on the first day of the month”.</p>
+<h2 id="Special-Characters"><a href="#Special-Characters" class="headerlink" title="Special Characters"></a>Special Characters</h2><p><code>*</code> (“all values”) - 用于表示字段中的所有值。例如，分字段中的“*”意味着每一分钟。</p>
+<p><code>?</code> (“no specific value”) -  不指定特定的值，举个例子，如果我希望我的任务在某月中特定的某天（如第10天）被触发，并且我不关心是星期几被触发，那么我会设置<code>day-of-month</code>字段为<code>10</code>，设置<code>day-of-week</code>字段为<code>?</code></p>
+<p><code>-</code> - 用于指定范围.如<code>hour</code>值为<code>10-12</code> 表示10时，11时，12时。</p>
+<p><code>,</code> - 用于指定附加的值。例如，<code>day-of-week</code>的值为<code>MON,WED,FRI</code>表示星期天，星期三，星期五</p>
+<p><code>/</code> - 用于指定增长。例如，秒字段值为“0/15”表示具体为第0秒，15秒，30秒，45秒的集合，即从第0秒开始，间隔15秒累加。秒字段值为“5/15”表示具体为第5秒，20秒，35秒，50秒的集合，即从第5秒开始，间隔15秒累加。也可以把/写在’’(即空串，没有’’)后面如’/15’,这种情况等价于’0/15’。<code>day-of-month</code>等于<code>1/3</code> 表示从某月的第一天开始，每隔3天触发。</p>
 <p><code>L</code> (“last”) - has different meaning in each of the two fields in which it is allowed. For example, the value “L” in the day-of-month field means “the last day of the month” - day 31 for January, day 28 for February on non-leap years. If used in the day-of-week field by itself, it simply means “7” or “SAT”. But if used in the day-of-week field after another value, it means “the last xxx day of the month” - for example “6L” means “the last friday of the month”. You can also specify an offset from the last day of the month, such as “L-3” which would mean the third-to-last day of the calendar month. When using the ‘L’ option, it is important not to specify lists, or ranges of values, as you’ll get confusing/unexpected results.</p>
 <p><code>W</code> (“weekday”) - used to specify the weekday (Monday-Friday) nearest the given day. As an example, if you were to specify “15W” as the value for the day-of-month field, the meaning is: “the nearest weekday to the 15th of the month”. So if the 15th is a Saturday, the trigger will fire on Friday the 14th. If the 15th is a Sunday, the trigger will fire on Monday the 16th. If the 15th is a Tuesday, then it will fire on Tuesday the 15th. However if you specify “1W” as the value for day-of-month, and the 1st is a Saturday, the trigger will fire on Monday the 3rd, as it will not ‘jump’ over the boundary of a month’s days. The ‘W’ character can only be specified when the day-of-month is a single day, not a range or list of days.</p>
 <p>The ‘L’ and ‘W’ characters can also be combined in the day-of-month field to yield ‘LW’, which translates to <em>“last weekday of the month”</em>.</p>
