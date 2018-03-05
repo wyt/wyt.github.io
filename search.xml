@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[理解lambda表达式]]></title>
     <url>%2F2018%2F03%2F05%2F%E7%90%86%E8%A7%A3lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F%2F</url>
-    <content type="text"><![CDATA[Java Lambdas and the Single Method InterfaceMatching Lambdas to InterfacesLambda Type InferenceLambda ParametersZero ParametersOne ParametersMultiple ParametersParameter TypesLambda Function BodyReturning a Value From a Lambda ExpressionsLambdas as Objects参考资料：1.Java Lambda Expressions]]></content>
+    <content type="text"><![CDATA[Java lambda表达式是Java8中的新特性。是Java进入函数式编程的第一步。它不依赖于任何类而被创建。A lambda expression can be passed around as if it was an object and executed on demand. Java Lambdas and the Single Method InterfaceMatching Lambdas to InterfacesLambda Type InferenceLambda ParametersZero ParametersOne ParametersMultiple ParametersParameter TypesLambda Function BodyReturning a Value From a Lambda ExpressionsLambdas as Objects参考资料：1.Java Lambda Expressions]]></content>
       <categories>
         <category>Java</category>
       </categories>
