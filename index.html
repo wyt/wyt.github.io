@@ -394,6 +394,9 @@
       
         
           <p>Java lambda表达式是Java8中的新特性。是Java进入函数式编程的第一步。它不依赖于任何类而被创建。A lambda expression can be passed around as if it was an object and executed on demand.</p>
+<h2 id="Java-Lambdas-and-the-Single-Method-Interface"><a href="#Java-Lambdas-and-the-Single-Method-Interface" class="headerlink" title="Java Lambdas and the Single Method Interface"></a>Java Lambdas and the Single Method Interface</h2><p>Functional programming is very often used to implement event listeners. Event listeners in Java are often defined as Java interfaces with a single method. Here is a fictive single method interface example:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">StateChangeListener</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onStateChange</span><span class="params">(State oldState, State newState)</span></span>;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>This Java interface defines a single method which is called whenever the state changes (in whatever is being observed).</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/03/05/理解lambda表达式/#more" rel="contents">
