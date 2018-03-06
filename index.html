@@ -393,10 +393,10 @@
 
       
         
-          <p>Java lambda表达式是Java8中的新特性。是Java进入函数式编程的第一步。它不依赖于任何类而被创建。A lambda expression can be passed around as if it was an object and executed on demand.</p>
-<h2 id="Java-Lambdas-and-the-Single-Method-Interface"><a href="#Java-Lambdas-and-the-Single-Method-Interface" class="headerlink" title="Java Lambdas and the Single Method Interface"></a>Java Lambdas and the Single Method Interface</h2><p>Functional programming is very often used to implement event listeners. Event listeners in Java are often defined as Java interfaces with a single method. Here is a fictive single method interface example:</p>
+          <p>Lambda表达式是Java 8中的新特性，是Java迈入函数式编程的第一步，它不依赖于任何类而被创建，它能像对象一样被传递和按需执行。</p>
+<h2 id="Lambda与单方法接口"><a href="#Lambda与单方法接口" class="headerlink" title="Lambda与单方法接口"></a>Lambda与单方法接口</h2><p>函数式编程常被用于实现事件监听器，事件监听器在java中常被定义为一个接口，该接口通常只有一个方法：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">StateChangeListener</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onStateChange</span><span class="params">(State oldState, State newState)</span></span>;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>This Java interface defines a single method which is called whenever the state changes (in whatever is being observed).</p>
+<p>这个接口定义了一个方法，期望状态发生改变时被调用。</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/03/05/理解lambda表达式/#more" rel="contents">
