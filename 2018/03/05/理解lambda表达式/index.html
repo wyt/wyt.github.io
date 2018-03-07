@@ -95,17 +95,17 @@
 
 
 
-<meta name="description" content="Lambda表达式是Java 8中的新特性，是Java迈入函数式编程的第一步，它不依赖于任何类而被创建，它能像对象一样被传递和按需执行。 Lambda与单方法接口函数式编程常被用于实现事件监听器，事件监听器在java中常被定义为一个接口，该接口通常只有一个方法： 12345public interface StateChangeListener &amp;#123;    public void onSt">
+<meta name="description" content="Lambda表达式是Java 8中的新特性，是Java迈入函数式编程的第一步，它不依赖于任何类而被创建，它能像对象一样被传递和按需执行。 Lambda与单方法接口函数式编程常被用于实现事件监听器，事件监听器在java中常被定义为一个接口，该接口通常只有一个方法： 123public interface StateChangeListener &amp;#123;    public void onStat">
 <meta name="keywords" content="Java,教程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="理解lambda表达式">
 <meta property="og:url" content="http://yoursite.com/2018/03/05/理解lambda表达式/index.html">
 <meta property="og:site_name" content="Yongtao&#39;s Blog">
-<meta property="og:description" content="Lambda表达式是Java 8中的新特性，是Java迈入函数式编程的第一步，它不依赖于任何类而被创建，它能像对象一样被传递和按需执行。 Lambda与单方法接口函数式编程常被用于实现事件监听器，事件监听器在java中常被定义为一个接口，该接口通常只有一个方法： 12345public interface StateChangeListener &amp;#123;    public void onSt">
+<meta property="og:description" content="Lambda表达式是Java 8中的新特性，是Java迈入函数式编程的第一步，它不依赖于任何类而被创建，它能像对象一样被传递和按需执行。 Lambda与单方法接口函数式编程常被用于实现事件监听器，事件监听器在java中常被定义为一个接口，该接口通常只有一个方法： 123public interface StateChangeListener &amp;#123;    public void onStat">
 <meta property="og:updated_time" content="2018-03-05T12:00:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="理解lambda表达式">
-<meta name="twitter:description" content="Lambda表达式是Java 8中的新特性，是Java迈入函数式编程的第一步，它不依赖于任何类而被创建，它能像对象一样被传递和按需执行。 Lambda与单方法接口函数式编程常被用于实现事件监听器，事件监听器在java中常被定义为一个接口，该接口通常只有一个方法： 12345public interface StateChangeListener &amp;#123;    public void onSt">
+<meta name="twitter:description" content="Lambda表达式是Java 8中的新特性，是Java迈入函数式编程的第一步，它不依赖于任何类而被创建，它能像对象一样被传递和按需执行。 Lambda与单方法接口函数式编程常被用于实现事件监听器，事件监听器在java中常被定义为一个接口，该接口通常只有一个方法： 123public interface StateChangeListener &amp;#123;    public void onStat">
 
 
 
@@ -392,7 +392,7 @@
       
         <p>Lambda表达式是Java 8中的新特性，是Java迈入函数式编程的第一步，它不依赖于任何类而被创建，它能像对象一样被传递和按需执行。</p>
 <h2 id="Lambda与单方法接口"><a href="#Lambda与单方法接口" class="headerlink" title="Lambda与单方法接口"></a>Lambda与单方法接口</h2><p>函数式编程常被用于实现事件监听器，事件监听器在java中常被定义为一个接口，该接口通常只有一个方法：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">StateChangeListener</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onStateChange</span><span class="params">(State oldState, State newState)</span></span>;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">StateChangeListener</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onStateChange</span><span class="params">(State oldState, State newState)</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>这个接口定义了一个方法，期望状态发生改变时被调用。</p>
 <a id="more"></a>
 <p>Java 7中，必须实现此接口才能监听状态更改。假设有一个类<code>StateOwner</code>，它能注册状态事件监听器：</p>
@@ -435,10 +435,10 @@
 <p>等价于:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(a1, a2) -&gt; a1 &gt; a2;</div></pre></td></tr></table></figure>
 <h2 id="用作对象"><a href="#用作对象" class="headerlink" title="用作对象"></a>用作对象</h2><p>A Java lambda expression is essentially an object. You can assign a lambda expression to a variable and pass it around, like you do with any other object. Here is an example:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">MyComparator</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">compare</span><span class="params">(<span class="keyword">int</span> a1, <span class="keyword">int</span> a2)</span></span>;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">MyComparator</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">compare</span><span class="params">(<span class="keyword">int</span> a1, <span class="keyword">int</span> a2)</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">MyComparator myComparator = (a, b) -&gt; a &gt; b;</div><div class="line"></div><div class="line"><span class="keyword">boolean</span> result = myComparator.compare(<span class="number">2</span>, <span class="number">5</span>);</div></pre></td></tr></table></figure>
 <p>第一个代码块显示了lambda表达式实现的接口。 第二个代码块显示了lambda表达式的定义，lambda表达式如何分配给变量，最后是如何通过调用它实现的接口方法来调用lambda表达式。</p>
-<p>参考：<a href="http://tutorials.jenkov.com/java/lambda-expressions.html" target="_blank" rel="external">Java Lambda Expressions</a></p>
+<p>参考：<br><a href="http://tutorials.jenkov.com/java/lambda-expressions.html" target="_blank" rel="external">Java Lambda Expressions</a>，by Jakob Jenkov</p>
 
       
     </div>
