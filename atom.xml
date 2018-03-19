@@ -270,7 +270,7 @@
     <published>2017-10-15T13:23:00.000Z</published>
     <updated>2017-10-17T13:55:00.000Z</updated>
     
-    <content type="html"><![CDATA[<p>学过或正在学习的不错的教程，整理中…</p><p><a href="http://www.imooc.com/learn/9" target="_blank" rel="external">html&amp;css基础</a><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/HTML/HTML5" target="_blank" rel="external">HTML5 - MDN</a><br><a href="http://www.imooc.com/learn/33" target="_blank" rel="external">十天精通CSS3</a><br><a href="http://www.imooc.com/learn/36" target="_blank" rel="external">javascript入门</a><br><a href="http://www.imooc.com/learn/10" target="_blank" rel="external">javascript进阶</a><br><a href="https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000" target="_blank" rel="external">javascript廖雪峰</a><br><a href="http://jquery.cuishifeng.cn/" target="_blank" rel="external">jQuery手册</a><br><a href="https://developer.mozilla.org/zh-CN/docs/Tools" target="_blank" rel="external">Firefox开发者工具</a><br><a href="https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="external">Git教程</a><br><a href="https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000" target="_blank" rel="external">Python教程</a><br><a href="http://www.yiibai.com/redis/" target="_blank" rel="external">redis入门</a><br><a href="http://www.w3school.com.cn/sql/index.asp" target="_blank" rel="external">标准SQL语法</a><br><a href="https://www.zybuluo.com/yangfch3/note/338252" target="_blank" rel="external">Windows批处理</a><br><a href="http://www.apelearn.com/study_v2/" target="_blank" rel="external">跟阿铭学Linux V2</a><br><a href="http://wiki.jikexueyuan.com/project/docker-technology-and-combat/" target="_blank" rel="external">Docker从入门到实践</a><br><a href="http://www.pstips.net/powershell-online-tutorials/" target="_blank" rel="external">PowerShell在线教程</a><br><a href="https://gitee.com/didispace/SpringBoot-Learning" target="_blank" rel="external">Springboot</a><br><a href="http://wiki.jikexueyuan.com/project/elasticsearch-definitive-guide-cn/" target="_blank" rel="external">ElasticSearch</a><br><a href="https://docs.spring.io/spring-boot/docs/1.5.8.RELEASE/reference/htmlsingle/" target="_blank" rel="external">Spring boot 1.5.8 reference</a><br><a href="https://docs.jboss.org/hibernate/orm/5.0/userguide/html_single/Hibernate_User_Guide.html" target="_blank" rel="external">Hibernate 5.0 User Guide</a></p>]]></content>
+    <content type="html"><![CDATA[<p>学过或正在学习的不错的教程，整理中…</p><p><a href="http://www.imooc.com/learn/9" target="_blank" rel="external">html&amp;css基础</a><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/HTML/HTML5" target="_blank" rel="external">HTML5 - MDN</a><br><a href="http://www.imooc.com/learn/33" target="_blank" rel="external">十天精通CSS3</a><br><a href="http://www.imooc.com/learn/36" target="_blank" rel="external">javascript入门</a><br><a href="http://www.imooc.com/learn/10" target="_blank" rel="external">javascript进阶</a><br><a href="https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000" target="_blank" rel="external">javascript廖雪峰</a><br><a href="http://jquery.cuishifeng.cn/" target="_blank" rel="external">jQuery手册</a><br><a href="https://developer.mozilla.org/zh-CN/docs/Tools" target="_blank" rel="external">Firefox开发者工具</a><br><a href="https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="external">Git教程</a><br><a href="https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000" target="_blank" rel="external">Python教程</a><br><a href="http://www.yiibai.com/redis/" target="_blank" rel="external">redis入门</a><br><a href="http://www.w3school.com.cn/sql/index.asp" target="_blank" rel="external">标准SQL语法</a><br><a href="https://www.zybuluo.com/yangfch3/note/338252" target="_blank" rel="external">Windows批处理</a><br><a href="http://www.apelearn.com/study_v2/" target="_blank" rel="external">跟阿铭学Linux V2</a><br><a href="http://wiki.jikexueyuan.com/project/docker-technology-and-combat/" target="_blank" rel="external">Docker从入门到实践</a><br><a href="http://www.pstips.net/powershell-online-tutorials/" target="_blank" rel="external">PowerShell在线教程</a><br><a href="https://gitee.com/didispace/SpringBoot-Learning" target="_blank" rel="external">Springboot</a><br><a href="http://wiki.jikexueyuan.com/project/elasticsearch-definitive-guide-cn/" target="_blank" rel="external">ElasticSearch</a><br><a href="https://docs.spring.io/spring-boot/docs/1.5.10.RELEASE/reference/htmlsingle/" target="_blank" rel="external">Spring boot 1.5.10 reference</a><br><a href="https://docs.jboss.org/hibernate/orm/5.0/userguide/html_single/Hibernate_User_Guide.html" target="_blank" rel="external">Hibernate 5.0 User Guide</a></p>]]></content>
     
     <summary type="html">
     
@@ -310,11 +310,11 @@
       <category term="MySQL" scheme="http://yoursite.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/"/>
     
     
-      <category term="Oracle" scheme="http://yoursite.com/tags/Oracle/"/>
-    
       <category term="MySQL" scheme="http://yoursite.com/tags/MySQL/"/>
     
       <category term="数据库" scheme="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+      <category term="Oracle" scheme="http://yoursite.com/tags/Oracle/"/>
     
   </entry>
   
@@ -341,11 +341,11 @@
       <category term="MySQL" scheme="http://yoursite.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/"/>
     
     
+      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
+    
       <category term="MySQL" scheme="http://yoursite.com/tags/MySQL/"/>
     
       <category term="数据库" scheme="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
     
   </entry>
   
