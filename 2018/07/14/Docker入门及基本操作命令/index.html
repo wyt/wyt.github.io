@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Java,教程," />
+  <meta name="keywords" content="docker," />
 
 
 
@@ -95,17 +95,17 @@
 
 
 
-<meta name="description" content="Lambda表达式是Java 8中的新特性，是Java迈入函数式编程的第一步，它不依赖于任何类而被创建，它能像对象一样被传递和按需执行。 Lambda与单方法接口函数式编程常被用于实现事件监听器，事件监听器在java中常被定义为一个接口，该接口通常只有一个方法： 123public interface StateChangeListener &amp;#123;    public void onStat">
-<meta name="keywords" content="Java,教程">
+<meta name="description" content="安装12345678910# 查看系统版本$ cat /etc/redhat-releaseCentOS Linux release 7.4.1708 (Core)# 安装docker$ yum install docker# 启动docker服务，并保持开机自启动$ systemctl start docker$ systemctl enable docker">
+<meta name="keywords" content="docker">
 <meta property="og:type" content="article">
-<meta property="og:title" content="理解lambda表达式">
-<meta property="og:url" content="http://yoursite.com/2018/03/05/理解lambda表达式/index.html">
+<meta property="og:title" content="Docker入门及基本操作命令">
+<meta property="og:url" content="http://yoursite.com/2018/07/14/Docker入门及基本操作命令/index.html">
 <meta property="og:site_name" content="Yongtao&#39;s Blog">
-<meta property="og:description" content="Lambda表达式是Java 8中的新特性，是Java迈入函数式编程的第一步，它不依赖于任何类而被创建，它能像对象一样被传递和按需执行。 Lambda与单方法接口函数式编程常被用于实现事件监听器，事件监听器在java中常被定义为一个接口，该接口通常只有一个方法： 123public interface StateChangeListener &amp;#123;    public void onStat">
-<meta property="og:updated_time" content="2018-03-05T12:00:00.000Z">
+<meta property="og:description" content="安装12345678910# 查看系统版本$ cat /etc/redhat-releaseCentOS Linux release 7.4.1708 (Core)# 安装docker$ yum install docker# 启动docker服务，并保持开机自启动$ systemctl start docker$ systemctl enable docker">
+<meta property="og:updated_time" content="2018-07-14T13:56:00.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="理解lambda表达式">
-<meta name="twitter:description" content="Lambda表达式是Java 8中的新特性，是Java迈入函数式编程的第一步，它不依赖于任何类而被创建，它能像对象一样被传递和按需执行。 Lambda与单方法接口函数式编程常被用于实现事件监听器，事件监听器在java中常被定义为一个接口，该接口通常只有一个方法： 123public interface StateChangeListener &amp;#123;    public void onStat">
+<meta name="twitter:title" content="Docker入门及基本操作命令">
+<meta name="twitter:description" content="安装12345678910# 查看系统版本$ cat /etc/redhat-releaseCentOS Linux release 7.4.1708 (Core)# 安装docker$ yum install docker# 启动docker服务，并保持开机自启动$ systemctl start docker$ systemctl enable docker">
 
 
 
@@ -133,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/03/05/理解lambda表达式/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/07/14/Docker入门及基本操作命令/"/>
 
 
 
 
 
-  <title>理解lambda表达式 | Yongtao's Blog</title>
+  <title>Docker入门及基本操作命令 | Yongtao's Blog</title>
   
 
 
@@ -293,7 +293,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/05/理解lambda表达式/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/14/Docker入门及基本操作命令/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="wangyt">
@@ -310,7 +310,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">理解lambda表达式</h1>
+          <h1 class="post-title" itemprop="name headline">Docker入门及基本操作命令</h1>
         
 
         <div class="post-meta">
@@ -322,8 +322,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-05T19:00:00+08:00">
-                2018-03-05
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-14T21:56:00+08:00">
+                2018-07-14
               </time>
             
 
@@ -345,8 +345,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
+                  <a href="/categories/docker/" itemprop="url" rel="index">
+                    <span itemprop="name">docker</span>
                   </a>
                 </span>
 
@@ -362,7 +362,7 @@
 
           
           
-             <span id="/2018/03/05/理解lambda表达式/" class="leancloud_visitors" data-flag-title="理解lambda表达式">
+             <span id="/2018/07/14/Docker入门及基本操作命令/" class="leancloud_visitors" data-flag-title="Docker入门及基本操作命令">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -390,55 +390,37 @@
       
 
       
-        <p>Lambda表达式是Java 8中的新特性，是Java迈入函数式编程的第一步，它不依赖于任何类而被创建，它能像对象一样被传递和按需执行。</p>
-<h2 id="Lambda与单方法接口"><a href="#Lambda与单方法接口" class="headerlink" title="Lambda与单方法接口"></a>Lambda与单方法接口</h2><p>函数式编程常被用于实现事件监听器，事件监听器在java中常被定义为一个接口，该接口通常只有一个方法：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">StateChangeListener</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onStateChange</span><span class="params">(State oldState, State newState)</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>这个接口定义了一个方法，期望状态发生改变时被调用。</p>
+        <h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 查看系统版本</span></div><div class="line">$ cat /etc/redhat-release</div><div class="line">CentOS Linux release 7.4.1708 (Core)</div><div class="line"></div><div class="line"><span class="comment"># 安装docker</span></div><div class="line">$ yum install docker</div><div class="line"></div><div class="line"><span class="comment"># 启动docker服务，并保持开机自启动</span></div><div class="line">$ systemctl start docker</div><div class="line">$ systemctl <span class="built_in">enable</span> docker</div></pre></td></tr></table></figure>
 <a id="more"></a>
-<p>Java 7中，必须实现此接口才能监听状态更改。假设有一个类<code>StateOwner</code>，它能注册状态事件监听器：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StateOwner</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addStateListener</span><span class="params">(StateChangeListener listener)</span> </span>&#123;</div><div class="line">        <span class="comment">// Add state listener...</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>Java 7中，可以使用匿名类实现接口添加事件监听器：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">StateOwner stateOwner = <span class="keyword">new</span> StateOwner();</div><div class="line"></div><div class="line">stateOwner.addStateListener(<span class="keyword">new</span> StateChangeListener() &#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onStateChange</span><span class="params">(State oldState, State newState)</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"State changed"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>而在Java 8中，可直接使用lambda表达式添加事件监听器：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">StateOwner stateOwner = <span class="keyword">new</span> StateOwner();</div><div class="line"></div><div class="line">stateOwner.addStateListener(</div><div class="line">    (oldState, newState) -&gt; System.out.println(<span class="string">"State changed"</span>)</div><div class="line">);</div></pre></td></tr></table></figure>
-<p>下面一行就是lambda表达式:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(oldState, newState) -&gt; System.out.println(<span class="string">"State changed"</span>)</div></pre></td></tr></table></figure>
-<p>lambda表达式与<code>addStateListener()</code>方法参数的参数类型相匹配，如果lambda表达式与参数类型相匹配(本例中为StateChangeListener)，那么lambda表达式将转换为实现与该参数相同的接口的函数。</p>
-<p>Java lambda表达式只能用于与之匹配的类型为单一方法的接口。在上面的例子中，lambda表达式被用作类型为<code>StateChangeListener</code>的方法的参数。<code>StateChangeListener</code>只有一个方法，因此lambda表达式与该接口成功匹配。</p>
-<h3 id="Lambda与接口之间的匹配"><a href="#Lambda与接口之间的匹配" class="headerlink" title="Lambda与接口之间的匹配"></a>Lambda与接口之间的匹配</h3><p>单一方法接口有时候也被称之为函数接口。函数接口匹配lambda分为以下几步：</p>
-<p>确保接口只有一个方法<br>lambda表达式参数匹配函数接口方法参数<br>lambda返回值类型匹配函数接口方法返回值类型</p>
-<h2 id="Lambda表达式类型推导"><a href="#Lambda表达式类型推导" class="headerlink" title="Lambda表达式类型推导"></a>Lambda表达式类型推导</h2><p>Java 8之前匿名实现也需要指定具体的接口：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">stateOwner.addStateListener(<span class="keyword">new</span> StateChangeListener() &#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onStateChange</span><span class="params">(State oldState, State newState)</span> </span>&#123;</div><div class="line">        <span class="comment">// do something with the old and new state.</span></div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>下面使用lambda表达式，未提及<code>StateChangeListener</code>接口，但是编译器可根据<code>addStateListener</code>方法声明推断出参数类型：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">stateOwner.addStateListener(</div><div class="line">    (oldState, newState) -&gt; System.out.println(<span class="string">"State changed"</span>)</div><div class="line">);</div></pre></td></tr></table></figure>
-<p>lambda表达式中的参数类型也可以类型推导，例如<code>(oldState, newState)</code>可通过onStateChange()的方法声明推导而出。</p>
-<h2 id="Lambda表达式参数"><a href="#Lambda表达式参数" class="headerlink" title="Lambda表达式参数"></a>Lambda表达式参数</h2><p>Java lambda表达式实际上类似于方法，因此lambda表达式可以像方法一样使用参数。 前面显示的lambda表达式的(oldState, newState)部分指定了lambda表达式所需的参数。这些参数必须与单个方法接口上方法的参数相匹配。在这种情况下，这些参数必须与StateChangeListener接口的onStateChange()方法的参数匹配：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onStateChange</span><span class="params">(State oldState, State newState)</span></span>;</div></pre></td></tr></table></figure>
-<p>至少lambda表达式和方法中的参数数量必须匹配。其次，如果在lambda表达式中指定了任何参数类型，则这些类型也必须匹配。(类型放入lambda表达式参数，本文稍后会介绍)</p>
-<h3 id="无参数"><a href="#无参数" class="headerlink" title="无参数"></a>无参数</h3><p>方法无参数，可以写成这样：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">() -&gt; System.out.println(<span class="string">"Zero parameter lambda"</span>);</div></pre></td></tr></table></figure>
-<h3 id="一个参数"><a href="#一个参数" class="headerlink" title="一个参数"></a>一个参数</h3><p>方法一个参数：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(param) -&gt; System.out.println(<span class="string">"One parameter: "</span> + param);</div></pre></td></tr></table></figure>
-<p>一个参数的时候，亦可以省略圆括号：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">param -&gt; System.out.println(<span class="string">"One parameter: "</span> + param);</div></pre></td></tr></table></figure>
-<h3 id="多个参数"><a href="#多个参数" class="headerlink" title="多个参数"></a>多个参数</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(p1, p2) -&gt; System.out.println(<span class="string">"Multiple parameters: "</span> + p1 + <span class="string">", "</span> + p2);</div></pre></td></tr></table></figure>
-<h3 id="参数类型"><a href="#参数类型" class="headerlink" title="参数类型"></a>参数类型</h3><p>如果编译器无法从lambda匹配的函数接口方法中推断出参数类型，那么为lambda表达式指定参数类型有时可能是必需的，这种情况下编译器会提示。Lambda表达式指定参数类型：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(Car car) -&gt; System.out.println(<span class="string">"The car is: "</span> + car.getName());</div></pre></td></tr></table></figure>
-<p>如你所见，明确为car指定类型<code>Car</code>。</p>
-<h2 id="Lambda函数体"><a href="#Lambda函数体" class="headerlink" title="Lambda函数体"></a>Lambda函数体</h2><p>Lambda表达式body在 “-&gt;” 右侧被指定，即类似于方法体：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(oldState, newState) -&gt; System.out.println(<span class="string">"State changed"</span>)</div></pre></td></tr></table></figure></p>
-<p>如果需要多行，使用{}括起来：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">(oldState, newState) -&gt; &#123;</div><div class="line">   System.out.println(<span class="string">"Old state: "</span> + oldState);</div><div class="line">   System.out.println(<span class="string">"New state: "</span> + newState);</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
-<h2 id="Lambda返回值"><a href="#Lambda返回值" class="headerlink" title="Lambda返回值"></a>Lambda返回值</h2><p>Lambda表达式也可以有返回值，使用return语句即可：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">(param) -&gt; &#123;</div><div class="line">   System.out.println(<span class="string">"param: "</span> + param);</div><div class="line">   <span class="keyword">return</span> <span class="string">"return value"</span>;</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
-<p>简短的形式：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(a1, a2) -&gt; &#123; <span class="keyword">return</span> a1 &gt; a2; &#125;</div></pre></td></tr></table></figure>
-<p>等价于:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(a1, a2) -&gt; a1 &gt; a2;</div></pre></td></tr></table></figure>
-<h2 id="用作对象"><a href="#用作对象" class="headerlink" title="用作对象"></a>用作对象</h2><p>A Java lambda expression is essentially an object. You can assign a lambda expression to a variable and pass it around, like you do with any other object. Here is an example:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">MyComparator</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">compare</span><span class="params">(<span class="keyword">int</span> a1, <span class="keyword">int</span> a2)</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">MyComparator myComparator = (a, b) -&gt; a &gt; b;</div><div class="line"></div><div class="line"><span class="keyword">boolean</span> result = myComparator.compare(<span class="number">2</span>, <span class="number">5</span>);</div></pre></td></tr></table></figure>
-<p>第一个代码块显示了lambda表达式实现的接口。 第二个代码块显示了lambda表达式的定义，lambda表达式如何分配给变量，最后是如何通过调用它实现的接口方法来调用lambda表达式。</p>
-<p>参考：<br><a href="http://tutorials.jenkov.com/java/lambda-expressions.html" target="_blank" rel="external">Java Lambda Expressions</a>，Jakob Jenkov</p>
+<h3 id="镜像"><a href="#镜像" class="headerlink" title="镜像"></a>镜像</h3><h4 id="搜索-下载-查看-删除"><a href="#搜索-下载-查看-删除" class="headerlink" title="搜索/下载/查看/删除"></a>搜索/下载/查看/删除</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 搜索镜像</span></div><div class="line">$ docker search redis</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 下载镜像</span></div><div class="line">$ docker pull redis</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 查看本地镜像列表</span></div><div class="line">$ docker images</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 删除指定镜像</span></div><div class="line">$ docker rmi image-id</div></pre></td></tr></table></figure>
+<h3 id="镜像加速器"><a href="#镜像加速器" class="headerlink" title="镜像加速器"></a>镜像加速器</h3><p>使用阿里云Docker镜像加速器，进入阿里云控制台查看配置。</p>
+<h3 id="容器"><a href="#容器" class="headerlink" title="容器"></a>容器</h3><h4 id="实例化容器"><a href="#实例化容器" class="headerlink" title="实例化容器"></a>实例化容器</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 创建一个新的容器并启动</span></div><div class="line">$ docker run --name container-name -d image-name</div><div class="line"></div><div class="line"><span class="comment"># 例如，创建一个redis容器，并启动</span></div><div class="line">$ docker run --name redis-ctnr -d redis</div></pre></td></tr></table></figure>
+<h4 id="端口映射"><a href="#端口映射" class="headerlink" title="端口映射"></a>端口映射</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># docker容器中程序使用的端口，在容器外无法直接访问，需要将其映射出来</span></div><div class="line"><span class="comment"># 将redis默认端口，映射出来，使其外部可访问</span></div><div class="line">$ docker run -d -p 6379:6379 --name redis-ctnr2 redis</div></pre></td></tr></table></figure>
+<h4 id="容器列表"><a href="#容器列表" class="headerlink" title="容器列表"></a>容器列表</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 查看运行的容器列表</span></div><div class="line">$ docker ps</div><div class="line"></div><div class="line"><span class="comment"># 查看运行和停止的容器列表</span></div><div class="line">$ docker ps -a</div></pre></td></tr></table></figure>
+<h4 id="启动和停止容器"><a href="#启动和停止容器" class="headerlink" title="启动和停止容器"></a>启动和停止容器</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 停止一个容器</span></div><div class="line">$ docker stop container-name/container-id</div><div class="line"></div><div class="line"><span class="comment"># 例如，停止redis</span></div><div class="line">$ docker stop redis-ctnr</div><div class="line"></div><div class="line"><span class="comment"># 启动一个容器</span></div><div class="line">$ docker start container-name/container-id</div><div class="line"></div><div class="line"><span class="comment"># 启动 redis</span></div><div class="line">$ docker start redis-ctnr</div></pre></td></tr></table></figure>
+<h4 id="容器删除"><a href="#容器删除" class="headerlink" title="容器删除"></a>容器删除</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 删除指定容器</span></div><div class="line">$ docker rm container-id</div><div class="line"></div><div class="line"><span class="comment"># 删除</span></div><div class="line">$ docker rm redis-ctnr</div><div class="line"></div><div class="line"><span class="comment"># 删除所有容器</span></div><div class="line">$ docker rm $(docker ps -a -q)</div></pre></td></tr></table></figure>
+<h4 id="容器日志"><a href="#容器日志" class="headerlink" title="容器日志"></a>容器日志</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 查看当前容器日志</span></div><div class="line">$ docker logs container-name/container-id</div><div class="line"></div><div class="line"><span class="comment"># 查看redis日志</span></div><div class="line">$ docker logs redis-ctnr2</div></pre></td></tr></table></figure>
+<h4 id="登录容器"><a href="#登录容器" class="headerlink" title="登录容器"></a>登录容器</h4><p>运行中的容器其实就是一个linux系统，我们可以登录进容器</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 登录容器</span></div><div class="line">$ docker <span class="built_in">exec</span> -it container-name/container-id bash</div><div class="line"></div><div class="line">$ docker <span class="built_in">exec</span> -it redis-ctnr2 bash</div><div class="line"></div><div class="line"><span class="comment"># 使用exit退出登录</span></div></pre></td></tr></table></figure>
+<h4 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 实例化一个RabbitMQ容器</span></div><div class="line">$ docker run -d -p 5672:5672 -p 15672:15672 rabbitmq:3-management</div></pre></td></tr></table></figure>
+<h3 id="Dockerfile"><a href="#Dockerfile" class="headerlink" title="Dockerfile"></a>Dockerfile</h3><h4 id="写一个SpringBoot示例项目"><a href="#写一个SpringBoot示例项目" class="headerlink" title="写一个SpringBoot示例项目"></a>写一个SpringBoot示例项目</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> github.wyt;</div><div class="line"></div><div class="line"><span class="keyword">import</span> org.springframework.boot.SpringApplication;</div><div class="line"><span class="keyword">import</span> org.springframework.boot.autoconfigure.SpringBootApplication;</div><div class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;</div><div class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RestController;</div><div class="line"></div><div class="line"><span class="meta">@SpringBootApplication</span></div><div class="line"><span class="meta">@RestController</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DockerFileApplication</span> </span>&#123;</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">    SpringApplication.run(DockerFileApplication.class, args);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="meta">@RequestMapping</span>(<span class="string">"/"</span>)</div><div class="line">  <span class="function"><span class="keyword">public</span> String <span class="title">home</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="string">"Hello docker!"</span>;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>打完包后，上传到/tmp/df目录下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">[root@localhost df]<span class="comment"># pwd</span></div><div class="line">/tmp/df</div><div class="line">[root@localhost df]<span class="comment"># ls -lh</span></div><div class="line">total 14M</div><div class="line">-rw-r--r--. 1 root root 134 Jul 15 17:44 Dockerfile</div><div class="line">-rw-r--r--. 1 root root 14M Jul 15 17:37 dockerfile-demo-1.0-SNAPSHOT.jar</div></pre></td></tr></table></figure>
+<p>创建一个Dockerfile文件，内容如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">FROM java:8 <span class="comment"># 基镜像</span></div><div class="line"></div><div class="line">MAINTAINER wangyongtao <span class="comment"># 维护者</span></div><div class="line"></div><div class="line">ADD dockerfile-demo-1.0-SNAPSHOT.jar app.jar <span class="comment"># 添加到镜像中并且重命名</span></div><div class="line"></div><div class="line">EXPOSE 8080 <span class="comment"># 将容器的8080端口暴露出来，容器外可做端口映射</span></div><div class="line"></div><div class="line">ENTRYPOINT [<span class="string">"java"</span>,<span class="string">"-jar"</span>,<span class="string">"/app.jar"</span>] <span class="comment">#容器启动时运行 java -jar app.jar</span></div></pre></td></tr></table></figure>
+<p>编译镜像</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">[root@localhost df]<span class="comment"># docker build -t wyt/dockerfile-demo .</span></div><div class="line"></div><div class="line">Sending build context to Docker daemon 14.57 MB</div><div class="line">Step 1 : FROM java:8</div><div class="line">Trying to pull repository docker.io/library/java ... </div><div class="line">8: Pulling from docker.io/library/java</div><div class="line"></div><div class="line">fce5728aad85: Pull complete </div><div class="line">76610ec20bf5: Pull complete </div><div class="line">60170fec2151: Pull complete </div><div class="line">e98f73de8f0d: Pull complete </div><div class="line">11f7af24ed9c: Pull complete </div><div class="line">49e2d6393f32: Pull complete </div><div class="line">bb9cdec9c7f3: Pull complete </div><div class="line">Digest: sha256:c1ff613e8ba25833d2e1940da0940c3824f03f802c449f3d1815a66b7f8c0e9d</div><div class="line"> ---&gt; d23bdf5b1b1b</div><div class="line">Step 2 : MAINTAINER wangyongtao</div><div class="line"> ---&gt; Running <span class="keyword">in</span> 12ebd4a0fd57</div><div class="line"> ---&gt; 046529d38bd4</div><div class="line">Removing intermediate container 12ebd4a0fd57</div><div class="line">Step 3 : ADD dockerfile-demo-1.0-SNAPSHOT.jar app.jar</div><div class="line"> ---&gt; 7aec1880832e</div><div class="line">Removing intermediate container 8712af5da6f3</div><div class="line">Step 4 : EXPOSE 8080</div><div class="line"> ---&gt; Running <span class="keyword">in</span> 1f0127445cf1</div><div class="line"> ---&gt; 9129fa1cc69b</div><div class="line">Removing intermediate container 1f0127445cf1</div><div class="line">Step 5 : ENTRYPOINT java -jar /app.jar</div><div class="line"> ---&gt; Running <span class="keyword">in</span> 19e258a38a53</div><div class="line"> ---&gt; 916933260f9e</div><div class="line">Removing intermediate container 19e258a38a53</div><div class="line">Successfully built 916933260f9e</div></pre></td></tr></table></figure>
+<p>编译时也可以带着Tag</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[root@localhost df]<span class="comment"># docker build -t wyt/dockerfile-demo:0.0.1 .</span></div></pre></td></tr></table></figure>
+<p>查看编译好的镜像</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[root@localhost df]<span class="comment"># docker images</span></div><div class="line">REPOSITORY                          TAG                 IMAGE ID            CREATED             SIZE</div><div class="line">wyt/dockerfile-demo                 0.0.1               916933260f9e        30 minutes ago      657.7 MB</div><div class="line">wyt/dockerfile-demo                 latest              916933260f9e        30 minutes ago      657.7 MB</div></pre></td></tr></table></figure>
+<p>从镜像实例化容器并启动</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[root@localhost df]<span class="comment"># docker run --name docker-demo2 -p 8080:8080 -d wyt/dockerfile-demo</span></div></pre></td></tr></table></figure>
+<p>最后使用docker所在系统ip和8080端口即可访问应用</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[root@localhost df]<span class="comment"># curl http://192.168.91.146:8080</span></div><div class="line">Hello docker!</div><div class="line">[root@localhost df]<span class="comment">#</span></div></pre></td></tr></table></figure>
 
       
     </div>
@@ -484,9 +466,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Java/" rel="tag"># Java</a>
-          
-            <a href="/tags/教程/" rel="tag"># 教程</a>
+            <a href="/tags/docker/" rel="tag"># docker</a>
           
         </div>
       
@@ -499,8 +479,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/01/理解cron表达式/" rel="next" title="理解cron表达式">
-                <i class="fa fa-chevron-left"></i> 理解cron表达式
+              <a href="/2018/03/05/理解lambda表达式/" rel="next" title="理解lambda表达式">
+                <i class="fa fa-chevron-left"></i> 理解lambda表达式
               </a>
             
           </div>
@@ -508,10 +488,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/07/14/Docker入门及基本操作命令/" rel="prev" title="Docker入门及基本操作命令">
-                Docker入门及基本操作命令 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -673,7 +649,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Lambda与单方法接口"><span class="nav-number">1.</span> <span class="nav-text">Lambda与单方法接口</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Lambda与接口之间的匹配"><span class="nav-number">1.1.</span> <span class="nav-text">Lambda与接口之间的匹配</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Lambda表达式类型推导"><span class="nav-number">2.</span> <span class="nav-text">Lambda表达式类型推导</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Lambda表达式参数"><span class="nav-number">3.</span> <span class="nav-text">Lambda表达式参数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#无参数"><span class="nav-number">3.1.</span> <span class="nav-text">无参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一个参数"><span class="nav-number">3.2.</span> <span class="nav-text">一个参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多个参数"><span class="nav-number">3.3.</span> <span class="nav-text">多个参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参数类型"><span class="nav-number">3.4.</span> <span class="nav-text">参数类型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Lambda函数体"><span class="nav-number">4.</span> <span class="nav-text">Lambda函数体</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Lambda返回值"><span class="nav-number">5.</span> <span class="nav-text">Lambda返回值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用作对象"><span class="nav-number">6.</span> <span class="nav-text">用作对象</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#镜像"><span class="nav-number">2.</span> <span class="nav-text">镜像</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#搜索-下载-查看-删除"><span class="nav-number">2.1.</span> <span class="nav-text">搜索/下载/查看/删除</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#镜像加速器"><span class="nav-number">3.</span> <span class="nav-text">镜像加速器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#容器"><span class="nav-number">4.</span> <span class="nav-text">容器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#实例化容器"><span class="nav-number">4.1.</span> <span class="nav-text">实例化容器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#端口映射"><span class="nav-number">4.2.</span> <span class="nav-text">端口映射</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#容器列表"><span class="nav-number">4.3.</span> <span class="nav-text">容器列表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#启动和停止容器"><span class="nav-number">4.4.</span> <span class="nav-text">启动和停止容器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#容器删除"><span class="nav-number">4.5.</span> <span class="nav-text">容器删除</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#容器日志"><span class="nav-number">4.6.</span> <span class="nav-text">容器日志</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#登录容器"><span class="nav-number">4.7.</span> <span class="nav-text">登录容器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#示例"><span class="nav-number">4.8.</span> <span class="nav-text">示例</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dockerfile"><span class="nav-number">5.</span> <span class="nav-text">Dockerfile</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#写一个SpringBoot示例项目"><span class="nav-number">5.1.</span> <span class="nav-text">写一个SpringBoot示例项目</span></a></li></ol></li></ol></div>
             
 
           </div>
