@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-10-04T03:35:00.000Z</updated>
+  <updated>2018-10-04T03:48:00.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,24 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>删除Git所有标签</title>
+    <link href="http://yoursite.com/2018/10/04/%E5%88%A0%E9%99%A4%E6%89%80%E6%9C%89Git%E6%A0%87%E7%AD%BE/"/>
+    <id>http://yoursite.com/2018/10/04/删除所有Git标签/</id>
+    <published>2018-10-04T03:48:00.000Z</published>
+    <updated>2018-10-04T03:48:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="xargs命令"><a href="#xargs命令" class="headerlink" title="xargs命令"></a>xargs命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]<span class="comment"># echo "-lh" | cat</span></div><div class="line">-lh</div><div class="line">[root@localhost ~]<span class="comment"># echo "-lh" | xargs ls</span></div><div class="line">total 4.0K</div><div class="line">-rw-------. 1 root root 1.5K Nov 14  2017 anaconda-ks.cfg</div></pre></td></tr></table></figure><a id="more"></a><h3 id="Remove-all-git-tags"><a href="#Remove-all-git-tags" class="headerlink" title="Remove all git tags"></a>Remove all git tags</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#Delete local tags.</span></div><div class="line">git tag -l | xargs git tag -d</div><div class="line"></div><div class="line"><span class="comment">#Fetch remote tags.</span></div><div class="line">git fetch</div><div class="line"></div><div class="line"><span class="comment">#Delete remote tags.</span></div><div class="line">git tag -l | xargs -n 1 git push --delete origin</div><div class="line"></div><div class="line"><span class="comment">#Delete local tasg.</span></div><div class="line">git tag -l | xargs git tag -d</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;xargs命令&quot;&gt;&lt;a href=&quot;#xargs命令&quot; class=&quot;headerlink&quot; title=&quot;xargs命令&quot;&gt;&lt;/a&gt;xargs命令&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;[root@localhost ~]&lt;span class=&quot;comment&quot;&gt;# echo &quot;-lh&quot; | cat&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;-lh&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;[root@localhost ~]&lt;span class=&quot;comment&quot;&gt;# echo &quot;-lh&quot; | xargs ls&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;total 4.0K&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;-rw-------. 1 root root 1.5K Nov 14  2017 anaconda-ks.cfg&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Gitlab项目初始化</title>
