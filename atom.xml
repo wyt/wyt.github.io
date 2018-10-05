@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-10-05T07:39:00.000Z</updated>
+  <updated>2018-03-05T14:43:00.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,50 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Git命令最佳实践</title>
+    <link href="http://yoursite.com/2018/10/05/Git%E5%91%BD%E4%BB%A4%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/"/>
+    <id>http://yoursite.com/2018/10/05/Git命令最佳实践/</id>
+    <published>2018-10-05T14:43:00.000Z</published>
+    <updated>2018-03-05T14:43:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="http://ow3s1jp4x.bkt.clouddn.com/images/20181005/git-cheat-sheet.jpg" alt="Git Commands and Best Practices Cheat Sheet"></p><p>参考：<br><a href="https://zeroturnaround.com/rebellabs/git-commands-and-best-practices-cheat-sheet/" target="_blank" rel="external">Git Commands and Best Practices Cheat Sheet</a>，Simon Maple</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;img src=&quot;http://ow3s1jp4x.bkt.clouddn.com/images/20181005/git-cheat-sheet.jpg&quot; alt=&quot;Git Commands and Best Practices Cheat Sheet&quot;&gt;&lt;/p&gt;
+&lt;p
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>SQL备忘录</title>
+    <link href="http://yoursite.com/2018/10/05/SQL%E5%A4%87%E5%BF%98%E5%BD%95/"/>
+    <id>http://yoursite.com/2018/10/05/SQL备忘录/</id>
+    <published>2018-10-05T14:00:00.000Z</published>
+    <updated>2018-03-05T14:00:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="http://ow3s1jp4x.bkt.clouddn.com/images/20181005/sql-cheat-sheet.jpg" alt="SQL cheat sheet"></p><p>参考：<br><a href="https://zeroturnaround.com/rebellabs/sql-cheat-sheet/" target="_blank" rel="external">SQL cheat sheet</a>，Oleg Shelajev</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;img src=&quot;http://ow3s1jp4x.bkt.clouddn.com/images/20181005/sql-cheat-sheet.jpg&quot; alt=&quot;SQL cheat sheet&quot;&gt;&lt;/p&gt;
+&lt;p&gt;参考：&lt;br&gt;&lt;a href=&quot;https://zer
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>java内置性能监控命令</title>
@@ -409,11 +453,11 @@
       <category term="MySQL" scheme="http://yoursite.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/"/>
     
     
+      <category term="Oracle" scheme="http://yoursite.com/tags/Oracle/"/>
+    
       <category term="MySQL" scheme="http://yoursite.com/tags/MySQL/"/>
     
       <category term="数据库" scheme="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-      <category term="Oracle" scheme="http://yoursite.com/tags/Oracle/"/>
     
   </entry>
   
@@ -440,11 +484,11 @@
       <category term="MySQL" scheme="http://yoursite.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/"/>
     
     
-      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
-    
       <category term="MySQL" scheme="http://yoursite.com/tags/MySQL/"/>
     
       <category term="数据库" scheme="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
     
   </entry>
   
@@ -522,58 +566,6 @@
     
     
       <category term="Java" scheme="http://yoursite.com/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>传统定时器技术</title>
-    <link href="http://yoursite.com/2017/07/16/%E4%BC%A0%E7%BB%9F%E5%AE%9A%E6%97%B6%E5%99%A8%E6%8A%80%E6%9C%AF/"/>
-    <id>http://yoursite.com/2017/07/16/传统定时器技术/</id>
-    <published>2017-07-16T09:00:00.000Z</published>
-    <updated>2017-10-17T15:15:33.703Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="传统定时器技术"><a href="#传统定时器技术" class="headerlink" title="传统定时器技术"></a>传统定时器技术</h2><h3 id="5秒后爆炸-然后每隔3秒爆炸一次"><a href="#5秒后爆炸-然后每隔3秒爆炸一次" class="headerlink" title="5秒后爆炸,然后每隔3秒爆炸一次"></a>5秒后爆炸,然后每隔3秒爆炸一次</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Test</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testTimer01</span><span class="params">()</span> </span>&#123;</div><div class="line"><span class="comment">/**</span></div><div class="line"> * 面向对象的方式思考：一个定时器实例，拥有计划schedule方法，具体的任务由TimerTask实现.</div><div class="line"> */</div><div class="line"><span class="keyword">new</span> Timer().schedule(<span class="keyword">new</span> TimerTask() &#123;</div><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">    System.out.println(Thread.currentThread().getName() + <span class="string">" !!!bombing!!! "</span>);</div><div class="line">&#125;</div><div class="line">&#125;, <span class="number">5000</span>, <span class="number">3000</span>);</div><div class="line"></div><div class="line"><span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</div><div class="line">    System.out.println(Thread.currentThread().getName() + <span class="string">" "</span> + Calendar.getInstance().get(Calendar.SECOND));</div><div class="line"><span class="keyword">try</span> &#123;</div><div class="line">Thread.sleep(<span class="number">1000</span>);</div><div class="line">&#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</div><div class="line">e.printStackTrace();</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure><a id="more"></a><h3 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">main <span class="number">27</span></div><div class="line">main <span class="number">28</span></div><div class="line">main <span class="number">29</span></div><div class="line">main <span class="number">30</span></div><div class="line">main <span class="number">31</span></div><div class="line">Timer-<span class="number">0</span> !!!bombing!!! </div><div class="line">main <span class="number">32</span></div><div class="line">main <span class="number">33</span></div><div class="line">main <span class="number">34</span></div><div class="line">Timer-<span class="number">0</span> !!!bombing!!! </div><div class="line">main <span class="number">35</span></div><div class="line">main <span class="number">36</span></div><div class="line">main <span class="number">37</span></div><div class="line">Timer-<span class="number">0</span> !!!bombing!!! </div><div class="line">main <span class="number">38</span></div><div class="line">main <span class="number">39</span></div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;传统定时器技术&quot;&gt;&lt;a href=&quot;#传统定时器技术&quot; class=&quot;headerlink&quot; title=&quot;传统定时器技术&quot;&gt;&lt;/a&gt;传统定时器技术&lt;/h2&gt;&lt;h3 id=&quot;5秒后爆炸-然后每隔3秒爆炸一次&quot;&gt;&lt;a href=&quot;#5秒后爆炸-然后每隔3秒爆炸一次&quot; class=&quot;headerlink&quot; title=&quot;5秒后爆炸,然后每隔3秒爆炸一次&quot;&gt;&lt;/a&gt;5秒后爆炸,然后每隔3秒爆炸一次&lt;/h3&gt;&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;15&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;16&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;17&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;18&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;19&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;20&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;21&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;@Test&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;testTimer01&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&lt;span class=&quot;comment&quot;&gt;/**&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	 * 面向对象的方式思考：一个定时器实例，拥有计划schedule方法，具体的任务由TimerTask实现.&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	 */&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; Timer().schedule(&lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; TimerTask() &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;		&lt;span class=&quot;meta&quot;&gt;@Override&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;		&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;		    System.out.println(Thread.currentThread().getName() + &lt;span class=&quot;string&quot;&gt;&quot; !!!bombing!!! &quot;&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;		&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&amp;#125;, &lt;span class=&quot;number&quot;&gt;5000&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;3000&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;while&lt;/span&gt; (&lt;span class=&quot;keyword&quot;&gt;true&lt;/span&gt;) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	    System.out.println(Thread.currentThread().getName() + &lt;span class=&quot;string&quot;&gt;&quot; &quot;&lt;/span&gt; + Calendar.getInstance().get(Calendar.SECOND));&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;		&lt;span class=&quot;keyword&quot;&gt;try&lt;/span&gt; &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;			Thread.sleep(&lt;span class=&quot;number&quot;&gt;1000&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;		&amp;#125; &lt;span class=&quot;keyword&quot;&gt;catch&lt;/span&gt; (InterruptedException e) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;			e.printStackTrace();&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;		&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-      <category term="编程语言" scheme="http://yoursite.com/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
-    
-      <category term="Java" scheme="http://yoursite.com/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/"/>
-    
-    
-      <category term="Java" scheme="http://yoursite.com/tags/Java/"/>
-    
-      <category term="多线程" scheme="http://yoursite.com/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>传统线程技术</title>
-    <link href="http://yoursite.com/2017/07/16/%E4%BC%A0%E7%BB%9F%E7%BA%BF%E7%A8%8B%E6%8A%80%E6%9C%AF/"/>
-    <id>http://yoursite.com/2017/07/16/传统线程技术/</id>
-    <published>2017-07-16T08:59:00.000Z</published>
-    <updated>2017-10-17T15:15:45.143Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="创建并启动一个线程"><a href="#创建并启动一个线程" class="headerlink" title="创建并启动一个线程"></a>创建并启动一个线程</h2><h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">    Thread thd01 = <span class="keyword">new</span> Thread(<span class="string">"thd01"</span>) &#123;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">            System.out.println(<span class="string">"the Thread "</span> + Thread.currentThread().getName() + <span class="string">" is executing."</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line">    thd01.start();</div><div class="line">    System.out.println(<span class="string">"the Thread "</span> + Thread.currentThread().getName() + <span class="string">" is executing."</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure><a id="more"></a><h3 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">    Thread thd02 = <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">            System.out.println(<span class="string">"the Thread "</span> + Thread.currentThread().getName() + <span class="string">" is executing."</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">    thd02.setName(<span class="string">"thd02"</span>);</div><div class="line">    thd02.start();</div><div class="line">    System.out.println(<span class="string">"the Thread "</span> + Thread.currentThread().getName() + <span class="string">" is executing."</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure><h3 id="判断输出结果"><a href="#判断输出结果" class="headerlink" title="判断输出结果"></a>判断输出结果</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">    <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">            System.out.println(<span class="string">"the Thread01 "</span> + Thread.currentThread().getName() + <span class="string">" is executing."</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;) &#123;</div><div class="line">        <span class="comment">/** 覆盖了Runnable中定义的方run() */</span></div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">            System.out.println(<span class="string">"the Thread02 "</span> + Thread.currentThread().getName() + <span class="string">" is executing."</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;.start();</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;创建并启动一个线程&quot;&gt;&lt;a href=&quot;#创建并启动一个线程&quot; class=&quot;headerlink&quot; title=&quot;创建并启动一个线程&quot;&gt;&lt;/a&gt;创建并启动一个线程&lt;/h2&gt;&lt;h3 id=&quot;方法一&quot;&gt;&lt;a href=&quot;#方法一&quot; class=&quot;headerlink&quot; title=&quot;方法一&quot;&gt;&lt;/a&gt;方法一&lt;/h3&gt;&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(String[] args)&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    Thread thd01 = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; Thread(&lt;span class=&quot;string&quot;&gt;&quot;thd01&quot;&lt;/span&gt;) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;meta&quot;&gt;@Override&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;            System.out.println(&lt;span class=&quot;string&quot;&gt;&quot;the Thread &quot;&lt;/span&gt; + Thread.currentThread().getName() + &lt;span class=&quot;string&quot;&gt;&quot; is executing.&quot;&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    thd01.start();&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    System.out.println(&lt;span class=&quot;string&quot;&gt;&quot;the Thread &quot;&lt;/span&gt; + Thread.currentThread().getName() + &lt;span class=&quot;string&quot;&gt;&quot; is executing.&quot;&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-      <category term="编程语言" scheme="http://yoursite.com/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
-    
-      <category term="Java" scheme="http://yoursite.com/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/"/>
-    
-    
-      <category term="Java" scheme="http://yoursite.com/tags/Java/"/>
-    
-      <category term="多线程" scheme="http://yoursite.com/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
     
   </entry>
   
