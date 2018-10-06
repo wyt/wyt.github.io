@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[Git命令最佳实践]]></title>
     <url>%2F2018%2F10%2F05%2FGit%E5%91%BD%E4%BB%A4%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5%2F</url>
-    <content type="text"><![CDATA[参考：Git Commands and Best Practices Cheat Sheet，Simon Maple]]></content>
+    <content type="text"><![CDATA[Create a repositoryFrom scratch – create a new local repository 1$ git init [project_name] Download form an existing repository 1$ git clone my_url Observe your repositoryList new or modified files not yet committed 1$ git status Show the changes to files not yet staged 1$ git diff Show the changes to staged files 1$ git diff --cached Show all staged and unstaged file changes 1$ git diff HEAD Show the changes between two commit ids 1$ git diff commit1 commit2 List the change dates and authors for a file 1$ git blame [file] Show the file changes for a commit id and/or file 1$ git show [commit_id]:[file] Show full change history 1$ git log show change history for file/directory including diffs 1$ git log -p [file/directory] Working with branchesList all local branches 1$ git branch List all branches, local and remote1$ git branch -av Switch to a branch, and update working directory 1$ git checkout my_branch Create a new branch called new_branch 1$ git branch new_branch Delete the branch called my_branch 1$ git branch -d my_branch Merge branch_a into branch_b 12$ git checkout branch_b$ git merge branch_a Tag the current commit1$ git tag my_tag Make a changeStage the file, ready for commit 1$ git add [file] Stage all changed files, ready for commit 1$ git add . Commit all staged files to versioned history 1$ git commit -m "commit message" Commit all your tracked files to versioned history 1$ git commit -am "commit message" Unstages file, keeping the file changes 1$ git reset [file] Revert everything to the last commit 1$ git reset --hard SynchronizeGet the latest changes from origin (no merge) 1$ git fetch Fetch the latest changes from origin and merge 1$ git pull Fetch the latest changes from origin and rebase 1$ git pull --rebase Push local chages to the origin 1$ git push FinallyWhen in doubt, use git help 1$ git command --help Or visit https://training.github.com/ for official GitHub training. 参考：Git Commands and Best Practices Cheat Sheet，Simon Maple]]></content>
   </entry>
   <entry>
     <title><![CDATA[SQL备忘录]]></title>
@@ -147,9 +147,9 @@
         <category>MySQL</category>
       </categories>
       <tags>
-        <tag>Oracle</tag>
         <tag>MySQL</tag>
         <tag>数据库</tag>
+        <tag>Oracle</tag>
       </tags>
   </entry>
   <entry>
@@ -161,9 +161,9 @@
         <category>MySQL</category>
       </categories>
       <tags>
+        <tag>Linux</tag>
         <tag>MySQL</tag>
         <tag>数据库</tag>
-        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>

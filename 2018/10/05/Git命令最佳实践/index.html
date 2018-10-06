@@ -95,18 +95,18 @@
 
 
 
-<meta name="description" content="参考：Git Commands and Best Practices Cheat Sheet，Simon Maple">
+<meta name="description" content="Create a repositoryFrom scratch – create a new local repository 1$ git init [project_name]">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git命令最佳实践">
 <meta property="og:url" content="http://yoursite.com/2018/10/05/Git命令最佳实践/index.html">
 <meta property="og:site_name" content="Yongtao&#39;s Blog">
-<meta property="og:description" content="参考：Git Commands and Best Practices Cheat Sheet，Simon Maple">
-<meta property="og:image" content="http://ow3s1jp4x.bkt.clouddn.com/images/20181005/git-cheat-sheet.jpg">
+<meta property="og:description" content="Create a repositoryFrom scratch – create a new local repository 1$ git init [project_name]">
+<meta property="og:image" content="http://ow3s1jp4x.bkt.clouddn.com/images/20181006/GitHub-cheat-sheet-graphic-v1.jpg">
 <meta property="og:updated_time" content="2018-03-05T14:43:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git命令最佳实践">
-<meta name="twitter:description" content="参考：Git Commands and Best Practices Cheat Sheet，Simon Maple">
-<meta name="twitter:image" content="http://ow3s1jp4x.bkt.clouddn.com/images/20181005/git-cheat-sheet.jpg">
+<meta name="twitter:description" content="Create a repositoryFrom scratch – create a new local repository 1$ git init [project_name]">
+<meta name="twitter:image" content="http://ow3s1jp4x.bkt.clouddn.com/images/20181006/GitHub-cheat-sheet-graphic-v1.jpg">
 
 
 
@@ -367,9 +367,82 @@
 
       
       
+        <div class="post-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+          
+          
+            <div class="post-gallery-row">
+              <a class="post-gallery-img fancybox"
+                 href="http://ow3s1jp4x.bkt.clouddn.com/images/20181006/GitHub-cheat-sheet-graphic-v1.jpg" rel="gallery_cjmxbtyrn0002fs0zrky1tope"
+                 itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
+                <img src="http://ow3s1jp4x.bkt.clouddn.com/images/20181006/GitHub-cheat-sheet-graphic-v1.jpg" itemprop="contentUrl"/>
+              </a>
+            
+          
+
+          
+          </div>
+        </div>
+      
 
       
-        <p><img src="http://ow3s1jp4x.bkt.clouddn.com/images/20181005/git-cheat-sheet.jpg" alt="Git Commands and Best Practices Cheat Sheet"></p>
+        <h3 id="Create-a-repository"><a href="#Create-a-repository" class="headerlink" title="Create a repository"></a>Create a repository</h3><p>From scratch – create a new local repository</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git init [project_name]</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>Download form an existing repository</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git <span class="built_in">clone</span> my_url</div></pre></td></tr></table></figure>
+<h3 id="Observe-your-repository"><a href="#Observe-your-repository" class="headerlink" title="Observe your repository"></a>Observe your repository</h3><p>List new or modified files not yet committed</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git status</div></pre></td></tr></table></figure>
+<p>Show the changes to files  not yet staged</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git diff</div></pre></td></tr></table></figure>
+<p>Show the changes to staged files</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git diff --cached</div></pre></td></tr></table></figure>
+<p>Show all staged and unstaged file changes</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git diff HEAD</div></pre></td></tr></table></figure>
+<p>Show the changes between two commit ids</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git diff commit1 commit2</div></pre></td></tr></table></figure>
+<p>List the change dates and authors for a file</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git blame [file]</div></pre></td></tr></table></figure>
+<p>Show the file changes for a commit id and/or file</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git show [commit_id]:[file]</div></pre></td></tr></table></figure>
+<p>Show full change history</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git <span class="built_in">log</span></div></pre></td></tr></table></figure>
+<p>show change history for file/directory including diffs</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git <span class="built_in">log</span> -p [file/directory]</div></pre></td></tr></table></figure>
+<h3 id="Working-with-branches"><a href="#Working-with-branches" class="headerlink" title="Working with branches"></a>Working with branches</h3><p>List all local branches</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git branch</div></pre></td></tr></table></figure>
+<p>List all branches, local and remote<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git branch -av</div></pre></td></tr></table></figure></p>
+<p>Switch to a branch, and update working directory</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git checkout my_branch</div></pre></td></tr></table></figure>
+<p>Create a new branch called new_branch</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git branch new_branch</div></pre></td></tr></table></figure>
+<p>Delete the branch called my_branch</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git branch -d my_branch</div></pre></td></tr></table></figure>
+<p>Merge branch_a into branch_b</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git checkout branch_b</div><div class="line">$ git merge branch_a</div></pre></td></tr></table></figure>
+<p>Tag the current commit<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git tag my_tag</div></pre></td></tr></table></figure></p>
+<h3 id="Make-a-change"><a href="#Make-a-change" class="headerlink" title="Make a change"></a>Make a change</h3><p>Stage the file, ready for commit</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git add [file]</div></pre></td></tr></table></figure>
+<p>Stage all changed files, ready for commit</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git add .</div></pre></td></tr></table></figure>
+<p>Commit all staged files to versioned history</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git commit -m <span class="string">"commit message"</span></div></pre></td></tr></table></figure>
+<p>Commit all your tracked files to versioned history</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git commit -am <span class="string">"commit message"</span></div></pre></td></tr></table></figure>
+<p>Unstages file, keeping the file changes</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git reset [file]</div></pre></td></tr></table></figure>
+<p>Revert everything to the last commit</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git reset --hard</div></pre></td></tr></table></figure>
+<h3 id="Synchronize"><a href="#Synchronize" class="headerlink" title="Synchronize"></a>Synchronize</h3><p>Get the latest changes from origin (no merge)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git fetch</div></pre></td></tr></table></figure>
+<p>Fetch the latest changes from origin and merge</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git pull</div></pre></td></tr></table></figure>
+<p>Fetch the latest changes from origin and rebase</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git pull --rebase</div></pre></td></tr></table></figure>
+<p>Push local chages to the origin</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git push</div></pre></td></tr></table></figure>
+<h3 id="Finally"><a href="#Finally" class="headerlink" title="Finally"></a>Finally</h3><p>When in doubt, use git help</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git <span class="built_in">command</span> --<span class="built_in">help</span></div></pre></td></tr></table></figure>
+<p>Or visit <a href="https://training.github.com/" target="_blank" rel="external">https://training.github.com/</a> for official GitHub training.</p>
 <p>参考：<br><a href="https://zeroturnaround.com/rebellabs/git-commands-and-best-practices-cheat-sheet/" target="_blank" rel="external">Git Commands and Best Practices Cheat Sheet</a>，Simon Maple</p>
 
       
@@ -478,8 +551,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/starfish.png"
@@ -596,6 +678,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-repository"><span class="nav-number">1.</span> <span class="nav-text">Create a repository</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Observe-your-repository"><span class="nav-number">2.</span> <span class="nav-text">Observe your repository</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Working-with-branches"><span class="nav-number">3.</span> <span class="nav-text">Working with branches</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Make-a-change"><span class="nav-number">4.</span> <span class="nav-text">Make a change</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Synchronize"><span class="nav-number">5.</span> <span class="nav-text">Synchronize</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Finally"><span class="nav-number">6.</span> <span class="nav-text">Finally</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
