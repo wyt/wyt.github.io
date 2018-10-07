@@ -293,6 +293,158 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/07/Item1,考虑使用静态工厂方法替代构造器/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wangyt">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/starfish.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yongtao's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/07/Item1,考虑使用静态工厂方法替代构造器/" itemprop="url">Item1,考虑使用静态工厂方法替代构造器</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-07T15:50:00+08:00">
+                2018-10-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/10/07/Item1,考虑使用静态工厂方法替代构造器/" class="leancloud_visitors" data-flag-title="Item1,考虑使用静态工厂方法替代构造器">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h2><p>客户端可以通过类提供的公共构造方法获取类实例，除此之外，还可以使用静态工厂方法。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Boolean <span class="title">valueOf</span><span class="params">(<span class="keyword">boolean</span> b)</span> </span>&#123;</div><div class="line">	<span class="keyword">return</span> b ? Boolean.TRUE : Boolean.FALSE;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="好处"><a href="#好处" class="headerlink" title="好处"></a>好处</h3><h4 id="拥有名称"><a href="#拥有名称" class="headerlink" title="拥有名称"></a>拥有名称</h4><p>使用静态工厂方法替代构造器，不同于构造方法名称固定，可自定义见名知义的方法名，相对于不同参数签名的多个构造方法设计，更加优雅。</p>
+<h4 id="不创建新对象"><a href="#不创建新对象" class="headerlink" title="不创建新对象"></a>不创建新对象</h4><p>使用静态工厂方法替代构造器，不像构造方法，每次在被调用的时候，都需要new一个实例。</p>
+<h4 id="返回子类型"><a href="#返回子类型" class="headerlink" title="返回子类型"></a>返回子类型</h4><p>使用静态工厂方法替代构造器，不像构造方法，它们可以返回其返回类型的任何子类型的对象。</p>
+<p>例如，Java Collections Framework 的接口有45个实用程序实现，提供不可修改的集合，同步集合等。</p>
+<p>几乎所有这些实现都是通过静态工厂方法在一个不可实例化的类<code>java.util.Collections</code>中获取的。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="function">List&lt;T&gt; <span class="title">unmodifiableList</span><span class="params">(List&lt;? extends T&gt; list)</span> </span>&#123;</div><div class="line">	<span class="keyword">return</span> (list <span class="keyword">instanceof</span> RandomAccess ?</div><div class="line">			<span class="keyword">new</span> UnmodifiableRandomAccessList&lt;&gt;(list) :</div><div class="line">			<span class="keyword">new</span> UnmodifiableList&lt;&gt;(list));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="返回对象可变化"><a href="#返回对象可变化" class="headerlink" title="返回对象可变化"></a>返回对象可变化</h4><p>A fourth advantage of static factories is that the class of the returned object can vary from call to call as a function of the input parameters.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * Creates an empty enum set with the specified element type.</div><div class="line"> *</div><div class="line"> * <span class="doctag">@param</span> &lt;E&gt; The class of the elements in the set</div><div class="line"> * <span class="doctag">@param</span> elementType the class object of the element type for this enum</div><div class="line"> *     set</div><div class="line"> * <span class="doctag">@return</span> An empty enum set of the specified type.</div><div class="line"> * <span class="doctag">@throws</span> NullPointerException if &lt;tt&gt;elementType&lt;/tt&gt; is null</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;E extends Enum&lt;E&gt;&gt; <span class="function">EnumSet&lt;E&gt; <span class="title">noneOf</span><span class="params">(Class&lt;E&gt; elementType)</span> </span>&#123;</div><div class="line">	Enum&lt;?&gt;[] universe = getUniverse(elementType);</div><div class="line">	<span class="keyword">if</span> (universe == <span class="keyword">null</span>)</div><div class="line">		<span class="keyword">throw</span> <span class="keyword">new</span> ClassCastException(elementType + <span class="string">" not an enum"</span>);</div><div class="line"></div><div class="line">	<span class="keyword">if</span> (universe.length &lt;= <span class="number">64</span>)</div><div class="line">		<span class="keyword">return</span> <span class="keyword">new</span> RegularEnumSet&lt;&gt;(elementType, universe);</div><div class="line">	<span class="keyword">else</span></div><div class="line">		<span class="keyword">return</span> <span class="keyword">new</span> JumboEnumSet&lt;&gt;(elementType, universe);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="返回对象不需要存在"><a href="#返回对象不需要存在" class="headerlink" title="返回对象不需要存在"></a>返回对象不需要存在</h4><p>A fifth advantage of static factories is that the class of the returned object need not exist when the class containing the method is written</p>
+<p>服务提供程序框架java.util.ServiceLoader</p>
+<p>from—A type-conversion method that takes a single parameter and returns a corresponding instance of this type, for example:</p>
+<p>Date d = Date.from(instant);</p>
+<p>of—An aggregation method that takes multiple parameters and returns an in-stance of this type that incorporates them, for example:</p>
+<p>Set<rank> faceCards = EnumSet.of(JACK, QUEEN, KING);</rank></p>
+<p>• valueOf—A more verbose alternative to from and of, for example:</p>
+<p>BigInteger prime = BigInteger.valueOf(Integer.MAX_VALUE);</p>
+<p>instance or getInstance—Returns an instance that is described by its pa-rameters (if any) but cannot be said to have the same value, for example:</p>
+<p>StackWalker luke = StackWalker.getInstance(options);</p>
+<p>create or newInstance—Like instance or getInstance, except that the method guarantees that each call returns a new instance, for example:</p>
+<p>Object newArray = Array.newInstance(classObject, arrayLen);</p>
+<p>getType—Like getInstance, but used if the factory method is in a different class. Type is the type of object returned by the factory method, for example:</p>
+<p>FileStore fs = Files.getFileStore(path);</p>
+<p>newType—Like newInstance, but used if the factory method is in a different class. Type is the type of object returned by the factory method, for example:</p>
+<p>BufferedReader br = Files.newBufferedReader(path);</p>
+<p>• type—A concise alternative to getType and newType, for example:</p>
+<p>List<complaint> litany = Collections.list(legacyLitany);</complaint></p>
+<p>In summary, static factory methods and public constructors both have their uses, and it pays to understand their relative merits. Often static factories are preferable, so avoid the reflex to provide public constructors without first consid-ering static factories.</p>
+<p>参考：<br>Effective Java Third Edition，Joshua bloch</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/05/Git命令最佳实践/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -373,7 +525,7 @@
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://ow3s1jp4x.bkt.clouddn.com/images/20181006/GitHub-cheat-sheet-graphic-v1.jpg" rel="gallery_cjmxbtyrn0002fs0zrky1tope"
+                 href="http://ow3s1jp4x.bkt.clouddn.com/images/20181006/GitHub-cheat-sheet-graphic-v1.jpg" rel="gallery_cjmyxo4t90001es0z6apoe2a1"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://ow3s1jp4x.bkt.clouddn.com/images/20181006/GitHub-cheat-sheet-graphic-v1.jpg" itemprop="contentUrl"/>
               </a>
@@ -803,133 +955,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/04/删除所有Git标签/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="wangyt">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/starfish.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yongtao's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/04/删除所有Git标签/" itemprop="url">删除Git所有标签</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-04T11:48:00+08:00">
-                2018-10-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2018/10/04/删除所有Git标签/" class="leancloud_visitors" data-flag-title="删除Git所有标签">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="xargs命令"><a href="#xargs命令" class="headerlink" title="xargs命令"></a>xargs命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]<span class="comment"># echo "-lh" | cat</span></div><div class="line">-lh</div><div class="line">[root@localhost ~]<span class="comment"># echo "-lh" | xargs ls</span></div><div class="line">total 4.0K</div><div class="line">-rw-------. 1 root root 1.5K Nov 14  2017 anaconda-ks.cfg</div></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/10/04/删除所有Git标签/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -979,7 +1004,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-count">23</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
