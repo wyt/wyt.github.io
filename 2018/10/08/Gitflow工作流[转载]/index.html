@@ -372,7 +372,7 @@
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://objects.yongtao.wang/images/20181008/git-workflows-gitflow.png" rel="gallery_cjn053s1i00002g0zuo6i4thn"
+                 href="http://objects.yongtao.wang/images/20181008/git-workflows-gitflow.png" rel="gallery_cjn076j6y000kv80zwf5tk43u"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://objects.yongtao.wang/images/20181008/git-workflows-gitflow.png" itemprop="contentUrl"/>
               </a>
@@ -455,7 +455,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">git checkout -b issue-<span class="comment">#001 master</span></div><div class="line"><span class="comment"># Fix the bug</span></div><div class="line">git checkout master</div><div class="line">git merge issue-<span class="comment">#001</span></div><div class="line">git push</div></pre></td></tr></table></figure>
 <p>就像发布分支，维护分支中新加这些重要修改需要包含到<code>develop</code>分支中，所以小红要执行一个合并操作。然后就可以安全地<a href="https://www.atlassian.com/git/tutorials/using-branches#git-branch" target="_blank" rel="external">删除这个分支</a>了：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">git checkout develop</div><div class="line">git merge issue-<span class="comment">#001</span></div><div class="line">git push</div><div class="line">git branch -d issue-<span class="comment">#001</span></div></pre></td></tr></table></figure>
-<h2 id="下一站"><a href="#下一站" class="headerlink" title="下一站 "></a>下一站 </h2><p>到了这里，但愿你对<a href="workflow-centralized.md">集中式工作流</a>、<a href="workflow-feature-branch.md">功能分支工作流</a>和<code>Gitflow</code>工作流已经感觉很舒适了。<br>你应该也牢固的掌握了本地仓库的潜能，<code>push</code>/<code>pull</code>模式和<code>Git</code>健壮的分支和合并模型。</p>
+<h2 id="下一站"><a href="#下一站" class="headerlink" title="下一站 "></a>下一站 </h2><p>到了这里，但愿你对集中式工作流、功能分支工作流和<code>Gitflow</code>工作流已经感觉很舒适了。<br>你应该也牢固的掌握了本地仓库的潜能，<code>push</code>/<code>pull</code>模式和<code>Git</code>健壮的分支和合并模型。</p>
 <p>记住，这里演示的工作流只是可能用法的例子，而不是在实际工作中使用<code>Git</code>不可违逆的条例。<br>所以不要畏惧按自己需要对工作流的用法做取舍。不变的目标就是让<code>Git</code>为你所用。</p>
 
       
