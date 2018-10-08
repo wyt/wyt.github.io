@@ -157,9 +157,9 @@
         <category>MySQL</category>
       </categories>
       <tags>
+        <tag>Oracle</tag>
         <tag>MySQL</tag>
         <tag>数据库</tag>
-        <tag>Oracle</tag>
       </tags>
   </entry>
   <entry>
@@ -171,9 +171,9 @@
         <category>MySQL</category>
       </categories>
       <tags>
-        <tag>Linux</tag>
         <tag>MySQL</tag>
         <tag>数据库</tag>
+        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>

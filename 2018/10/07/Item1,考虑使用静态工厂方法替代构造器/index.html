@@ -95,16 +95,16 @@
 
 
 
-<meta name="description" content="简述客户端可以通过类提供的公共构造方法获取类实例，除此之外，还可以使用静态工厂方法。 123public static Boolean valueOf(boolean b) &amp;#123;	return b ? Boolean.TRUE : Boolean.FALSE;&amp;#125; 好处拥有名称使用静态工厂方法替代构造器，不同于构造方法名称固定，可自定义见名知义的方法名，相对于不同参数签名的多个构造">
+<meta name="description" content="简述客户端可以通过类提供的公共构造方法获取类实例，除此之外，还可以使用静态工厂方法。 123public static Boolean valueOf(boolean b) &amp;#123;	return b ? Boolean.TRUE : Boolean.FALSE;&amp;#125;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Item1,考虑使用静态工厂方法替代构造器">
 <meta property="og:url" content="http://yoursite.com/2018/10/07/Item1,考虑使用静态工厂方法替代构造器/index.html">
 <meta property="og:site_name" content="Yongtao&#39;s Blog">
-<meta property="og:description" content="简述客户端可以通过类提供的公共构造方法获取类实例，除此之外，还可以使用静态工厂方法。 123public static Boolean valueOf(boolean b) &amp;#123;	return b ? Boolean.TRUE : Boolean.FALSE;&amp;#125; 好处拥有名称使用静态工厂方法替代构造器，不同于构造方法名称固定，可自定义见名知义的方法名，相对于不同参数签名的多个构造">
+<meta property="og:description" content="简述客户端可以通过类提供的公共构造方法获取类实例，除此之外，还可以使用静态工厂方法。 123public static Boolean valueOf(boolean b) &amp;#123;	return b ? Boolean.TRUE : Boolean.FALSE;&amp;#125;">
 <meta property="og:updated_time" content="2018-10-07T07:50:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Item1,考虑使用静态工厂方法替代构造器">
-<meta name="twitter:description" content="简述客户端可以通过类提供的公共构造方法获取类实例，除此之外，还可以使用静态工厂方法。 123public static Boolean valueOf(boolean b) &amp;#123;	return b ? Boolean.TRUE : Boolean.FALSE;&amp;#125; 好处拥有名称使用静态工厂方法替代构造器，不同于构造方法名称固定，可自定义见名知义的方法名，相对于不同参数签名的多个构造">
+<meta name="twitter:description" content="简述客户端可以通过类提供的公共构造方法获取类实例，除此之外，还可以使用静态工厂方法。 123public static Boolean valueOf(boolean b) &amp;#123;	return b ? Boolean.TRUE : Boolean.FALSE;&amp;#125;">
 
 
 
@@ -369,6 +369,7 @@
       
         <h2 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h2><p>客户端可以通过类提供的公共构造方法获取类实例，除此之外，还可以使用静态工厂方法。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Boolean <span class="title">valueOf</span><span class="params">(<span class="keyword">boolean</span> b)</span> </span>&#123;</div><div class="line">	<span class="keyword">return</span> b ? Boolean.TRUE : Boolean.FALSE;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<a id="more"></a>
 <h3 id="好处"><a href="#好处" class="headerlink" title="好处"></a>好处</h3><h4 id="拥有名称"><a href="#拥有名称" class="headerlink" title="拥有名称"></a>拥有名称</h4><p>使用静态工厂方法替代构造器，不同于构造方法名称固定，可自定义见名知义的方法名，相对于不同参数签名的多个构造方法设计，更加优雅。</p>
 <h4 id="不创建新对象"><a href="#不创建新对象" class="headerlink" title="不创建新对象"></a>不创建新对象</h4><p>使用静态工厂方法替代构造器，不像构造方法，每次在被调用的时候，都需要new一个实例。</p>
 <h4 id="返回子类型"><a href="#返回子类型" class="headerlink" title="返回子类型"></a>返回子类型</h4><p>使用静态工厂方法替代构造器，不像构造方法，它们可以返回其返回类型的任何子类型的对象。</p>
