@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="docker,docker swarm," />
 
 
 
@@ -95,16 +95,17 @@
 
 
 
-<meta name="description" content="Powershell会话中设置环境变量12345678910111213PS C:\personal\idea\cloud-cook&amp;gt; ls env:DOCKER_HOSTName                           Value----                           -----DOCKER_HOST                    tcp://19">
+<meta name="description" content="Deploy a stack to a swarm">
+<meta name="keywords" content="docker,docker swarm">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Powershell会话中设置环境变量">
-<meta property="og:url" content="http://yoursite.com/2018/10/30/hello-world/index.html">
+<meta property="og:title" content="Deploy a stack to a swarm">
+<meta property="og:url" content="http://yoursite.com/2018/10/30/Deploy a stack to a swarm/index.html">
 <meta property="og:site_name" content="Yongtao&#39;s Blog">
-<meta property="og:description" content="Powershell会话中设置环境变量12345678910111213PS C:\personal\idea\cloud-cook&amp;gt; ls env:DOCKER_HOSTName                           Value----                           -----DOCKER_HOST                    tcp://19">
-<meta property="og:updated_time" content="2018-10-30T02:30:00.000Z">
+<meta property="og:description" content="Deploy a stack to a swarm">
+<meta property="og:updated_time" content="2018-10-30T05:38:00.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Powershell会话中设置环境变量">
-<meta name="twitter:description" content="Powershell会话中设置环境变量12345678910111213PS C:\personal\idea\cloud-cook&amp;gt; ls env:DOCKER_HOSTName                           Value----                           -----DOCKER_HOST                    tcp://19">
+<meta name="twitter:title" content="Deploy a stack to a swarm">
+<meta name="twitter:description" content="Deploy a stack to a swarm">
 
 
 
@@ -132,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/10/30/hello-world/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/10/30/Deploy a stack to a swarm/"/>
 
 
 
 
 
-  <title>Powershell会话中设置环境变量 | Yongtao's Blog</title>
+  <title>Deploy a stack to a swarm | Yongtao's Blog</title>
   
 
 
@@ -292,7 +293,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/30/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/30/Deploy a stack to a swarm/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="wangyt">
@@ -309,7 +310,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Powershell会话中设置环境变量</h1>
+          <h1 class="post-title" itemprop="name headline">Deploy a stack to a swarm</h1>
         
 
         <div class="post-meta">
@@ -321,7 +322,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-30T10:30:00+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-30T13:38:00+08:00">
                 2018-10-30
               </time>
             
@@ -332,6 +333,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/docker/" itemprop="url" rel="index">
+                    <span itemprop="name">docker</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -339,7 +362,7 @@
 
           
           
-             <span id="/2018/10/30/hello-world/" class="leancloud_visitors" data-flag-title="Powershell会话中设置环境变量">
+             <span id="/2018/10/30/Deploy a stack to a swarm/" class="leancloud_visitors" data-flag-title="Deploy a stack to a swarm">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -367,8 +390,7 @@
       
 
       
-        <h3 id="Powershell会话中设置环境变量"><a href="#Powershell会话中设置环境变量" class="headerlink" title="Powershell会话中设置环境变量"></a>Powershell会话中设置环境变量</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">PS C:\personal\idea\cloud-cook&gt; ls env:DOCKER_HOST</div><div class="line"></div><div class="line">Name                           Value</div><div class="line">----                           -----</div><div class="line">DOCKER_HOST                    tcp://192.168.1.114:2375</div><div class="line"></div><div class="line"></div><div class="line">PS C:\personal\idea\cloud-cook&gt; <span class="variable">$env</span>:DOCKER_HOST=<span class="string">"tcp://192.168.21.129:2375"</span>   <span class="comment"># 在当前会话中创建DOCKER_HOST环境变量</span></div><div class="line">PS C:\personal\idea\cloud-cook&gt; ls env:DOCKER_HOST</div><div class="line"></div><div class="line">Name                           Value</div><div class="line">----                           -----</div><div class="line">DOCKER_HOST                    tcp://192.168.21.129:2375</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://www.pstips.net/powershell-environment-variables.html" target="_blank" rel="external">Powershell环境变量</a></p>
+        <p><a href="https://docs.docker.com/engine/swarm/stack-deploy/" target="_blank" rel="external">Deploy a stack to a swarm</a></p>
 
       
     </div>
@@ -412,6 +434,14 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/docker/" rel="tag"># docker</a>
+          
+            <a href="/tags/docker-swarm/" rel="tag"># docker swarm</a>
+          
+        </div>
+      
 
       
       
@@ -421,8 +451,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/10/26/Docker Swarm 一 概述/" rel="next" title="Docker Swarm 一">
-                <i class="fa fa-chevron-left"></i> Docker Swarm 一
+              <a href="/2018/10/30/Powershell会话中设置环境变量/" rel="next" title="Powershell会话中设置环境变量">
+                <i class="fa fa-chevron-left"></i> Powershell会话中设置环境变量
               </a>
             
           </div>
@@ -476,17 +506,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/starfish.png"
@@ -501,7 +522,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">29</span>
+                <span class="site-state-item-count">30</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -603,22 +624,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Powershell会话中设置环境变量"><span class="nav-number">1.</span> <span class="nav-text">Powershell会话中设置环境变量</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       

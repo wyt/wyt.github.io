@@ -1,8 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Deploy a stack to a swarm]]></title>
+    <url>%2F2018%2F10%2F30%2FDeploy%20a%20stack%20to%20a%20swarm%2F</url>
+    <content type="text"><![CDATA[Deploy a stack to a swarm]]></content>
+      <categories>
+        <category>docker</category>
+      </categories>
+      <tags>
+        <tag>docker</tag>
+        <tag>docker swarm</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Powershell会话中设置环境变量]]></title>
-    <url>%2F2018%2F10%2F30%2Fhello-world%2F</url>
+    <url>%2F2018%2F10%2F30%2FPowershell%E4%BC%9A%E8%AF%9D%E4%B8%AD%E8%AE%BE%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%2F</url>
     <content type="text"><![CDATA[Powershell会话中设置环境变量12345678910111213PS C:\personal\idea\cloud-cook&gt; ls env:DOCKER_HOSTName Value---- -----DOCKER_HOST tcp://192.168.1.114:2375PS C:\personal\idea\cloud-cook&gt; $env:DOCKER_HOST="tcp://192.168.21.129:2375" # 在当前会话中创建DOCKER_HOST环境变量PS C:\personal\idea\cloud-cook&gt; ls env:DOCKER_HOSTName Value---- -----DOCKER_HOST tcp://192.168.21.129:2375 More info: Powershell环境变量]]></content>
   </entry>
   <entry>
@@ -202,9 +214,9 @@
         <category>MySQL</category>
       </categories>
       <tags>
-        <tag>Oracle</tag>
         <tag>MySQL</tag>
         <tag>数据库</tag>
+        <tag>Oracle</tag>
       </tags>
   </entry>
   <entry>
@@ -216,9 +228,9 @@
         <category>MySQL</category>
       </categories>
       <tags>
+        <tag>Linux</tag>
         <tag>MySQL</tag>
         <tag>数据库</tag>
-        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
