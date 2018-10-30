@@ -1,6 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Powershell会话中设置环境变量]]></title>
+    <url>%2F2018%2F10%2F30%2Fhello-world%2F</url>
+    <content type="text"><![CDATA[Powershell会话中设置环境变量12345678910111213PS C:\personal\idea\cloud-cook&gt; ls env:DOCKER_HOSTName Value---- -----DOCKER_HOST tcp://192.168.1.114:2375PS C:\personal\idea\cloud-cook&gt; $env:DOCKER_HOST="tcp://192.168.21.129:2375" # 在当前会话中创建DOCKER_HOST环境变量PS C:\personal\idea\cloud-cook&gt; ls env:DOCKER_HOSTName Value---- -----DOCKER_HOST tcp://192.168.21.129:2375 More info: Powershell环境变量]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Docker Swarm 一]]></title>
+    <url>%2F2018%2F10%2F26%2FDocker%20Swarm%20%E4%B8%80%20%E6%A6%82%E8%BF%B0%2F</url>
+    <content type="text"><![CDATA[Uninstall old versions12345678910[root@docker_007 ~]# yum remove docker \ docker-client \ docker-client-latest \ docker-common \ docker-latest \ docker-latest-logrotate \ docker-logrotate \ docker-selinux \ docker-engine-selinux \ docker-engine Install Docker CEInstall required packages123[root@docker_007 ~]# yum install -y yum-utils \ device-mapper-persistent-data \ lvm2 Use the following command to set up the stable repository12345# 注意设置阿里云repo[root@docker_007 ~]# yum-config-manager \ --add-repo \ http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo[root@docker_007 ~]# yum makecache fast Install Docker CE123[root@docker_007 ~]# yum install docker-ce[root@docker_007 ~]# docker -vDocker version 18.06.1-ce, build e68fc7a 镜像加速器使用阿里云Docker镜像加速器，进入阿里云控制台查看配置。https://cr.console.aliyun.com/cn-hangzhou/mirrors Start docker123# 启动docker服务，并保持开机自启动[root@docker_007 ~]# systemctl start docker[root@docker_007 ~]# systemctl enable docker 其他组件docker composehttps://docs.docker.com/compose/install/ docker machinehttps://docs.docker.com/machine/install-machine/ Get Docker CE for CentOS]]></content>
+      <categories>
+        <category>docker</category>
+      </categories>
+      <tags>
+        <tag>docker</tag>
+        <tag>docker swarm</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Docker Swarm 一 概述]]></title>
+    <url>%2F2018%2F10%2F26%2FDocker%20Swarm%20%E4%B8%80%2F</url>
+    <content type="text"><![CDATA[自docker engine 1.12引入swarm模式后，可由一个或多个docker引擎组成一个集群，称之为swarm，一个swarm由一个或多个节点组成。 关键概念节点swarm节点分为两种类型：manager和worker， Manager节点维护集群状态，调度服务，提供swarm模式下的API服务等，多个Manager节点只有一个leader执行编排任务； Worker节点接收并执行从Manager节点分派的任务，默认情况下Manager节点同时也是Worker节点； 服务服务是对在管理节点和工作节点执行任务的定义，创建服务时可以指定具体使用的镜像和容器中执行的命令等。 服务有两种模式:replicated 和 global 任务负载均衡Swarm mode overviewSwarm mode key concepts]]></content>
+      <categories>
+        <category>docker</category>
+      </categories>
+      <tags>
+        <tag>docker</tag>
+        <tag>docker swarm</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Docker install]]></title>
     <url>%2F2018%2F10%2F25%2FDocker%20install%2F</url>
     <content type="text"><![CDATA[Uninstall old versions12345678910[root@docker_007 ~]# yum remove docker \ docker-client \ docker-client-latest \ docker-common \ docker-latest \ docker-latest-logrotate \ docker-logrotate \ docker-selinux \ docker-engine-selinux \ docker-engine Install Docker CEInstall required packages123[root@docker_007 ~]# yum install -y yum-utils \ device-mapper-persistent-data \ lvm2 Use the following command to set up the stable repository12345# 注意设置阿里云repo[root@docker_007 ~]# yum-config-manager \ --add-repo \ http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo[root@docker_007 ~]# yum makecache fast Install Docker CE123[root@docker_007 ~]# yum install docker-ce[root@docker_007 ~]# docker -vDocker version 18.06.1-ce, build e68fc7a 镜像加速器使用阿里云Docker镜像加速器，进入阿里云控制台查看配置。https://cr.console.aliyun.com/cn-hangzhou/mirrors Start docker123# 启动docker服务，并保持开机自启动[root@docker_007 ~]# systemctl start docker[root@docker_007 ~]# systemctl enable docker 其他组件docker composehttps://docs.docker.com/compose/install/ docker machinehttps://docs.docker.com/machine/install-machine/ Get Docker CE for CentOS]]></content>
@@ -173,9 +202,9 @@
         <category>MySQL</category>
       </categories>
       <tags>
+        <tag>Oracle</tag>
         <tag>MySQL</tag>
         <tag>数据库</tag>
-        <tag>Oracle</tag>
       </tags>
   </entry>
   <entry>
@@ -187,9 +216,9 @@
         <category>MySQL</category>
       </categories>
       <tags>
-        <tag>Linux</tag>
         <tag>MySQL</tag>
         <tag>数据库</tag>
+        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
