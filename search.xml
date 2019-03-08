@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[同步、异步 & 阻塞、非阻塞]]></title>
+    <url>%2F2019%2F03%2F08%2F%E5%90%8C%E6%AD%A5(synchronous)%EF%BC%8C%E5%BC%82%E6%AD%A5(asynchronous)%EF%BC%8C%E9%98%BB%E5%A1%9E(blocking)%E5%92%8C%E9%9D%9E%E9%98%BB%E5%A1%9E(non-blocking)%2F</url>
+    <content type="text"><![CDATA[同步(Synchronous)异步(Asynchronous)阻塞(Blocking)非阻塞(Non-blocking) https://baiweiblog.wordpress.com/tag/non-blocking/https://blog.csdn.net/historyasamirror/article/details/5778378]]></content>
+      <tags>
+        <tag>OS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Git版本回退]]></title>
+    <url>%2F2019%2F03%2F04%2FGit%E7%89%88%E6%9C%AC%E5%9B%9E%E9%80%80%2F</url>
+    <content type="text"><![CDATA[改动未提交至远程仓库的情况 12# 将HEAD指向commit_id[root@localhost ~]# git reset --hard commit_id 改动已提交至远程仓库的情况 123# revert是放弃指定提交的修改，会生成一次新的提交，需要填写注释，历史记录都在；而reset是指将HEAD指针指到指定提交;[root@localhost ~]# git revert HEAD[root@localhost ~]# git push origin master https://www.cnblogs.com/iloveyou-sky/p/6534409.htmlhttps://blog.csdn.net/yxlshk/article/details/79944535]]></content>
+      <tags>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Docker Swarm节点维护标签]]></title>
     <url>%2F2018%2F10%2F30%2FDocker%20Swarm%E8%8A%82%E7%82%B9%E7%BB%B4%E6%8A%A4%E6%A0%87%E7%AD%BE%2F</url>
     <content type="text"><![CDATA[Swarm节点维护标签1234567891011121314151617181920212223242526[root@docker_001 ~]# docker node lsID HOSTNAME STATUS AVAILABILITY MANAGER STATUS ENGINE VERSIONlw72u2jd7xi1xagw94cmd86kk * docker_001 Ready Active Leader 18.06.1-ce2igmbyfampcduad32ustl00y8 docker_003 Ready Active 18.06.1-cewudald9nltt9mq9jo9aau3tvf docker_005 Ready Active 18.06.1-ce# 增加一个type=dop的标签[root@docker_001 ~]# docker node update --label-add type=dop lw72u2jd7xi1xagw94cmd86kklw72u2jd7xi1xagw94cmd86kk# 查看标签[root@docker_001 ~]# docker node inspect lw72u2jd7xi1xagw94cmd86kk --prettyID: lw72u2jd7xi1xagw94cmd86kkLabels: - type=dopHostname: docker_001Joined at: 2018-10-24 13:52:32.919572847 +0000 utc...# 移除标签[root@docker_001 ~]# docker node update --label-rm type lw72u2jd7xi1xagw94cmd86kklw72u2jd7xi1xagw94cmd86kk[root@docker_001 ~]# docker node inspect lw72u2jd7xi1xagw94cmd86kk --prettyID: lw72u2jd7xi1xagw94cmd86kkHostname: docker_001Joined at: 2018-10-24 13:52:32.919572847 +0000 utc Add-or-remove-label-metadata]]></content>
@@ -71,6 +87,9 @@
     <title><![CDATA[Git命令最佳实践]]></title>
     <url>%2F2018%2F10%2F05%2FGit%E5%91%BD%E4%BB%A4%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5%2F</url>
     <content type="text"><![CDATA[Create a repositoryFrom scratch – create a new local repository 1$ git init [project_name] Download form an existing repository 1$ git clone my_url Observe your repositoryList new or modified files not yet committed 1$ git status Show the changes to files not yet staged 1$ git diff Show the changes to staged files 1$ git diff --cached Show all staged and unstaged file changes 1$ git diff HEAD Show the changes between two commit ids 1$ git diff commit1 commit2 List the change dates and authors for a file 1$ git blame [file] Show the file changes for a commit id and/or file 1$ git show [commit_id]:[file] Show full change history 1$ git log show change history for file/directory including diffs 1$ git log -p [file/directory] Working with branchesList all local branches 1$ git branch List all branches, local and remote1$ git branch -av Switch to a branch, and update working directory 1$ git checkout my_branch Create a new branch called new_branch 1$ git branch new_branch Delete the branch called my_branch 1$ git branch -d my_branch Merge branch_a into branch_b 12$ git checkout branch_b$ git merge branch_a Tag the current commit1$ git tag my_tag Make a changeStage the file, ready for commit 1$ git add [file] Stage all changed files, ready for commit 1$ git add . Commit all staged files to versioned history 1$ git commit -m "commit message" Commit all your tracked files to versioned history 1$ git commit -am "commit message" Unstages file, keeping the file changes 1$ git reset [file] Revert everything to the last commit 1$ git reset --hard SynchronizeGet the latest changes from origin (no merge) 1$ git fetch Fetch the latest changes from origin and merge 1$ git pull Fetch the latest changes from origin and rebase 1$ git pull --rebase Push local chages to the origin 1$ git push FinallyWhen in doubt, use git help 1$ git command --help Or visit https://training.github.com/ for official GitHub training. 参考：Git Commands and Best Practices Cheat Sheet，Simon Maple]]></content>
+      <tags>
+        <tag>Git</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[SQL备忘录]]></title>
