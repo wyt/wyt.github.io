@@ -17,20 +17,20 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>同步、异步 &amp; 阻塞、非阻塞</title>
-    <link href="http://yoursite.com/2019/03/08/%E5%90%8C%E6%AD%A5%E3%80%81%E5%BC%82%E6%AD%A5%20&amp;%20%E9%98%BB%E5%A1%9E%E3%80%81%E9%9D%9E%E9%98%BB%E5%A1%9E/"/>
-    <id>http://yoursite.com/2019/03/08/同步、异步 &amp; 阻塞、非阻塞/</id>
+    <title>网络IO之同步、异步 &amp; 阻塞、非阻塞</title>
+    <link href="http://yoursite.com/2019/03/08/%E7%BD%91%E7%BB%9CIO%E4%B9%8B%E5%90%8C%E6%AD%A5%E3%80%81%E5%BC%82%E6%AD%A5%20&amp;%20%E9%98%BB%E5%A1%9E%E3%80%81%E9%9D%9E%E9%98%BB%E5%A1%9E/"/>
+    <id>http://yoursite.com/2019/03/08/网络IO之同步、异步 &amp; 阻塞、非阻塞/</id>
     <published>2019-03-08T06:41:27.000Z</published>
     <updated>2019-03-08T06:41:33.000Z</updated>
     
-    <content type="html"><![CDATA[<p>同步(Synchronous)<br>异步(Asynchronous)<br>阻塞(Blocking)<br>非阻塞(Non-blocking)</p><p><a href="http://www.rowkey.me/blog/2016/01/18/io-model/" target="_blank" rel="external">http://www.rowkey.me/blog/2016/01/18/io-model/</a><br><a href="https://baiweiblog.wordpress.com/tag/non-blocking/" target="_blank" rel="external">https://baiweiblog.wordpress.com/tag/non-blocking/</a><br><a href="https://blog.csdn.net/historyasamirror/article/details/5778378" target="_blank" rel="external">https://blog.csdn.net/historyasamirror/article/details/5778378</a></p>]]></content>
+    <content type="html"><![CDATA[<p>同步(Synchronous)</p><p>A synchronous I/O operation causes the requesting process to be blocked until that I/O operation completes; (同步I/O操作导致请求进程被阻塞，直到I/O操作完成)</p><p>异步(Asynchronous)</p><p>An asynchronous I/O operation does not cause the requesting process to be blocked; (异步I/O操作不会阻塞请求进程)</p><p>注意Non-blocking IO在执行recvfrom这个系统调用的时候，如果kernel的数据没有准备好，不会block进程；如果kernel数据准备好了，recvfrom会将数据从内核空间拷贝到用户空间，在这段时间内，进程还是被block的。</p><p>阻塞(Blocking)</p><p>阻塞调用是指调用结果返回之前，当前线程会被挂起。</p><p>非阻塞(Non-blocking)</p><p>非阻塞调用指在不能立刻得到结果之前，该调用不会阻塞当前线程。</p><p><a href="http://www.rowkey.me/blog/2016/01/18/io-model/" target="_blank" rel="external">http://www.rowkey.me/blog/2016/01/18/io-model/</a><br><a href="https://baiweiblog.wordpress.com/tag/non-blocking/" target="_blank" rel="external">https://baiweiblog.wordpress.com/tag/non-blocking/</a><br><a href="https://www.zhihu.com/question/19732473/answer/20851256" target="_blank" rel="external">https://www.zhihu.com/question/19732473/answer/20851256</a><br><a href="https://blog.csdn.net/historyasamirror/article/details/5778378" target="_blank" rel="external">https://blog.csdn.net/historyasamirror/article/details/5778378</a></p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;同步(Synchronous)&lt;br&gt;异步(Asynchronous)&lt;br&gt;阻塞(Blocking)&lt;br&gt;非阻塞(Non-blocking)&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;http://www.rowkey.me/blog/2016/01/18/io-model/&quot; 
+        &lt;p&gt;同步(Synchronous)&lt;/p&gt;
+&lt;p&gt;A synchronous I/O operation causes the requesting process to be blocked until that I/O operation completes; (同步I/O
       
     
     </summary>
