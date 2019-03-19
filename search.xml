@@ -11,7 +11,7 @@
   <entry>
     <title><![CDATA[Git版本回退]]></title>
     <url>%2F2019%2F03%2F04%2FGit%E7%89%88%E6%9C%AC%E5%9B%9E%E9%80%80%2F</url>
-    <content type="text"><![CDATA[改动未提交至远程仓库的情况 12# 将HEAD指向commit_id[root@localhost ~]# git reset --hard commit_id 改动已提交至远程仓库的情况 123# revert是放弃指定提交的修改，会生成一次新的提交，需要填写注释，历史记录都在；而reset是指将HEAD指针指到指定提交;[root@localhost ~]# git revert HEAD[root@localhost ~]# git push origin master https://segmentfault.com/q/1010000000140446https://www.cnblogs.com/iloveyou-sky/p/6534409.htmlhttps://blog.csdn.net/yxlshk/article/details/79944535]]></content>
+    <content type="text"><![CDATA[改动未提交至远程仓库的情况 12# 将HEAD指向commit_id[root@localhost ~]# git reset --hard commit_id 改动已提交至远程仓库的情况 123# revert是放弃指定提交的修改，会生成一次新的提交，需要填写注释，历史记录都在；而reset是指将HEAD指针指到指定提交;[root@localhost ~]# git revert HEAD[root@localhost ~]# git push origin master https://segmentfault.com/q/1010000000140446https://blog.csdn.net/yxlshk/article/details/79944535https://www.cnblogs.com/iloveyou-sky/p/6534409.html]]></content>
       <tags>
         <tag>Git</tag>
       </tags>
