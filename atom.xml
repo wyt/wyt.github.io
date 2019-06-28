@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-03-08T06:41:33.000Z</updated>
+  <updated>2019-06-28T01:37:05.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,55 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>生产环境下的Elasticsearch参数调整</title>
+    <link href="http://yoursite.com/2019/06/28/%E7%94%9F%E4%BA%A7%E7%8E%AF%E5%A2%83%E4%B8%8B%E7%9A%84Elasticsearch%E5%8F%82%E6%95%B0%E8%B0%83%E6%95%B4/"/>
+    <id>http://yoursite.com/2019/06/28/生产环境下的Elasticsearch参数调整/</id>
+    <published>2019-06-28T01:37:00.000Z</published>
+    <updated>2019-06-28T01:37:05.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>开启<code>config/elasticsearch.yml</code>中<code>network.host</code>配置后，ES启动时会切换为生产模式，开发模式下的警告会升级为异常，导致ES节点无法启动。</p><h4 id="禁止swapping"><a href="#禁止swapping" class="headerlink" title="禁止swapping"></a>禁止swapping</h4><p>设置Elasticsearch可锁定的、不被交换出的内存不受限制。编辑<code>config/elasticsearch.yml</code><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 设置为true</span></div><div class="line">bootstrap.memory_lock: <span class="literal">true</span></div></pre></td></tr></table></figure></p><p>编辑<code>/etc/security/limits.conf</code>文件，追加下述配置：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># elasticsearch用户锁定内存(不会被swap)不受限制</span></div><div class="line">elasticsearch  -  memlock unlimited</div></pre></td></tr></table></figure></p><a id="more"></a><h4 id="增大文件描述符"><a href="#增大文件描述符" class="headerlink" title="增大文件描述符"></a>增大文件描述符</h4><p>编辑<code>/etc/security/limits.conf</code>文件，追加下述配置：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># elasticsearch用户最多打开文件描述符的数量</span></div><div class="line">elasticsearch  -  nofile  65536</div></pre></td></tr></table></figure></p><h4 id="保证足够的线程数"><a href="#保证足够的线程数" class="headerlink" title="保证足够的线程数"></a>保证足够的线程数</h4><p>编辑<code>/etc/security/limits.conf</code>文件，追加下述配置：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 设置elasticsearch用户最多创建线程数</span></div><div class="line">elasticsearch  -  nproc 4096</div></pre></td></tr></table></figure></p><h4 id="保证足够的虚拟内存"><a href="#保证足够的虚拟内存" class="headerlink" title="保证足够的虚拟内存"></a>保证足够的虚拟内存</h4><p>编辑<code>/etc/sysctl.conf</code>文件，追加下述配置：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vm.max_map_count=262144</div></pre></td></tr></table></figure></p><h4 id="使设置生效"><a href="#使设置生效" class="headerlink" title="使设置生效"></a>使设置生效</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 加载系统配置参数</span></div><div class="line">[root@elasticstack-server filebeat-6.6.2-nginx]<span class="comment"># sysctl -p</span></div><div class="line">[root@elasticstack-server filebeat-6.6.2-nginx]<span class="comment"># sysctl vm.max_map_count</span></div><div class="line">vm.max_map_count = 262144</div><div class="line"></div><div class="line"><span class="comment"># 切换到elasticsearch用户使ulimit设置生效</span></div><div class="line">[root@elasticstack-server filebeat-6.6.2-nginx]<span class="comment"># su elasticsearch</span></div><div class="line">[elasticsearch@elasticstack-server elasticsearch-6.6.2]$ <span class="built_in">ulimit</span> -a</div><div class="line">core file size          (blocks, -c) 0</div><div class="line">data seg size           (kbytes, -d) unlimited</div><div class="line">scheduling priority             (-e) 0</div><div class="line">file size               (blocks, -f) unlimited</div><div class="line">pending signals                 (-i) 31140</div><div class="line">max locked memory       (kbytes, -l) unlimited</div><div class="line">max memory size         (kbytes, -m) unlimited</div><div class="line">open files                      (-n) 65536</div><div class="line">pipe size            (512 bytes, -p) 8</div><div class="line">POSIX message queues     (bytes, -q) 819200</div><div class="line">real-time priority              (-r) 0</div><div class="line">stack size              (kbytes, -s) 8192</div><div class="line">cpu time               (seconds, -t) unlimited</div><div class="line">max user processes              (-u) 4096</div><div class="line">virtual memory          (kbytes, -v) unlimited</div><div class="line">file locks                      (-x) unlimited</div><div class="line"></div><div class="line"><span class="comment"># 启动Elasticsearch</span></div><div class="line">[elasticsearch@elasticstack-server elasticsearch-6.6.2]$ ./bin/elasticsearch -d -p pid</div></pre></td></tr></table></figure><h4 id="检查设置"><a href="#检查设置" class="headerlink" title="检查设置"></a>检查设置</h4><p>Elasticsearch启动成功后，检查设置项：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 设置成功</span></div><div class="line">[root@elasticstack-server ~]<span class="comment"># curl -X GET "localhost:9200/_nodes?filter_path=**.mlockall"</span></div><div class="line">&#123;<span class="string">"nodes"</span>:&#123;<span class="string">"yW_SUaDnS6WED2QPm5y4TA"</span>:&#123;<span class="string">"process"</span>:&#123;<span class="string">"mlockall"</span>:<span class="literal">true</span>&#125;&#125;&#125;&#125;</div><div class="line"></div><div class="line">[root@elasticstack-server ~]<span class="comment"># curl -X GET "localhost:9200/_nodes/stats/process?filter_path=**.max_file_descriptors"</span></div><div class="line">&#123;<span class="string">"nodes"</span>:&#123;<span class="string">"yW_SUaDnS6WED2QPm5y4TA"</span>:&#123;<span class="string">"process"</span>:&#123;<span class="string">"max_file_descriptors"</span>:65536&#125;&#125;&#125;&#125;</div></pre></td></tr></table></figure></p><p><a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.2/system-config.html" target="_blank" rel="external">https://www.elastic.co/guide/en/elasticsearch/reference/6.2/system-config.html</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;开启&lt;code&gt;config/elasticsearch.yml&lt;/code&gt;中&lt;code&gt;network.host&lt;/code&gt;配置后，ES启动时会切换为生产模式，开发模式下的警告会升级为异常，导致ES节点无法启动。&lt;/p&gt;
+&lt;h4 id=&quot;禁止swapping&quot;&gt;&lt;a href=&quot;#禁止swapping&quot; class=&quot;headerlink&quot; title=&quot;禁止swapping&quot;&gt;&lt;/a&gt;禁止swapping&lt;/h4&gt;&lt;p&gt;设置Elasticsearch可锁定的、不被交换出的内存不受限制。编辑&lt;code&gt;config/elasticsearch.yml&lt;/code&gt;&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 设置为true&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;bootstrap.memory_lock: &lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;编辑&lt;code&gt;/etc/security/limits.conf&lt;/code&gt;文件，追加下述配置：&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# elasticsearch用户锁定内存(不会被swap)不受限制&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;elasticsearch  -  memlock unlimited&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="elasticsearch" scheme="http://yoursite.com/categories/elasticsearch/"/>
+    
+    
+      <category term="elasticsearch" scheme="http://yoursite.com/tags/elasticsearch/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Docker swarm删除节点</title>
+    <link href="http://yoursite.com/2019/05/15/Docker%20swarm%E5%88%A0%E9%99%A4%E8%8A%82%E7%82%B9/"/>
+    <id>http://yoursite.com/2019/05/15/Docker swarm删除节点/</id>
+    <published>2019-05-15T03:31:49.000Z</published>
+    <updated>2019-05-15T03:31:54.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="Docker-swarm删除节点"><a href="#Docker-swarm删除节点" class="headerlink" title="Docker swarm删除节点"></a>Docker swarm删除节点</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 在管理节点上先排空节点</span></div><div class="line">docker node update --availability drain yyxh5zbei71kq7c5tadoq19ri</div><div class="line"><span class="comment"># 移除节点</span></div><div class="line">docker node rm yyxh5zbei71kq7c5tadoq19ri</div><div class="line"><span class="comment"># 或者强制删除</span></div><div class="line">docker node rm --force yyxh5zbei71kq7c5tadoq19ri</div><div class="line"></div><div class="line"><span class="comment"># 在所要删除的节点上执行</span></div><div class="line">docker swarm leave</div><div class="line"><span class="comment"># 或强制离开</span></div><div class="line">docker swarm leave --force</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;Docker-swarm删除节点&quot;&gt;&lt;a href=&quot;#Docker-swarm删除节点&quot; class=&quot;headerlink&quot; title=&quot;Docker swarm删除节点&quot;&gt;&lt;/a&gt;Docker swarm删除节点&lt;/h3&gt;&lt;figure class=&quot;hi
+      
+    
+    </summary>
+    
+      <category term="docker" scheme="http://yoursite.com/categories/docker/"/>
+    
+    
+      <category term="docker" scheme="http://yoursite.com/tags/docker/"/>
+    
+  </entry>
   
   <entry>
     <title>网络IO之同步、异步 &amp; 阻塞、非阻塞</title>
@@ -413,111 +462,6 @@
       <category term="Java" scheme="http://yoursite.com/tags/Java/"/>
     
       <category term="教程" scheme="http://yoursite.com/tags/%E6%95%99%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>理解cron表达式</title>
-    <link href="http://yoursite.com/2018/03/01/%E7%90%86%E8%A7%A3cron%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
-    <id>http://yoursite.com/2018/03/01/理解cron表达式/</id>
-    <published>2018-03-01T03:00:00.000Z</published>
-    <updated>2018-03-01T03:50:00.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="A-Cron-Expressions"><a href="#A-Cron-Expressions" class="headerlink" title="A Cron Expressions"></a>A Cron Expressions</h2><p>cron表达式形如 <code>0 0 12 * * ?</code> ，由 <code>Seconds</code> <code>Minutes</code> <code>Hours</code> <code>Day of month</code> <code>Month</code> <code>Day of week</code> <code>Year</code> 字段构成，即<code>几秒</code> <code>几分</code> <code>几时</code> <code>几号</code> <code>几月</code> <code>周几</code> <code>哪年</code>。 字段之间使用空格分隔，每个字段可包含任意多个合法的字符。</p><p>Table A-1 Cron Expressions Allowed Fields and Values</p><table><thead><tr><th>Name</th><th style="text-align:center">Required</th><th style="text-align:center">Allowed Values</th><th style="text-align:center">Allowed Special Characters</th></tr></thead><tbody><tr><td>Seconds</td><td style="text-align:center">Y</td><td style="text-align:center">0-59</td><td style="text-align:center">, - * /</td></tr><tr><td>Minutes</td><td style="text-align:center">Y</td><td style="text-align:center">0-59</td><td style="text-align:center">, - * /</td></tr><tr><td>Hours</td><td style="text-align:center">Y</td><td style="text-align:center">0-23</td><td style="text-align:center">, - * /</td></tr><tr><td>Day of month</td><td style="text-align:center">Y</td><td style="text-align:center">1-31</td><td style="text-align:center">, - * ? / L W</td></tr><tr><td>Month</td><td style="text-align:center">Y</td><td style="text-align:center">1-12 or JAN-DEC</td><td style="text-align:center">, - * /</td></tr><tr><td>Day of week</td><td style="text-align:center">Y</td><td style="text-align:center">1-7 or SUN-SAT</td><td style="text-align:center">, - * ? / L #</td></tr><tr><td>Year</td><td style="text-align:center">N</td><td style="text-align:center">empty or 1970-2099</td><td style="text-align:center">, - * /</td></tr></tbody></table><a id="more"></a><h2 id="Special-Characters"><a href="#Special-Characters" class="headerlink" title="Special Characters"></a>Special Characters</h2><p><code>*</code> (“all values”) - 用于表示字段中的所有值。例如，<code>Minutes</code>字段中的“*”意味着每一分钟。</p><p><code>?</code> (“no specific value”) -  不指定特定的值，举个例子，如果我希望我的任务在某月中特定的某天（如第10天）被触发，并且我不关心是星期几被触发，那么我会设置<code>day-of-month</code>字段为<code>10</code>，设置<code>day-of-week</code>字段为<code>?</code></p><p><code>-</code> - 用于指定范围.如<code>hour</code>值为<code>10-12</code> 表示10时，11时，12时。</p><p><code>,</code> - 用于指定附加的值。例如，<code>day-of-week</code>的值为<code>MON,WED,FRI</code>表示星期天，星期三，星期五</p><p><code>/</code> - 用于指定增长。例如，秒字段值为“0/15”表示具体为第0秒，15秒，30秒，45秒的集合，即从第0秒开始，间隔15秒累加。秒字段值为“5/15”表示具体为第5秒，20秒，35秒，50秒的集合，即从第5秒开始，间隔15秒累加。也可以把/写在’’(即空串，没有’’)后面如’/15’,这种情况等价于’0/15’。<code>day-of-month</code>等于<code>1/3</code> 表示从某月的第一天开始，每隔3天触发。</p><p><code>L</code> (“last”) - 指最后，不同的情况有不同的含义，如<code>day-of-month</code>等于“L”表示月中的最后一天。<code>day-of-week</code>等于“L”仅表示7或者SAT。<code>day-of-week</code>等于“6L”表示月中的最后一个周五。也可以从月中的最后一天指定一个偏移量，例如<code>day-of-month</code>等于“L-3”表示月中的倒数第三天。当使用“L”选项时，切记不要指定列表或值的范围，因为可能会得到令人困惑意外的结果。</p><p><code>W</code> (“weekday”) - 用于指定离指定日最近的工作日（星期一至星期五）。例如，如果您要将“15W”指定为<code>day-of-month</code>字段的值，则含义为：“距离本月15日最近的工作日”。因此，如果15日是星期六，触发器将于14日星期五触发。如果15日是星期天，触发器将在16日星期一触发。如果15日是星期二，那么它将在15日星期二触发。 但是，如果您将“1W”指定为<code>day-of-month</code>的值，并且1号是星期六，则触发器将在星期一即3号触发，因为它不能跨越当前月的边界。’W’字符只能在<code>day-of-month</code>是单日而不是日期范围或日期列表时指定。</p><p>L和W字符也能联合使用在<code>day-of-mouth</code>字段中，即<code>LW</code>，它表示月中的最后一个工作日。</p><p><code>#</code> - 用于指定月中的第几天。例如，<code>day-of-week</code>等于“6#3”表示月中的第三个星期五。又如，“2#1” 表示月中的第一个星期一，“4#5”表示月中的第五个星期三。注意如果你指定了“#5”，并且该月的星期不存在5个，则该月不会发生任何触发。</p><p>合法字符串、月份名称、星期名称不区分大小写，MON等价于mon。</p><h2 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h2><p>下面的例子自己理解一下吧~<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Fire at 12:00 PM (noon) every day</span></div><div class="line">0 0 12 * * ?</div><div class="line"><span class="comment"># Fire at 10:15 AM every day</span></div><div class="line">0 15 10 ? * *</div><div class="line"><span class="comment"># Fire at 10:15 AM every day</span></div><div class="line">0 15 10 * * ?</div><div class="line"><span class="comment"># Fire at 10:15 AM every day</span></div><div class="line">0 15 10 * * ? *</div><div class="line"><span class="comment"># Fire at 10:15 AM every day during the year 2005</span></div><div class="line">0 15 10 * * ? 2005</div><div class="line"><span class="comment"># Fire every minute starting at 2:00 PM and ending at 2:59 PM, every day</span></div><div class="line">0 * 14 * * ?</div><div class="line"><span class="comment"># Fire every 5 minutes starting at 2:00 PM and ending at 2:55 PM, every day</span></div><div class="line">0 0/5 14 * * ?</div><div class="line"><span class="comment"># Fire every 5 minutes starting at 2:00 PM and ending at 2:55 PM, AND fire every 5 minutes starting at 6:00 PM and ending at 6:55 PM, every day</span></div><div class="line">0 0/5 14,18 * * ?</div><div class="line"><span class="comment"># Fire every minute starting at 2:00 PM and ending at 2:05 PM, every day</span></div><div class="line">0 0-5 14 * * ?</div><div class="line"><span class="comment"># Fire at 2:10 PM and at 2:44 PM every Wednesday in the month of March</span></div><div class="line">0 10,44 14 ? 3 WED</div><div class="line"><span class="comment"># Fire at 10:15 AM every Monday, Tuesday, Wednesday, Thursday and Friday</span></div><div class="line">0 15 10 ? * MON-FRI</div><div class="line"><span class="comment"># Fire at 10:15 AM on the 15th day of every month</span></div><div class="line">0 15 10 15 * ?</div><div class="line"><span class="comment"># Fire at 10:15 AM on the last day of every month</span></div><div class="line">0 15 10 L * ?</div><div class="line"><span class="comment"># Fire at 10:15 AM on the last Friday of every month</span></div><div class="line">0 15 10 ? * 6L</div><div class="line"><span class="comment"># Fire at 10:15 AM on the last Friday of every month</span></div><div class="line">0 15 10 ? * 6L</div><div class="line"><span class="comment"># Fire at 10:15 AM on every last friday of every month during the years 2002, 2003, 2004, and 2005</span></div><div class="line">0 15 10 ? * 6L 2002-2005</div><div class="line"><span class="comment"># Fire at 10:15 AM on the third Friday of every month</span></div><div class="line">0 15 10 ? * 6<span class="comment">#3</span></div><div class="line"><span class="comment"># Fire at 12 PM (noon) every 5 days every month, starting on the first day of the month</span></div><div class="line">0 0 12 1/5 * ?</div><div class="line"><span class="comment"># Fire every November 11 at 11:11 AM</span></div><div class="line">0 11 11 11 11 ?</div></pre></td></tr></table></figure></p><p>参考资料：<br>1.<a href="https://docs.oracle.com/cd/E12058_01/doc/doc.1014/e12030/cron_expressions.htm" target="_blank" rel="external">Cron Expressions</a><br>2.<a href="http://www.quartz-scheduler.org/documentation/quartz-2.2.x/tutorials/crontrigger.html" target="_blank" rel="external">Cron Trigger Tutorial</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;A-Cron-Expressions&quot;&gt;&lt;a href=&quot;#A-Cron-Expressions&quot; class=&quot;headerlink&quot; title=&quot;A Cron Expressions&quot;&gt;&lt;/a&gt;A Cron Expressions&lt;/h2&gt;&lt;p&gt;cron表达式形如 &lt;code&gt;0 0 12 * * ?&lt;/code&gt; ，由 &lt;code&gt;Seconds&lt;/code&gt; &lt;code&gt;Minutes&lt;/code&gt; &lt;code&gt;Hours&lt;/code&gt; &lt;code&gt;Day of month&lt;/code&gt; &lt;code&gt;Month&lt;/code&gt; &lt;code&gt;Day of week&lt;/code&gt; &lt;code&gt;Year&lt;/code&gt; 字段构成，即&lt;code&gt;几秒&lt;/code&gt; &lt;code&gt;几分&lt;/code&gt; &lt;code&gt;几时&lt;/code&gt; &lt;code&gt;几号&lt;/code&gt; &lt;code&gt;几月&lt;/code&gt; &lt;code&gt;周几&lt;/code&gt; &lt;code&gt;哪年&lt;/code&gt;。 字段之间使用空格分隔，每个字段可包含任意多个合法的字符。&lt;/p&gt;
-&lt;p&gt;Table A-1 Cron Expressions Allowed Fields and Values&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Name&lt;/th&gt;
-&lt;th style=&quot;text-align:center&quot;&gt;Required&lt;/th&gt;
-&lt;th style=&quot;text-align:center&quot;&gt;Allowed Values&lt;/th&gt;
-&lt;th style=&quot;text-align:center&quot;&gt;Allowed Special Characters&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Seconds&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;Y&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;0-59&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;, - * /&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Minutes&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;Y&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;0-59&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;, - * /&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Hours&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;Y&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;0-23&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;, - * /&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Day of month&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;Y&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;1-31&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;, - * ? / L W&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Month&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;Y&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;1-12 or JAN-DEC&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;, - * /&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Day of week&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;Y&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;1-7 or SUN-SAT&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;, - * ? / L #&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Year&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;N&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;empty or 1970-2099&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;, - * /&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-    
-    </summary>
-    
-      <category term="Java" scheme="http://yoursite.com/categories/Java/"/>
-    
-    
-      <category term="Java" scheme="http://yoursite.com/tags/Java/"/>
-    
-      <category term="教程" scheme="http://yoursite.com/tags/%E6%95%99%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hibernate5.0快速入门</title>
-    <link href="http://yoursite.com/2017/12/20/Hibernate5.0%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/"/>
-    <id>http://yoursite.com/2017/12/20/Hibernate5.0快速入门/</id>
-    <published>2017-12-20T14:22:00.000Z</published>
-    <updated>2017-12-20T15:20:06.541Z</updated>
-    
-    <content type="html"><![CDATA[<p>参考 <a href="https://docs.jboss.org/hibernate/orm/5.0/userguide/html_single/Hibernate_User_Guide.html" target="_blank" rel="external">Hibernate ORM 5.0 User Guide</a>整理，作为快速入门简明手册。</p><h2 id="体系结构"><a href="#体系结构" class="headerlink" title="体系结构"></a>体系结构</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p><img src="https://docs.jboss.org/hibernate/orm/5.0/userguide/html_single/images/architecture/data_access_layers.svg" alt="这里写图片描述"></p><p>如上图所示：java应用利用Hibernate API 来完成 load, store, query等对其领域数据的操作。</p><p>作为JPA的提供者，Hibernate实现了JPA规范，JPA接口和Hibernate具体的实现关系如下图所示：</p><p><img src="https://docs.jboss.org/hibernate/orm/5.0/userguide/html_single/images/architecture/JPA_Hibernate.svg" alt="这里写图片描述"></p><a id="more"></a><p>SessionFactory (<code>org.hibernate.SessionFactory</code>)</p><p>Session实例工厂，一个线程安全的，不可变的代表应用领域模型到一个数据库的映射。<code>EntityManagerFactory</code>在JPA中等价于SessionFactory</p><p>Session (<code>org.hibernate.Session</code>)</p><p>一个单线程，短暂的对象，使用PoEAA《Patterns of Enterprise Application Architecture》中的“Unit of Work”概念设计。</p><p>Transaction (<code>org.hibernate.Transaction</code>)</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;参考 &lt;a href=&quot;https://docs.jboss.org/hibernate/orm/5.0/userguide/html_single/Hibernate_User_Guide.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hibernate ORM 5.0 User Guide&lt;/a&gt;整理，作为快速入门简明手册。&lt;/p&gt;
-&lt;h2 id=&quot;体系结构&quot;&gt;&lt;a href=&quot;#体系结构&quot; class=&quot;headerlink&quot; title=&quot;体系结构&quot;&gt;&lt;/a&gt;体系结构&lt;/h2&gt;&lt;h3 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h3&gt;&lt;p&gt;&lt;img src=&quot;https://docs.jboss.org/hibernate/orm/5.0/userguide/html_single/images/architecture/data_access_layers.svg&quot; alt=&quot;这里写图片描述&quot;&gt;&lt;/p&gt;
-&lt;p&gt;如上图所示：java应用利用Hibernate API 来完成 load, store, query等对其领域数据的操作。&lt;/p&gt;
-&lt;p&gt;作为JPA的提供者，Hibernate实现了JPA规范，JPA接口和Hibernate具体的实现关系如下图所示：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://docs.jboss.org/hibernate/orm/5.0/userguide/html_single/images/architecture/JPA_Hibernate.svg&quot; alt=&quot;这里写图片描述&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Hibernate" scheme="http://yoursite.com/categories/Hibernate/"/>
-    
-    
-      <category term="Java" scheme="http://yoursite.com/tags/Java/"/>
     
   </entry>
   
