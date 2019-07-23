@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[CAP定理]]></title>
+    <url>%2F2019%2F07%2F24%2FCAP%E5%AE%9A%E7%90%86%2F</url>
+    <content type="text"><![CDATA[Consistency: all nodes see the same data at the same time. 即所有的节点在同一时间读到同样的数据。 Availability: a guarantee that every request receives a response about whether it was successful or failed. 请求无论成功还是失败，都能收到一个响应。 Partition-Tolerance: the system continues to operate despite arbitrary message loss or failure of part of the system. 系统仍能运行尽管部分节点出问题或者丢失消息 More info: 系统架构设计理论与原则、负载均衡及高可用系统设计速记]]></content>
+      <categories>
+        <category>分布式</category>
+      </categories>
+      <tags>
+        <tag>CAP</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Ansible Playbook安装docker]]></title>
     <url>%2F2019%2F07%2F11%2FAnsible%20Playbook%E7%A4%BA%E4%BE%8B%2F</url>
     <content type="text"><![CDATA[展示一个安装docker示例，Ansible playbook内容如下： 123456789101112131415161718192021222324---- hosts: all tasks: - name: Remove docker yum: name: ['docker', 'docker-client', 'docker-client-latest', 'docker-common', 'docker-latest', 'docker-latest-logrotate', 'docker-logrotate', 'docker-selinux', 'docker-engine-selinux'] state: removed - name: Install yum utils yum: name: ['yum-utils', 'device-mapper-persistent-data', 'lvm2'] state: installed - name: Set aliyun repo shell: yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo;yum makecache fast - name: Install docker-ce yum: name=docker-ce state=installed - name: Registry mirrors script: ./registry_mirrors.sh - name: After registry mirrors shell: systemctl daemon-reload;systemctl restart docker;systemctl enable docker - name: Show docker version command: docker -v register: result - name: Debug info debug: msg='&#123;&#123;result.stdout_lines&#125;&#125;' registry_mirrors.sh脚本内容 12345678#!/usr/bin/env bashmkdir -p /etc/dockertee /etc/docker/daemon.json &lt;&lt;-'EOF'&#123; "registry-mirrors": ["https://kc0hk0ee.mirror.aliyuncs.com"]&#125;EOF 执行 1ansible-playbook install_docker.yml More info: Docker install]]></content>

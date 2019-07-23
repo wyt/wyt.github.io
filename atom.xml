@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-07-11T05:36:52.619Z</updated>
+  <updated>2019-07-23T16:04:02.302Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CAP定理</title>
+    <link href="http://yoursite.com/2019/07/24/CAP%E5%AE%9A%E7%90%86/"/>
+    <id>http://yoursite.com/2019/07/24/CAP定理/</id>
+    <published>2019-07-23T16:01:45.000Z</published>
+    <updated>2019-07-23T16:04:02.302Z</updated>
+    
+    <content type="html"><![CDATA[<ul><li><p>Consistency: all nodes see the same data at the same time. 即所有的节点在同一时间读到同样的数据。</p></li><li><p>Availability: a guarantee that every request receives a response about whether it was successful or failed. 请求无论成功还是失败，都能收到一个响应。</p></li><li><p>Partition-Tolerance: the system continues to operate despite arbitrary message loss or failure of part of the system. 系统仍能运行尽管部分节点出问题或者丢失消息</p></li></ul><p>More info: <a href="https://www.cnblogs.com/jeffwongishandsome/p/talk-about-arch-design-and-load-balance-and-hign-availability-in-system-architecture.html" target="_blank" rel="external">系统架构设计理论与原则、负载均衡及高可用系统设计速记</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Consistency: all nodes see the same data at the same time. 即所有的节点在同一时间读到同样的数据。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Availability: a guarantee that e
+      
+    
+    </summary>
+    
+      <category term="分布式" scheme="http://yoursite.com/categories/%E5%88%86%E5%B8%83%E5%BC%8F/"/>
+    
+    
+      <category term="CAP" scheme="http://yoursite.com/tags/CAP/"/>
+    
+  </entry>
   
   <entry>
     <title>Ansible Playbook安装docker</title>
@@ -469,25 +497,6 @@
     <summary type="html">
     
       &lt;h3 id=&quot;xargs命令&quot;&gt;&lt;a href=&quot;#xargs命令&quot; class=&quot;headerlink&quot; title=&quot;xargs命令&quot;&gt;&lt;/a&gt;xargs命令&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;[root@localhost ~]&lt;span class=&quot;comment&quot;&gt;# echo &quot;-lh&quot; | cat&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;-lh&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;[root@localhost ~]&lt;span class=&quot;comment&quot;&gt;# echo &quot;-lh&quot; | xargs ls&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;total 4.0K&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;-rw-------. 1 root root 1.5K Nov 14  2017 anaconda-ks.cfg&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Gitlab项目初始化</title>
-    <link href="http://yoursite.com/2018/10/04/Gitlab%E9%A1%B9%E7%9B%AE%E5%88%9D%E5%A7%8B%E5%8C%96/"/>
-    <id>http://yoursite.com/2018/10/04/Gitlab项目初始化/</id>
-    <published>2018-10-04T03:35:00.000Z</published>
-    <updated>2018-10-04T03:35:00.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="命令行指令"><a href="#命令行指令" class="headerlink" title="命令行指令"></a>命令行指令</h2><h3 id="Git-全局设置"><a href="#Git-全局设置" class="headerlink" title="Git 全局设置"></a>Git 全局设置</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git config --global user.name <span class="string">"wangyt"</span></div><div class="line">git config --global user.email <span class="string">"wangyt4dev@gmail.com"</span></div></pre></td></tr></table></figure><h3 id="创建新版本库"><a href="#创建新版本库" class="headerlink" title="创建新版本库"></a>创建新版本库</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">clone</span> git@192.168.1.204:wangyt/test001.git</div><div class="line"><span class="built_in">cd</span> test001</div><div class="line">touch README.md</div><div class="line">git add README.md</div><div class="line">git commit -m <span class="string">"add README"</span></div><div class="line">git push -u origin master</div></pre></td></tr></table></figure><a id="more"></a><h3 id="已存在的文件夹"><a href="#已存在的文件夹" class="headerlink" title="已存在的文件夹"></a>已存在的文件夹</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> existing_folder</div><div class="line">git init</div><div class="line">git remote add origin git@192.168.1.204:wangyt/test001.git</div><div class="line">git add .</div><div class="line">git commit -m <span class="string">"Initial commit"</span></div><div class="line">git push -u origin master</div></pre></td></tr></table></figure><h3 id="已存在的-Git-版本库"><a href="#已存在的-Git-版本库" class="headerlink" title="已存在的 Git 版本库"></a>已存在的 Git 版本库</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> existing_repo</div><div class="line">git remote add origin git@192.168.1.204:wangyt/test001.git</div><div class="line">git push -u origin --all</div><div class="line">git push -u origin --tags</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;命令行指令&quot;&gt;&lt;a href=&quot;#命令行指令&quot; class=&quot;headerlink&quot; title=&quot;命令行指令&quot;&gt;&lt;/a&gt;命令行指令&lt;/h2&gt;&lt;h3 id=&quot;Git-全局设置&quot;&gt;&lt;a href=&quot;#Git-全局设置&quot; class=&quot;headerlink&quot; title=&quot;Git 全局设置&quot;&gt;&lt;/a&gt;Git 全局设置&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;git config --global user.name &lt;span class=&quot;string&quot;&gt;&quot;wangyt&quot;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;git config --global user.email &lt;span class=&quot;string&quot;&gt;&quot;wangyt4dev@gmail.com&quot;&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h3 id=&quot;创建新版本库&quot;&gt;&lt;a href=&quot;#创建新版本库&quot; class=&quot;headerlink&quot; title=&quot;创建新版本库&quot;&gt;&lt;/a&gt;创建新版本库&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;git &lt;span class=&quot;built_in&quot;&gt;clone&lt;/span&gt; git@192.168.1.204:wangyt/test001.git&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;cd&lt;/span&gt; test001&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;touch README.md&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;git add README.md&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;git commit -m &lt;span class=&quot;string&quot;&gt;&quot;add README&quot;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;git push -u origin master&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
     
     </summary>
     
