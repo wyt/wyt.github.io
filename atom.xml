@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-07-28T08:37:52.376Z</updated>
+  <updated>2019-07-28T08:42:57.184Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://yoursite.com/2019/07/24/CAP%E5%AE%9A%E7%90%86/"/>
     <id>http://yoursite.com/2019/07/24/CAP定理/</id>
     <published>2019-07-23T16:01:45.000Z</published>
-    <updated>2019-07-28T08:37:52.376Z</updated>
+    <updated>2019-07-28T08:42:57.184Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="基本内容"><a href="#基本内容" class="headerlink" title="基本内容"></a>基本内容</h3><ul><li><p>Consistency: all nodes see the same data at the same time. 即所有的节点在同一时刻读到同样的数据。</p></li><li><p>Availability: a guarantee that every request receives a response about whether it was successful or failed. 请求无论成功还是失败，都能收到一个响应。</p></li><li><p>Partition-Tolerance: the system continues to operate despite arbitrary message loss or failure of part of the system. 系统仍能运行尽管部分节点出问题或者丢失消息</p></li></ul><h3 id="CAP选择"><a href="#CAP选择" class="headerlink" title="CAP选择"></a>CAP选择</h3><p>分布式系统中不能同时满足C、A、P</p><ul><li><p>CA，加强一致性&amp;可用性，放弃分区容忍性，例如传统单机数据库;</p></li><li><p>AP，加强可用性&amp;分区容忍性，放弃强一致性，例如大多数NoSQL系统;</p></li><li><p>CP，加强一致性&amp;分区容忍性，可用性比较差，例如Zookeeper; </p><p>如果ZooKeeper集群中出现了网络分割的故障（注：由于交换机故障导致交换机底下的子网间不能互访）；那么ZooKeeper会将它们都从自己管理范围中剔除出去，外界就不能访问到这些节点了，即便这些节点本身是“健康”的，可以正常提供服务的；所以导致到达这些节点的请求被丢失了。</p></li></ul><h3 id="BASE理论"><a href="#BASE理论" class="headerlink" title="BASE理论"></a>BASE理论</h3><p>在分布式系统中，一般选择加强可用性和分区容忍性而牺牲一致性。</p><ul><li><p>Basically Available：基本可用，允许分区失败；</p></li><li><p>Soft state：软状态，接受一段时间的状态不同步；</p></li><li><p>Eventually consistent：最终一致，保证最终的数据状态时一致的。</p></li></ul><p>More info: <a href="https://www.cnblogs.com/jeffwongishandsome/p/talk-about-arch-design-and-load-balance-and-hign-availability-in-system-architecture.html" target="_blank" rel="external">系统架构设计理论与原则、负载均衡及高可用系统设计速记</a></p>]]></content>
+    <content type="html"><![CDATA[<h3 id="基本内容"><a href="#基本内容" class="headerlink" title="基本内容"></a>基本内容</h3><ul><li><p>Consistency: all nodes see the same data at the same time. 即所有的节点在同一时刻读到同样的数据。</p></li><li><p>Availability: a guarantee that every request receives a response about whether it was successful or failed. 请求无论成功还是失败，都能收到一个响应。</p></li><li><p>Partition-Tolerance: the system continues to operate despite arbitrary message loss or failure of part of the system. 系统仍能运行尽管部分节点出问题或者丢失消息</p></li></ul><h3 id="CAP选择"><a href="#CAP选择" class="headerlink" title="CAP选择"></a>CAP选择</h3><p>分布式系统中不能同时满足C、A、P</p><ul><li><p>CA，加强一致性&amp;可用性，放弃分区容忍性，例如传统单机数据库;</p></li><li><p>AP，加强可用性&amp;分区容忍性，放弃强一致性，例如大多数NoSQL系统;</p></li><li><p>CP，加强一致性&amp;分区容忍性，可用性比较差，例如Zookeeper; </p><p>如果ZooKeeper集群中出现了网络分割的故障（注：由于交换机故障导致交换机底下的子网间不能互访）；那么ZooKeeper会将它们都从自己管理范围中剔除出去，外界就不能访问到这些节点了，即便这些节点本身是“健康”的，可以正常提供服务的；所以导致到达这些节点的请求被丢失了。</p></li></ul><h3 id="BASE理论"><a href="#BASE理论" class="headerlink" title="BASE理论"></a>BASE理论</h3><p>在分布式系统中，一般选择加强可用性和分区容忍性而牺牲一致性。</p><ul><li><p>Basically Available：基本可用，允许分区失败；</p></li><li><p>Soft state：软状态，接受一段时间的状态不同步；</p></li><li><p>Eventually consistent：最终一致，保证最终的数据状态时一致的。</p><p>在没有发生故障的前提下，数据达到一致状态的时间延迟，取决于网络延迟，系统负载和数据复制方案设计等因素。</p></li></ul><p>More info: <a href="https://www.cnblogs.com/jeffwongishandsome/p/talk-about-arch-design-and-load-balance-and-hign-availability-in-system-architecture.html" target="_blank" rel="external">系统架构设计理论与原则、负载均衡及高可用系统设计速记</a></p>]]></content>
     
     <summary type="html">
     
