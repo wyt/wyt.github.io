@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-07-23T16:04:02.302Z</updated>
+  <updated>2019-07-28T07:49:29.705Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,16 +21,16 @@
     <link href="http://yoursite.com/2019/07/24/CAP%E5%AE%9A%E7%90%86/"/>
     <id>http://yoursite.com/2019/07/24/CAP定理/</id>
     <published>2019-07-23T16:01:45.000Z</published>
-    <updated>2019-07-23T16:04:02.302Z</updated>
+    <updated>2019-07-28T07:49:29.705Z</updated>
     
-    <content type="html"><![CDATA[<ul><li><p>Consistency: all nodes see the same data at the same time. 即所有的节点在同一时间读到同样的数据。</p></li><li><p>Availability: a guarantee that every request receives a response about whether it was successful or failed. 请求无论成功还是失败，都能收到一个响应。</p></li><li><p>Partition-Tolerance: the system continues to operate despite arbitrary message loss or failure of part of the system. 系统仍能运行尽管部分节点出问题或者丢失消息</p></li></ul><p>More info: <a href="https://www.cnblogs.com/jeffwongishandsome/p/talk-about-arch-design-and-load-balance-and-hign-availability-in-system-architecture.html" target="_blank" rel="external">系统架构设计理论与原则、负载均衡及高可用系统设计速记</a></p>]]></content>
+    <content type="html"><![CDATA[<ul><li><p>Consistency: all nodes see the same data at the same time. 即所有的节点在同一时刻读到同样的数据。</p></li><li><p>Availability: a guarantee that every request receives a response about whether it was successful or failed. 请求无论成功还是失败，都能收到一个响应。</p></li><li><p>Partition-Tolerance: the system continues to operate despite arbitrary message loss or failure of part of the system. 系统仍能运行尽管部分节点出问题或者丢失消息</p></li></ul><p>More info: <a href="https://www.cnblogs.com/jeffwongishandsome/p/talk-about-arch-design-and-load-balance-and-hign-availability-in-system-architecture.html" target="_blank" rel="external">系统架构设计理论与原则、负载均衡及高可用系统设计速记</a></p>]]></content>
     
     <summary type="html">
     
       
       
         &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Consistency: all nodes see the same data at the same time. 即所有的节点在同一时间读到同样的数据。&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;Consistency: all nodes see the same data at the same time. 即所有的节点在同一时刻读到同样的数据。&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Availability: a guarantee that e
       
