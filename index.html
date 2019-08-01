@@ -293,6 +293,168 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/01/Redis集群搭建测试/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wangyt">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/starfish.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yongtao's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/01/Redis集群搭建测试/" itemprop="url">Redis安装</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-01T11:28:49+08:00">
+                2019-08-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/缓存/" itemprop="url" rel="index">
+                    <span itemprop="name">缓存</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/缓存/Redis/" itemprop="url" rel="index">
+                    <span itemprop="name">Redis</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/08/01/Redis集群搭建测试/" class="leancloud_visitors" data-flag-title="Redis安装">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>单台机器搭建一个伪Redis集群，用于测试学习。redis-3.2.13可以使用redis源码自行编译<code>make prifix=/tmp/redis</code>。</p>
+<h4 id="下载redis-cluster-test项目"><a href="#下载redis-cluster-test项目" class="headerlink" title="下载redis-cluster-test项目"></a>下载redis-cluster-test项目</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">[root@pseudo-cluster <span class="built_in">local</span>]<span class="comment"># pwd</span></div><div class="line">/usr/<span class="built_in">local</span></div><div class="line">[root@pseudo-cluster <span class="built_in">local</span>]<span class="comment"># git clone https://github.com/wyt/redis-cluster-test.git</span></div><div class="line">[root@pseudo-cluster bin]<span class="comment"># pwd</span></div><div class="line">/usr/<span class="built_in">local</span>/redis-cluster-test/redis-3.2.13/bin</div><div class="line">[root@pseudo-cluster bin]<span class="comment"># chmod +x ./*</span></div><div class="line">[root@pseudo-cluster redis-cluster-test]<span class="comment"># pwd</span></div><div class="line">/usr/<span class="built_in">local</span>/redis-cluster-test</div><div class="line">[root@pseudo-cluster redis-cluster-test]<span class="comment"># chmod +x shutdown.sh startup.sh</span></div></pre></td></tr></table></figure>
+<h4 id="安装ruby环境等"><a href="#安装ruby环境等" class="headerlink" title="安装ruby环境等"></a>安装ruby环境等</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 安装ruby环境</span></div><div class="line">[root@pseudo-cluster redis-cluster-test] yum install centos-release-scl-rh</div><div class="line">[root@pseudo-cluster redis-cluster-test] yum install rh-ruby23 -y</div><div class="line"><span class="comment"># 当前session生效</span></div><div class="line">[root@pseudo-cluster redis-cluster-test] scl <span class="built_in">enable</span> rh-ruby23 bash</div><div class="line">[root@pseudo-cluster redis-cluster-test]<span class="comment"># ruby -v</span></div><div class="line">ruby 2.3.8p459 (2018-10-18 revision 65136) [x86_64-linux]</div><div class="line">[root@pseudo-cluster redis-cluster-test]<span class="comment"># gem install redis</span></div><div class="line">Fetching: redis-4.1.2.gem (100%)</div><div class="line">Successfully installed redis-4.1.2</div><div class="line">Parsing documentation <span class="keyword">for</span> redis-4.1.2</div><div class="line">Installing ri documentation <span class="keyword">for</span> redis-4.1</div></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/08/01/Redis集群搭建测试/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/24/CAP定理/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -934,150 +1096,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/15/Docker swarm删除节点/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="wangyt">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/starfish.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yongtao's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/05/15/Docker swarm删除节点/" itemprop="url">Docker swarm删除节点</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-15T11:31:49+08:00">
-                2019-05-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/docker/" itemprop="url" rel="index">
-                    <span itemprop="name">docker</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2019/05/15/Docker swarm删除节点/" class="leancloud_visitors" data-flag-title="Docker swarm删除节点">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="Docker-swarm删除节点"><a href="#Docker-swarm删除节点" class="headerlink" title="Docker swarm删除节点"></a>Docker swarm删除节点</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 在管理节点上先排空节点</span></div><div class="line">docker node update --availability drain yyxh5zbei71kq7c5tadoq19ri</div><div class="line"><span class="comment"># 移除节点</span></div><div class="line">docker node rm yyxh5zbei71kq7c5tadoq19ri</div><div class="line"><span class="comment"># 或者强制删除</span></div><div class="line">docker node rm --force yyxh5zbei71kq7c5tadoq19ri</div><div class="line"></div><div class="line"><span class="comment"># 在所要删除的节点上执行</span></div><div class="line">docker swarm leave</div><div class="line"><span class="comment"># 或强制离开</span></div><div class="line">docker swarm leave --force</div></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1127,7 +1145,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">37</span>
+                <span class="site-state-item-count">38</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1149,7 +1167,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">24</span>
+                <span class="site-state-item-count">25</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
