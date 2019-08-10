@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-08-02T02:46:15.000Z</updated>
+  <updated>2019-08-10T12:56:00.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Windows 10 去除快捷方式小箭头</title>
+    <link href="http://yoursite.com/2019/08/10/Windows%2010%20%E5%8E%BB%E9%99%A4%E5%BF%AB%E6%8D%B7%E6%96%B9%E5%BC%8F%E5%B0%8F%E7%AE%AD%E5%A4%B4/"/>
+    <id>http://yoursite.com/2019/08/10/Windows 10 去除快捷方式小箭头/</id>
+    <published>2019-08-10T12:56:00.000Z</published>
+    <updated>2019-08-10T12:56:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="Windows-10-去除快捷方式小箭头"><a href="#Windows-10-去除快捷方式小箭头" class="headerlink" title="Windows 10 去除快捷方式小箭头"></a>Windows 10 去除快捷方式小箭头</h3><h4 id="去掉小箭头"><a href="#去掉小箭头" class="headerlink" title="去掉小箭头"></a>去掉小箭头</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">reg add <span class="string">"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Icons"</span> /v 29 /d <span class="string">"%systemroot%\system32\imageres.dll,197"</span> /t reg_sz /f</div><div class="line">taskkill /f /im explorer.exe</div><div class="line">attrib -s -r -h <span class="string">"%userprofile%\AppData\Local\iconcache.db"</span></div><div class="line">del <span class="string">"%userprofile%\AppData\Local\iconcache.db"</span> /f /q</div><div class="line">start explorer</div><div class="line">pause</div></pre></td></tr></table></figure><h4 id="恢复小箭头"><a href="#恢复小箭头" class="headerlink" title="恢复小箭头"></a>恢复小箭头</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">reg delete <span class="string">"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Icons"</span> /v 29 /f</div><div class="line">taskkill /f /im explorer.exe</div><div class="line">attrib -s -r -h <span class="string">"%userprofile%\AppData\Local\iconcache.db"</span></div><div class="line">del <span class="string">"%userprofile%\AppData\Local\iconcache.db"</span> /f /q</div><div class="line">start explorer</div><div class="line">pause</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;Windows-10-去除快捷方式小箭头&quot;&gt;&lt;a href=&quot;#Windows-10-去除快捷方式小箭头&quot; class=&quot;headerlink&quot; title=&quot;Windows 10 去除快捷方式小箭头&quot;&gt;&lt;/a&gt;Windows 10 去除快捷方式小箭头&lt;/h3&gt;&lt;
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Redis集群搭建测试</title>
@@ -486,27 +507,6 @@
     
       &lt;h3 id=&quot;jps-JVM-Process-Status-Tool&quot;&gt;&lt;a href=&quot;#jps-JVM-Process-Status-Tool&quot; class=&quot;headerlink&quot; title=&quot;jps, JVM Process Status Tool&quot;&gt;&lt;/a&gt;jps, JVM Process Status Tool&lt;/h3&gt;&lt;p&gt;jps, JVM Process Status Tool,显示指定系统内所有的HotSpot虚拟机进程&lt;/p&gt;
 &lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;[root@kvm000 bin]&lt;span class=&quot;comment&quot;&gt;# java -version&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;java version &lt;span class=&quot;string&quot;&gt;&quot;1.8.0_181&quot;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;Java(TM) SE Runtime Environment (build 1.8.0_181-b13)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;Java HotSpot(TM) 64-Bit Server VM (build 25.181-b13, mixed mode)&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>并发请求数</title>
-    <link href="http://yoursite.com/2018/10/05/%E5%B9%B6%E5%8F%91%E8%AF%B7%E6%B1%82%E6%95%B0/"/>
-    <id>http://yoursite.com/2018/10/05/并发请求数/</id>
-    <published>2018-10-05T05:54:00.000Z</published>
-    <updated>2018-10-05T05:54:00.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="并发请求数"><a href="#并发请求数" class="headerlink" title="并发请求数"></a>并发请求数</h2><h3 id="windows-server"><a href="#windows-server" class="headerlink" title="windows server"></a>windows server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">netstat -ano | findstr <span class="string">"8080"</span> | FIND /v <span class="string">""</span> /c</div></pre></td></tr></table></figure><h3 id="linux-server"><a href="#linux-server" class="headerlink" title="linux server"></a>linux server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">netstat -apn | grep :80 | grep -v LISTEN | wc -l</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;并发请求数&quot;&gt;&lt;a href=&quot;#并发请求数&quot; class=&quot;headerlink&quot; title=&quot;并发请求数&quot;&gt;&lt;/a&gt;并发请求数&lt;/h2&gt;&lt;h3 id=&quot;windows-server&quot;&gt;&lt;a href=&quot;#windows-server&quot; class=&quot;head
-      
     
     </summary>
     
