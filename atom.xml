@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-08-21T06:06:30.000Z</updated>
+  <updated>2019-08-22T11:40:00.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>The lifetime of a thread</title>
+    <link href="http://yoursite.com/2019/08/22/The%20lifetime%20of%20a%20thread/"/>
+    <id>http://yoursite.com/2019/08/22/The lifetime of a thread/</id>
+    <published>2019-08-22T11:40:00.000Z</published>
+    <updated>2019-08-22T11:40:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="The-lifetime-of-a-thread"><a href="#The-lifetime-of-a-thread" class="headerlink" title="The lifetime of a thread"></a>The lifetime of a thread</h1><h3 id="线程的状态"><a href="#线程的状态" class="headerlink" title="线程的状态"></a>线程的状态</h3><p>线程有六种状态，定在<code>java.lang.Thread.State</code>内部枚举中：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">enum</span> State &#123;</div><div class="line">    NEW,</div><div class="line">    RUNNABLE,</div><div class="line">    BLOCKED,</div><div class="line">    WAITING,</div><div class="line">    TIMED_WAITING,</div><div class="line">    TERMINATED;</div><div class="line">&#125;</div></pre></td></tr></table></figure><p>A thread state. A thread can be in one of the following states:</p><ul><li><strong>NEW</strong> A thread that has not yet started is in this state.</li><li><strong>RUNNABLE</strong> A thread executing in the Java virtual machine is in this state.</li><li><strong>BLOCKED</strong> A thread that is blocked waiting for a monitor lock is in this state. 处于此状态，线程被阻塞等待监视器锁</li><li><strong>WAITING</strong> A thread that is waiting indefinitely for another thread to perform a particular action is in this state.</li><li><strong>TIMED_WAITING</strong> A thread that is waiting for another thread to perform an action for up to a specified waiting time is in this state.</li><li><strong>TERMINATED</strong> A thread that has exited is in this state.</li></ul><p>A thread can be in only one state at a given point in time. These states are virtual machine states which do not reflect any operating system thread states.</p><h3 id="线程的生命周期"><a href="#线程的生命周期" class="headerlink" title="线程的生命周期"></a>线程的生命周期</h3><p><img src="https://cdn.nlark.com/yuque/0/2019/gif/219919/1566470403372-98e05bba-9dad-4011-a2d1-18a049c5a69b.gif#align=left&amp;display=inline&amp;height=720&amp;name=The%20lifetime%20of%20a%20thread.gif&amp;originHeight=720&amp;originWidth=1280&amp;size=37002&amp;status=done&amp;width=1280" alt="The lifetime of a thread.gif"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;The-lifetime-of-a-thread&quot;&gt;&lt;a href=&quot;#The-lifetime-of-a-thread&quot; class=&quot;headerlink&quot; title=&quot;The lifetime of a thread&quot;&gt;&lt;/a&gt;The lifetime o
+      
+    
+    </summary>
+    
+      <category term="thread" scheme="http://yoursite.com/categories/thread/"/>
+    
+    
+      <category term="thread" scheme="http://yoursite.com/tags/thread/"/>
+    
+      <category term="java" scheme="http://yoursite.com/tags/java/"/>
+    
+  </entry>
   
   <entry>
     <title>Elasticsearch集群搭建测试</title>
@@ -521,28 +548,6 @@
     
     
       <category term="Git" scheme="http://yoursite.com/tags/Git/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>SQL备忘录</title>
-    <link href="http://yoursite.com/2018/10/05/SQL%E5%A4%87%E5%BF%98%E5%BD%95/"/>
-    <id>http://yoursite.com/2018/10/05/SQL备忘录/</id>
-    <published>2018-10-05T14:00:00.000Z</published>
-    <updated>2018-03-05T14:00:00.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="https://objects.yongtao.wang/images/20181005/sql-cheat-sheet.jpg" alt="SQL cheat sheet"></p><p>参考：<br><a href="https://zeroturnaround.com/rebellabs/sql-cheat-sheet/" target="_blank" rel="external">SQL cheat sheet</a>，Oleg Shelajev</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;img src=&quot;https://objects.yongtao.wang/images/20181005/sql-cheat-sheet.jpg&quot; alt=&quot;SQL cheat sheet&quot;&gt;&lt;/p&gt;
-&lt;p&gt;参考：&lt;br&gt;&lt;a href=&quot;https://zerotur
-      
-    
-    </summary>
-    
     
   </entry>
   
