@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Zookeeper," />
 
 
 
@@ -95,15 +95,17 @@
 
 
 
-<meta name="description" content="白日不到处，青春恰自来苔花如米小，也学牡丹开">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Yongtao&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/archives/2019/03/index.html">
+<meta name="description" content="单台机器搭建一个伪Zookeeper集群，用于测试学习。    节点 主机 客户端连接端口 follower连接leader端口 leader选举端口     server.1 192.168.91.146 2181 2887 3887   server.2 192.168.91.146 2182 2888 3888   server.3 192.168.91.146 2183 2889 3889">
+<meta name="keywords" content="Zookeeper">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Zookeeper集群搭建测试">
+<meta property="og:url" content="http://yoursite.com/2019/08/26/Zookeeper集群搭建测试/index.html">
 <meta property="og:site_name" content="Yongtao&#39;s Blog">
-<meta property="og:description" content="白日不到处，青春恰自来苔花如米小，也学牡丹开">
+<meta property="og:description" content="单台机器搭建一个伪Zookeeper集群，用于测试学习。    节点 主机 客户端连接端口 follower连接leader端口 leader选举端口     server.1 192.168.91.146 2181 2887 3887   server.2 192.168.91.146 2182 2888 3888   server.3 192.168.91.146 2183 2889 3889">
+<meta property="og:updated_time" content="2019-08-26T07:04:00.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Yongtao&#39;s Blog">
-<meta name="twitter:description" content="白日不到处，青春恰自来苔花如米小，也学牡丹开">
+<meta name="twitter:title" content="Zookeeper集群搭建测试">
+<meta name="twitter:description" content="单台机器搭建一个伪Zookeeper集群，用于测试学习。    节点 主机 客户端连接端口 follower连接leader端口 leader选举端口     server.1 192.168.91.146 2181 2887 3887   server.2 192.168.91.146 2182 2888 3888   server.3 192.168.91.146 2183 2889 3889">
 
 
 
@@ -131,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/2019/03/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/08/26/Zookeeper集群搭建测试/"/>
 
 
 
 
 
-  <title>归档 | Yongtao's Blog</title>
+  <title>Zookeeper集群搭建测试 | Yongtao's Blog</title>
   
 
 
@@ -171,7 +173,7 @@
     
   
 
-  <div class="container sidebar-position-left  page-archive  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 	
 	<a href="https://github.com/wyt" target="_blank" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; left: 0; transform: scale(-1, 1);" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style></a>
@@ -281,102 +283,240 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
-
-    <span class="archive-page-counter">
-      
-      
-       
-      
-      OK! 目前共计 42 篇日志。 继续努力。
-    </span>
-
+  <div id="posts" class="posts-expand">
     
-
-      
-      
-      
-
-      
-        
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2019">2019</h2>
-        </div>
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/03/08/网络IO之同步、异步 & 阻塞、非阻塞/" itemprop="url">
-              
-                <span itemprop="name">网络IO之同步、异步 & 阻塞、非阻塞</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-03-08T14:41:27+08:00"
-              content="2019-03-08" >
-          03-08
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/03/04/Git版本回退/" itemprop="url">
-              
-                <span itemprop="name">Git版本回退</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-03-04T15:39:00+08:00"
-              content="2019-03-04" >
-          03-04
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-  </section>
 
   
 
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/26/Zookeeper集群搭建测试/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wangyt">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/starfish.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yongtao's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Zookeeper集群搭建测试</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-26T15:04:00+08:00">
+                2019-08-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Zookeeper/" itemprop="url" rel="index">
+                    <span itemprop="name">Zookeeper</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/08/26/Zookeeper集群搭建测试/" class="leancloud_visitors" data-flag-title="Zookeeper集群搭建测试">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>单台机器搭建一个伪Zookeeper集群，用于测试学习。</p>
+<table>
+<thead>
+<tr>
+<th>节点</th>
+<th>主机</th>
+<th>客户端连接端口</th>
+<th>follower连接leader端口</th>
+<th>leader选举端口</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>server.1</td>
+<td>192.168.91.146</td>
+<td>2181</td>
+<td>2887</td>
+<td>3887</td>
+</tr>
+<tr>
+<td>server.2</td>
+<td>192.168.91.146</td>
+<td>2182</td>
+<td>2888</td>
+<td>3888</td>
+</tr>
+<tr>
+<td>server.3</td>
+<td>192.168.91.146</td>
+<td>2183</td>
+<td>2889</td>
+<td>3889</td>
+</tr>
+</tbody>
+</table>
+<a id="more"></a>
+<h4 id="准备目录"><a href="#准备目录" class="headerlink" title="准备目录"></a>准备目录</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">[root@pseudo-cluster zookeeper-cluster-test]<span class="comment"># ls -lh</span></div><div class="line">total 8.0K</div><div class="line">-rwxr-xr-x. 1 root root 147 Aug 23 11:03 shutdown.sh</div><div class="line">-rwxr-xr-x. 1 root root 265 Aug 23 10:53 startup.sh</div><div class="line">drwxr-xr-x. 8 root root 166 Aug 22 16:58 zookeeper-3.5.5-server.1</div><div class="line">drwxr-xr-x. 8 root root 166 Aug 22 17:26 zookeeper-3.5.5-server.2</div><div class="line">drwxr-xr-x. 8 root root 166 Aug 22 17:26 zookeeper-3.5.5-server.3</div></pre></td></tr></table></figure>
+<h4 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h4><p>分别修改server.1、server.2、server.3三个节点的<code>conf/zoo.cfg</code>配置文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># The number of milliseconds of each tick</span></div><div class="line">tickTime=2000</div><div class="line"><span class="comment"># The number of ticks that the initial </span></div><div class="line"><span class="comment"># synchronization phase can take</span></div><div class="line">initLimit=5</div><div class="line"><span class="comment"># The number of ticks that can pass between </span></div><div class="line"><span class="comment"># sending a request and getting an acknowledgement</span></div><div class="line">syncLimit=2</div><div class="line"><span class="comment"># the directory where the snapshot is stored.</span></div><div class="line"><span class="comment"># do not use /tmp for storage, /tmp here is just </span></div><div class="line"><span class="comment"># example sakes.</span></div><div class="line">dataDir=__DATA_ZOO__/data</div><div class="line">dataLogDir=__DATA_ZOO__/logs</div><div class="line"><span class="comment"># the port at which the clients will connect</span></div><div class="line">clientPort=2181</div><div class="line"><span class="comment"># server.x=[hostname]:nnnnn[:nnnnn], etc : (No Java system property) servers making up the ZooKeeper ensemble. When the server starts up, it determines which server it is by looking for the file myid in the data directory. That file contains the server number, in ASCII, and it should match x in server.x in the left hand side of this setting. The list of servers that make up ZooKeeper servers that is used by the clients must match the list of ZooKeeper servers that each ZooKeeper server has. There are two port numbers nnnnn. The first followers use to connect to the leader, and the second is for leader election. If you want to test multiple servers on a single machine, then different ports can be used for each server.</span></div><div class="line">server.1=192.168.91.146:2887:3887</div><div class="line">server.2=192.168.91.146:2888:3888</div><div class="line">server.3=192.168.91.146:2889:3889</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">tickTime=2000</div><div class="line">initLimit=5</div><div class="line">syncLimit=2</div><div class="line">dataDir=__DATA_ZOO__/data</div><div class="line">dataLogDir=__DATA_ZOO__/logs</div><div class="line">clientPort=2182</div><div class="line">server.1=192.168.91.146:2887:3887</div><div class="line">server.2=192.168.91.146:2888:3888</div><div class="line">server.3=192.168.91.146:2889:3889</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">tickTime=2000</div><div class="line">initLimit=5</div><div class="line">syncLimit=2</div><div class="line">dataDir=__DATA_ZOO__/data</div><div class="line">dataLogDir=__DATA_ZOO__/logs</div><div class="line">clientPort=2183</div><div class="line">server.1=192.168.91.146:2887:3887</div><div class="line">server.2=192.168.91.146:2888:3888</div><div class="line">server.3=192.168.91.146:2889:3889</div></pre></td></tr></table></figure>
+<h4 id="启停脚本"><a href="#启停脚本" class="headerlink" title="启停脚本"></a>启停脚本</h4><h5 id="启动脚本"><a href="#启动脚本" class="headerlink" title="启动脚本"></a>启动脚本</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#!/usr/bin/env bash</span></div><div class="line">current_path=`<span class="built_in">pwd</span>`</div><div class="line">nodes=(zookeeper-3.5.5-server.1 zookeeper-3.5.5-server.2 zookeeper-3.5.5-server.3)</div><div class="line"><span class="keyword">for</span> val <span class="keyword">in</span> <span class="string">"<span class="variable">$&#123;nodes[@]&#125;</span>"</span></div><div class="line"><span class="keyword">do</span></div><div class="line">    path=<span class="variable">$current_path</span>/<span class="variable">$val</span></div><div class="line">    <span class="built_in">echo</span> <span class="variable">$path</span></div><div class="line">    <span class="built_in">cd</span> <span class="variable">$path</span></div><div class="line">        ./bin/zkServer.sh start</div><div class="line"><span class="keyword">done</span></div><div class="line">jps -l | grep QuorumPeerMain</div></pre></td></tr></table></figure>
+<h5 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">[root@pseudo-cluster zookeeper-cluster-test]<span class="comment"># pwd</span></div><div class="line">/usr/<span class="built_in">local</span>/zookeeper-cluster-test</div><div class="line">[root@pseudo-cluster zookeeper-cluster-test]<span class="comment"># ./startup.sh </span></div><div class="line">/usr/<span class="built_in">local</span>/zookeeper-cluster-test/zookeeper-3.5.5-server.1</div><div class="line">ZooKeeper JMX enabled by default</div><div class="line">Using config: /usr/<span class="built_in">local</span>/zookeeper-cluster-test/zookeeper-3.5.5-server.1/bin/../conf/zoo.cfg</div><div class="line">Starting zookeeper ... STARTED</div><div class="line">/usr/<span class="built_in">local</span>/zookeeper-cluster-test/zookeeper-3.5.5-server.2</div><div class="line">ZooKeeper JMX enabled by default</div><div class="line">Using config: /usr/<span class="built_in">local</span>/zookeeper-cluster-test/zookeeper-3.5.5-server.2/bin/../conf/zoo.cfg</div><div class="line">Starting zookeeper ... STARTED</div><div class="line">/usr/<span class="built_in">local</span>/zookeeper-cluster-test/zookeeper-3.5.5-server.3</div><div class="line">ZooKeeper JMX enabled by default</div><div class="line">Using config: /usr/<span class="built_in">local</span>/zookeeper-cluster-test/zookeeper-3.5.5-server.3/bin/../conf/zoo.cfg</div><div class="line">Starting zookeeper ... STARTED</div><div class="line">56626 org.apache.zookeeper.server.quorum.QuorumPeerMain</div><div class="line">56739 org.apache.zookeeper.server.quorum.QuorumPeerMain</div><div class="line">56679 org.apache.zookeeper.server.quorum.QuorumPeerMain</div><div class="line">[root@pseudo-cluster zookeeper-cluster-test]<span class="comment">#</span></div></pre></td></tr></table></figure>
+<h5 id="查看集群"><a href="#查看集群" class="headerlink" title="查看集群"></a>查看集群</h5><h5 id="停止脚本"><a href="#停止脚本" class="headerlink" title="停止脚本"></a>停止脚本</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#!/usr/bin/env bash</span></div><div class="line"></div><div class="line">jps -l | grep QuorumPeerMain</div><div class="line"></div><div class="line"><span class="built_in">kill</span> -9 $(jps -l | grep org.apache.zookeeper.server.quorum.QuorumPeerMain | awk <span class="string">'&#123;&#123;print $1&#125;&#125;'</span>)</div></pre></td></tr></table></figure>
+<h5 id="停止"><a href="#停止" class="headerlink" title="停止"></a>停止</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[root@pseudo-cluster zookeeper-cluster-test]<span class="comment"># ./shutdown.sh </span></div><div class="line">56626 org.apache.zookeeper.server.quorum.QuorumPeerMain</div><div class="line">56739 org.apache.zookeeper.server.quorum.QuorumPeerMain</div><div class="line">56679 org.apache.zookeeper.server.quorum.QuorumPeerMain</div></pre></td></tr></table></figure>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div></div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/zanshangma.jpg" alt="wangyt WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Zookeeper/" rel="tag"># Zookeeper</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/22/The lifetime of a thread/" rel="next" title="The lifetime of a thread">
+                <i class="fa fa-chevron-left"></i> The lifetime of a thread
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -384,6 +524,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -403,8 +547,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/starfish.png"
@@ -526,6 +679,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#准备目录"><span class="nav-number">1.</span> <span class="nav-text">准备目录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改配置文件"><span class="nav-number">2.</span> <span class="nav-text">修改配置文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#启停脚本"><span class="nav-number">3.</span> <span class="nav-text">启停脚本</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#启动脚本"><span class="nav-number">3.1.</span> <span class="nav-text">启动脚本</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#启动"><span class="nav-number">3.2.</span> <span class="nav-text">启动</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#查看集群"><span class="nav-number">3.3.</span> <span class="nav-text">查看集群</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#停止脚本"><span class="nav-number">3.4.</span> <span class="nav-text">停止脚本</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#停止"><span class="nav-number">3.5.</span> <span class="nav-text">停止</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -627,11 +796,9 @@
   
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
 
 
   

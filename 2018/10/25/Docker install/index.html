@@ -399,6 +399,9 @@
 <h4 id="镜像加速器"><a href="#镜像加速器" class="headerlink" title="镜像加速器"></a>镜像加速器</h4><p>使用阿里云Docker镜像加速器，进入阿里云控制台查看配置。<a href="https://cr.console.aliyun.com/cn-hangzhou/mirrors" target="_blank" rel="external">https://cr.console.aliyun.com/cn-hangzhou/mirrors</a></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">mkdir -p /etc/docker</div><div class="line">tee /etc/docker/daemon.json &lt;&lt;-<span class="string">'EOF'</span></div><div class="line">&#123;</div><div class="line">  <span class="string">"registry-mirrors"</span>: [<span class="string">"https://xxxxx.mirror.aliyuncs.com"</span>]</div><div class="line">&#125;</div><div class="line">EOF</div><div class="line">systemctl daemon-reload</div><div class="line">systemctl restart docker</div></pre></td></tr></table></figure>
 <h4 id="Start-docker"><a href="#Start-docker" class="headerlink" title="Start docker"></a>Start docker</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 启动docker服务，并保持开机自启动</span></div><div class="line">[root@docker_007 ~]<span class="comment"># systemctl start docker</span></div><div class="line">[root@docker_007 ~]<span class="comment"># systemctl enable docker</span></div></pre></td></tr></table></figure>
+<h4 id="远程访问"><a href="#远程访问" class="headerlink" title="远程访问"></a>远程访问</h4><p>参考<a href="https://success.docker.com/article/how-do-i-enable-the-remote-api-for-dockerd" target="_blank" rel="external">How do I enable the remote API for dockerd</a></p>
+<p>注意关闭防火墙</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 查看防火墙状态</span></div><div class="line">firewall-cmd --state</div><div class="line"><span class="comment"># 停止firewall</span></div><div class="line">systemctl stop firewalld.service</div><div class="line"><span class="comment"># 禁止firewall开机启动</span></div><div class="line">systemctl <span class="built_in">disable</span> firewalld.service</div></pre></td></tr></table></figure>
 <h4 id="查看docker服务日志"><a href="#查看docker服务日志" class="headerlink" title="查看docker服务日志"></a>查看docker服务日志</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[root@docker_007 ~]<span class="comment"># journalctl -ru docker.service</span></div><div class="line"><span class="comment">#可以指定日期范围</span></div><div class="line">[root@docker_007 ~]<span class="comment"># journalctl -ru docker.service --since="2019-08-25 16:20:00" --until="2019-08-25 16:30:00"</span></div></pre></td></tr></table></figure>
 <h4 id="其他组件"><a href="#其他组件" class="headerlink" title="其他组件"></a>其他组件</h4><p>docker compose<br><a href="https://docs.docker.com/compose/install/" target="_blank" rel="external">https://docs.docker.com/compose/install/</a></p>
 <p>docker machine<br><a href="https://docs.docker.com/machine/install-machine/" target="_blank" rel="external">https://docs.docker.com/machine/install-machine/</a></p>
@@ -545,7 +548,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">41</span>
+                <span class="site-state-item-count">42</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -556,7 +559,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-count">18</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -567,7 +570,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-count">28</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -661,7 +664,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Uninstall-old-versions"><span class="nav-number">1.</span> <span class="nav-text">Uninstall old versions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Install-Docker-CE"><span class="nav-number">2.</span> <span class="nav-text">Install Docker CE</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Install-required-packages"><span class="nav-number">2.1.</span> <span class="nav-text">Install required packages</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Use-the-following-command-to-set-up-the-stable-repository"><span class="nav-number">2.2.</span> <span class="nav-text">Use the following command to set up the stable repository</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Install-Docker-CE-1"><span class="nav-number">2.3.</span> <span class="nav-text">Install Docker CE</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#安装指定版本"><span class="nav-number">2.3.1.</span> <span class="nav-text">安装指定版本</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#镜像加速器"><span class="nav-number">2.4.</span> <span class="nav-text">镜像加速器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Start-docker"><span class="nav-number">2.5.</span> <span class="nav-text">Start docker</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查看docker服务日志"><span class="nav-number">2.6.</span> <span class="nav-text">查看docker服务日志</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#其他组件"><span class="nav-number">2.7.</span> <span class="nav-text">其他组件</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Uninstall-old-versions"><span class="nav-number">1.</span> <span class="nav-text">Uninstall old versions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Install-Docker-CE"><span class="nav-number">2.</span> <span class="nav-text">Install Docker CE</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Install-required-packages"><span class="nav-number">2.1.</span> <span class="nav-text">Install required packages</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Use-the-following-command-to-set-up-the-stable-repository"><span class="nav-number">2.2.</span> <span class="nav-text">Use the following command to set up the stable repository</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Install-Docker-CE-1"><span class="nav-number">2.3.</span> <span class="nav-text">Install Docker CE</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#安装指定版本"><span class="nav-number">2.3.1.</span> <span class="nav-text">安装指定版本</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#镜像加速器"><span class="nav-number">2.4.</span> <span class="nav-text">镜像加速器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Start-docker"><span class="nav-number">2.5.</span> <span class="nav-text">Start docker</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#远程访问"><span class="nav-number">2.6.</span> <span class="nav-text">远程访问</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查看docker服务日志"><span class="nav-number">2.7.</span> <span class="nav-text">查看docker服务日志</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#其他组件"><span class="nav-number">2.8.</span> <span class="nav-text">其他组件</span></a></li></ol></li></ol></div>
             
 
           </div>
