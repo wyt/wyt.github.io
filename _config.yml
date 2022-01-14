@@ -71,7 +71,7 @@ theme: next
 deploy:
   type: git
   repo: git@github.com:wyt/wyt.github.io.git
-  branch: master
+  branch: gh-pages
   
 search:
   path: search.xml
