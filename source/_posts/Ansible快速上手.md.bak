@@ -1,0 +1,20 @@
+---
+title: Ansible快速上手
+date: 2019-7-1 17:50:54
+updated: 2019-7-1 17:50:50
+comments: true
+categories:
+- ansible
+tags:
+- ansible
+---
+
+``` bash
+# 配置EPEL
+yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+
+# 安装ansible
+yum install ansible
+```
+
+https://www.elastic.co/guide/en/elasticsearch/reference/6.2/system-config.html
