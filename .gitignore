@@ -5,3 +5,11 @@ db.json
 node_modules/
 public/
 .deploy*/
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
