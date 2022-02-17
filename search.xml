@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Windows下的包管理器chocolatey入门]]></title>
+    <url>%2F2022%2F02%2F17%2FWindows%E4%B8%8B%E7%9A%84%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8chocolatey%E5%85%A5%E9%97%A8%2F</url>
+    <content type="text"><![CDATA[介绍一个windows包管理工具，类似mac下的Homebrew。 安装打开powershell，执行如下命令： 1Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1')) 基本使用script12#安装包choco install gradle More info: chocolatey install]]></content>
+      <categories>
+        <category>包管理器</category>
+        <category>windows</category>
+      </categories>
+      <tags>
+        <tag>chocolatey</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[后端程序员的前端入门手册]]></title>
     <url>%2F2022%2F02%2F16%2F%E5%90%8E%E7%AB%AF%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8%E6%89%8B%E5%86%8C%2F</url>
     <content type="text"><![CDATA[基本内容本系列刊文旨在让后端程序员快速上手现代前端开发流程，化繁为简，节省大家宝贵的时间，多多去陪陪家人，做一些内心想做的事情。 vue-cli使用]]></content>
