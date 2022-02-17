@@ -292,6 +292,169 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/25/Nonce与重放攻击/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wangyt">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/starfish.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yongtao's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/07/25/Nonce与重放攻击/" itemprop="url">Nonce与重放攻击</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-25T20:42:00+00:00">
+                2017-07-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/WEB技术/" itemprop="url" rel="index">
+                    <span itemprop="name">WEB技术</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/07/25/Nonce与重放攻击/" class="leancloud_visitors" data-flag-title="Nonce与重放攻击">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>重放攻击（Replay attack）是一种网络攻击，它恶意的欺诈性的重复或拖延正常的数据传输。    —— <a href="https://en.wikipedia.org/wiki/Replay_attack" target="_blank"> [ Wikipedia ]</a></p>
+</blockquote>
+<p>使用签名认证方式设计的RESTFul API，当请求信息被第三方拦截之后，由于其含有认证信息，当再次发起该请求时，如果没有相应的保护机制，请求会再次通过验证，造成重放攻击的风险。</p>
+<p>为避免该问题，通常情况下的做法是：</p>
+<blockquote>
+<p>每次发起HTTP请求，都需要加上timestamp参数，然后把timestamp和其他参数一起进行签名。服务端接收到HTTP请求后，将客户端timestamp与服务端当前时间比较，判断是否超过了请求有效期，比如60s，如果超过了则认为是非法的请求。</p>
+</blockquote>
+<p>如此一来从第一次请求发起的时间算起，60s之后再访问时会被服务端拒绝，但是在60s有效期内，依然可以发起重放攻击。</p>
+<p>解决方案：</p>
+<ol>
+<li>客户端生成一个随机字符串Nonce (Number used once), 并且参与签名</li>
+<li>服务端第一次接收到请求，去缓存中查询Nonce是否存在<ol>
+<li>如果不存在，则认为在有效期内该请求第一次访问，放行；然后将Nonce保存在缓存中，并设置有效期为60s，60s之后该Nonce缓存失效被清除</li>
+<li>如果存在，则认为在有效期内该请求Replay，拒绝提供访问</li>
+</ol>
+</li>
+</ol>
+<p>需要保证的是有效期内并发请求生成随机数的唯一性。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/18/Interview/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1164,7 +1327,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">44</span>
+                <span class="site-state-item-count">45</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1186,7 +1349,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-count">31</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

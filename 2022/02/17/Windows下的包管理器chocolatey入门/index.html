@@ -104,7 +104,7 @@
 <meta property="og:description" content="介绍一个windows包管理工具，类似mac下的Homebrew。 安装打开powershell，执行如下命令： 1Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::Secur">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://objects.yongtao.wang/images/20220217/20220217152250.png">
-<meta property="og:updated_time" content="2022-02-17T07:35:39.918Z">
+<meta property="og:updated_time" content="2022-02-17T09:56:05.869Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Windows下的包管理器chocolatey入门">
 <meta name="twitter:description" content="介绍一个windows包管理工具，类似mac下的Homebrew。 安装打开powershell，执行如下命令： 1Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::Secur">
@@ -407,7 +407,7 @@
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Set-ExecutionPolicy</span> Bypass -Scope <span class="keyword">Process</span> -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor <span class="number">3072</span>; iex ((<span class="built_in">New-Object</span> System.Net.WebClient).DownloadString(<span class="string">'https://community.chocolatey.org/install.ps1'</span>))</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <p><img src="https://objects.yongtao.wang/images/20220217/20220217152250.png" alt="这里写图片描述"></p>
-<h4 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h4><figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">安装包</span></span><br><span class="line">choco install gradle</span><br></pre></td></tr></table></figure>
+<h4 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h4><figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 本地安装包列表</span></span><br><span class="line">choco list --local-only</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">安装包</span></span><br><span class="line">choco install &lt;package&gt;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装指定版本</span></span><br><span class="line">choco install &lt;package&gt; -version &lt;版本号&gt;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 卸载包</span></span><br><span class="line">choco uninstall &lt;package&gt;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 升级本地包</span></span><br><span class="line">choco upgrade &lt;package&gt;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 搜索包相关</span></span><br><span class="line">choco search &lt;package&gt;</span><br><span class="line"></span><br><span class="line">choco list &lt;package&gt;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 搜索所有版本</span></span><br><span class="line">choco search &lt;package&gt; -all</span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://chocolatey.org/install#individual" target="_blank" rel="noopener">chocolatey install</a></p>
 
       
@@ -477,6 +477,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2022/02/17/Gradle使用入门/" rel="prev" title="Gradle使用入门">
+                Gradle使用入门 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -545,7 +549,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">44</span>
+                <span class="site-state-item-count">45</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -567,7 +571,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-count">31</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
