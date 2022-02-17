@@ -19,6 +19,9 @@ tags:
 ```powershell
 Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
 ```
+
+<!--more-->
+
 ![这里写图片描述](https://objects.yongtao.wang/images/20220217/20220217152250.png)
 
 #### 基本使用
