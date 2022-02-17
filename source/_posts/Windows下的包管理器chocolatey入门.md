@@ -27,8 +27,28 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManage
 #### 基本使用
 
 ```shell script
+# 本地安装包列表
+choco list --local-only
+
 #安装包
-choco install gradle
+choco install <package>
+
+# 安装指定版本
+choco install <package> -version <版本号>
+
+# 卸载包
+choco uninstall <package>
+
+# 升级本地包
+choco upgrade <package>
+
+# 搜索包相关
+choco search <package>
+
+choco list <package>
+
+# 搜索所有版本
+choco search <package> -all
 ```
   
 More info: [chocolatey install](https://chocolatey.org/install#individual)
