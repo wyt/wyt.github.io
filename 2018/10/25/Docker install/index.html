@@ -403,8 +403,7 @@
 <p>执行完上述命令(虚拟机下可能需要重启)，重启docker：</p>
 <figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[wangyt@docker_007 ~]# sudo systemctl restart docker</span><br><span class="line">[wangyt@docker_007 ~]# sudo systemctl enable docker</span><br></pre></td></tr></table></figure>
 <h4 id="远程访问"><a href="#远程访问" class="headerlink" title="远程访问"></a>远程访问</h4><p>参考<a href="https://success.docker.com/article/how-do-i-enable-the-remote-api-for-dockerd" target="_blank" rel="noopener">How do I enable the remote API for dockerd</a></p>
-<p>注意关闭防火墙</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看防火墙状态</span></span><br><span class="line">firewall-cmd --state</span><br><span class="line"><span class="comment"># 停止firewall</span></span><br><span class="line">systemctl stop firewalld.service</span><br><span class="line"><span class="comment"># 禁止firewall开机启动</span></span><br><span class="line">systemctl <span class="built_in">disable</span> firewalld.service</span><br></pre></td></tr></table></figure>
+<p>注意关闭防火墙，<a href="./linux下关闭防火墙%20&amp;%20selinux.md">linux下关闭【防火墙 &amp; seLinux】</a> </p>
 <h4 id="查看docker服务日志"><a href="#查看docker服务日志" class="headerlink" title="查看docker服务日志"></a>查看docker服务日志</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@docker_007 ~]<span class="comment"># journalctl -ru docker.service</span></span><br><span class="line"><span class="comment">#可以指定日期范围</span></span><br><span class="line">[root@docker_007 ~]<span class="comment"># journalctl -ru docker.service --since="2019-08-25 16:20:00" --until="2019-08-25 16:30:00"</span></span><br></pre></td></tr></table></figure>
 <h4 id="其他组件"><a href="#其他组件" class="headerlink" title="其他组件"></a>其他组件</h4><p>docker compose<br><a href="https://docs.docker.com/compose/install/" target="_blank" rel="noopener">https://docs.docker.com/compose/install/</a></p>
 <p>docker machine<br><a href="https://docs.docker.com/machine/install-machine/" target="_blank" rel="noopener">https://docs.docker.com/machine/install-machine/</a></p>
@@ -549,7 +548,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">47</span>
+                <span class="site-state-item-count">48</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
