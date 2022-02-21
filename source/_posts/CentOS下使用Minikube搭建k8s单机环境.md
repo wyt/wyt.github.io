@@ -1,4 +1,4 @@
-s---
+---
 title: CentOS下使用Minikube搭建k8s单机环境
 date: 2022-2-21 14:20:00
 categories:
