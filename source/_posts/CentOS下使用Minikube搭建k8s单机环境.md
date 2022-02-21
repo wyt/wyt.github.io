@@ -11,9 +11,9 @@ tags:
 
 #### 准备工作
 
-* [linux下关闭【防火墙 & seLinux】](linux下关闭防火墙%20&%20selinux.md)
-* [CentOS 7更新到最新版本(7.9.2009)](CentOS%207更新到最新版本(7.9.2009).md)
-* [Docker install](Docker%20install.md)
+* [linux下关闭【防火墙 & seLinux】](https://yongtao.wang/2022/02/21/linux%E4%B8%8B%E5%85%B3%E9%97%AD%E9%98%B2%E7%81%AB%E5%A2%99%20&%20selinux/)
+* [CentOS 7更新到最新版本(7.9.2009)](https://yongtao.wang/2022/02/18/CentOS%207%E6%9B%B4%E6%96%B0%E5%88%B0%E6%9C%80%E6%96%B0%E7%89%88%E6%9C%AC(7.9.2009)/)
+* [Docker install](https://yongtao.wang/2018/10/25/Docker%20install/)
 * [安装kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/)
 * [安装Minikube](https://minikube.sigs.k8s.io/docs/start/?spm=a2c6h.12873639.0.0.ab202043NBm9C5)
 
