@@ -131,16 +131,7 @@ docker安装完之后，可以使用非root用户启动运行
 
 参考[How do I enable the remote API for dockerd](https://success.docker.com/article/how-do-i-enable-the-remote-api-for-dockerd)
 
-注意关闭防火墙
-
-``` bash
-# 查看防火墙状态
-firewall-cmd --state
-# 停止firewall
-systemctl stop firewalld.service
-# 禁止firewall开机启动
-systemctl disable firewalld.service
-```
+注意关闭防火墙，[linux下关闭【防火墙 & seLinux】](./linux下关闭防火墙%20&%20selinux.md) 
 
 #### 查看docker服务日志
 

@@ -73,33 +73,12 @@ client/server implementation consisting of a server daemon (mysqld)
 and many different client programs and libraries. This package contains
 the MySQL server and some accompanying files and directories.
 ```
-## 禁用linux防火墙
 
-### 禁用selinux
-``` bash
-[root@localhost ~]# cat /etc/selinux/config
+## 禁用linux防火墙 & seLinux
 
-# This file controls the state of SELinux on the system.
-# SELINUX= can take one of these three values:
-#     enforcing - SELinux security policy is enforced.
-#     permissive - SELinux prints warnings instead of enforcing.
-#     disabled - No SELinux policy is loaded.
-SELINUX=disabled # 禁用selinux修改后需要重启
-# SELINUXTYPE= can take one of these two values:
-#     targeted - Targeted processes are protected,
-#     mls - Multi Level Security protection.
-SELINUXTYPE=targeted 
-```
+[linux下关闭【防火墙 & seLinux】](./linux下关闭防火墙%20&%20selinux.md) 
 
-### 关闭防火墙
-#### 暂时关闭
-``` bash
-[root@localhost ~]# service iptables stop
-```
-#### 永久关闭
-``` bash
-[root@localhost ~]# chkconfig iptables off
-```
+
 ### 其他设置
 ####
 设置Mysql服务开机启动
