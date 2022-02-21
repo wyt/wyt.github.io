@@ -1,7 +1,7 @@
 ---
 title: Docker install
 date: 2018-10-25 13:29:00
-updated: 2018-10-25 13:29:00
+updated: 2022-2-21 11:24:00
 comments: true
 categories:
 - docker
@@ -109,6 +109,24 @@ systemctl restart docker
 [root@docker_007 ~]# systemctl enable docker
 ```
 
+#### 以非root用户启动运行docker(可选)
+
+docker安装完之后，可以使用非root用户启动运行
+
+```shell script
+[wangyt@docker_007 ~]# sudo groupadd docker
+[wangyt@docker_007 ~]# sudo usermod -aG docker $USER
+[wangyt@docker_007 ~]# sudo groupadd docker
+[wangyt@docker_007 ~]# newgrp docker 
+```
+
+执行完上述命令(虚拟机下可能需要重启)，重启docker：
+
+```shell script
+[wangyt@docker_007 ~]# sudo systemctl restart docker
+[wangyt@docker_007 ~]# sudo systemctl enable docker
+```
+
 #### 远程访问
 
 参考[How do I enable the remote API for dockerd](https://success.docker.com/article/how-do-i-enable-the-remote-api-for-dockerd)
@@ -141,3 +159,4 @@ docker machine
 https://docs.docker.com/machine/install-machine/
 
 [Get Docker CE for CentOS](https://docs.docker.com/install/linux/docker-ce/centos/)
+[Manage Docker as a non-root user](https://docs.docker.com/engine/install/linux-postinstall/)
