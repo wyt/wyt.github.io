@@ -21,6 +21,8 @@ categories:
 [root@localhost ~]#  setenforce 0
 ```
 
+<!--more-->
+
 #### 永久关闭
 
 设置`SELINUX=disabled`，需要重启。
