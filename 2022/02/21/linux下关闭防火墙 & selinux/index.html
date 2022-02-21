@@ -95,17 +95,17 @@
 
 
 
-<meta name="description" content="禁用seLinux查看状态script1[root@localhost ~]#  sestatus 暂时关闭暂时关闭，重启失效 script1[root@localhost ~]#  setenforce 0 永久关闭设置SELINUX=disabled，需要重启。 1234567891011[root@localhost ~]# cat /etc/selinux/config# This fil">
+<meta name="description" content="禁用seLinux查看状态script1[root@localhost ~]#  sestatus 暂时关闭暂时关闭，重启失效 script1[root@localhost ~]#  setenforce 0">
 <meta property="og:type" content="article">
 <meta property="og:title" content="linux下关闭【防火墙 &amp; seLinux】">
 <meta property="og:url" content="http://yoursite.com/2022/02/21/linux下关闭防火墙 & selinux/index.html">
 <meta property="og:site_name" content="Yongtao&#39;s Blog">
-<meta property="og:description" content="禁用seLinux查看状态script1[root@localhost ~]#  sestatus 暂时关闭暂时关闭，重启失效 script1[root@localhost ~]#  setenforce 0 永久关闭设置SELINUX=disabled，需要重启。 1234567891011[root@localhost ~]# cat /etc/selinux/config# This fil">
+<meta property="og:description" content="禁用seLinux查看状态script1[root@localhost ~]#  sestatus 暂时关闭暂时关闭，重启失效 script1[root@localhost ~]#  setenforce 0">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2022-02-21T03:50:42.574Z">
+<meta property="og:updated_time" content="2022-02-21T04:03:27.042Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux下关闭【防火墙 &amp; seLinux】">
-<meta name="twitter:description" content="禁用seLinux查看状态script1[root@localhost ~]#  sestatus 暂时关闭暂时关闭，重启失效 script1[root@localhost ~]#  setenforce 0 永久关闭设置SELINUX=disabled，需要重启。 1234567891011[root@localhost ~]# cat /etc/selinux/config# This fil">
+<meta name="twitter:description" content="禁用seLinux查看状态script1[root@localhost ~]#  sestatus 暂时关闭暂时关闭，重启失效 script1[root@localhost ~]#  setenforce 0">
 
 
 
@@ -391,6 +391,7 @@
         <h3 id="禁用seLinux"><a href="#禁用seLinux" class="headerlink" title="禁用seLinux"></a>禁用seLinux</h3><h4 id="查看状态"><a href="#查看状态" class="headerlink" title="查看状态"></a>查看状态</h4><figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]#  sestatus</span><br></pre></td></tr></table></figure>
 <h4 id="暂时关闭"><a href="#暂时关闭" class="headerlink" title="暂时关闭"></a>暂时关闭</h4><p>暂时关闭，重启失效</p>
 <figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]#  setenforce 0</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
 <h4 id="永久关闭"><a href="#永久关闭" class="headerlink" title="永久关闭"></a>永久关闭</h4><p>设置<code>SELINUX=disabled</code>，需要重启。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]<span class="comment"># cat /etc/selinux/config</span></span><br><span class="line"><span class="comment"># This file controls the state of SELinux on the system.</span></span><br><span class="line"><span class="comment"># SELINUX= can take one of these three values:</span></span><br><span class="line"><span class="comment">#     enforcing - SELinux security policy is enforced.</span></span><br><span class="line"><span class="comment">#     permissive - SELinux prints warnings instead of enforcing.</span></span><br><span class="line"><span class="comment">#     disabled - No SELinux policy is loaded.</span></span><br><span class="line">SELINUX=disabled</span><br><span class="line"><span class="comment"># SELINUXTYPE= can take one of these two values:</span></span><br><span class="line"><span class="comment">#     targeted - Targeted processes are protected,</span></span><br><span class="line"><span class="comment">#     mls - Multi Level Security protection.</span></span><br><span class="line">SELINUXTYPE=targeted</span><br></pre></td></tr></table></figure>
 <h3 id="关闭防火墙"><a href="#关闭防火墙" class="headerlink" title="关闭防火墙"></a>关闭防火墙</h3><h4 id="CentOS-7"><a href="#CentOS-7" class="headerlink" title="CentOS 7"></a>CentOS 7</h4><h4 id="查看状态-1"><a href="#查看状态-1" class="headerlink" title="查看状态"></a>查看状态</h4><figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# firewall-cmd --state</span><br></pre></td></tr></table></figure>
