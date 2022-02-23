@@ -95,23 +95,18 @@
 
 
 
-<meta name="description" content="基本内容本系列刊文旨在让后端程序员快速上手现代前端开发流程，化繁为简，节省大家宝贵的时间，多多去陪陪家人，做一些内心想做的事情。 vue-cli使用">
+<meta name="description" content="基本内容本系列刊文旨在让后端程序员快速熟悉上手现代前端开发流程，化繁为简，节省大家宝贵的时间，多陪陪家人，追随内心，做一些想做的事情。 准备工作 安装nodejs，https://nodejs.org/en/ 设置国内源 npm config set registry https://registry.npm.taobao.org/ 全局安装 vue-cli、webpack、webpack-dev">
 <meta name="keywords" content="vue">
 <meta property="og:type" content="article">
 <meta property="og:title" content="后端程序员的前端入门手册">
 <meta property="og:url" content="http://yoursite.com/2022/02/16/后端程序员的前端入门手册/index.html">
 <meta property="og:site_name" content="Yongtao&#39;s Blog">
-<meta property="og:description" content="基本内容本系列刊文旨在让后端程序员快速上手现代前端开发流程，化繁为简，节省大家宝贵的时间，多多去陪陪家人，做一些内心想做的事情。 vue-cli使用">
+<meta property="og:description" content="基本内容本系列刊文旨在让后端程序员快速熟悉上手现代前端开发流程，化繁为简，节省大家宝贵的时间，多陪陪家人，追随内心，做一些想做的事情。 准备工作 安装nodejs，https://nodejs.org/en/ 设置国内源 npm config set registry https://registry.npm.taobao.org/ 全局安装 vue-cli、webpack、webpack-dev">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://objects.yongtao.wang/images/20220216/20220216192215.png">
-<meta property="og:image" content="https://objects.yongtao.wang/images/20220216/20220216192444.png">
-<meta property="og:image" content="https://objects.yongtao.wang/images/20220216/20220216192509.png">
-<meta property="og:image" content="https://objects.yongtao.wang/images/20220216/20220216194509.png">
-<meta property="og:updated_time" content="2022-02-21T08:01:25.081Z">
+<meta property="og:updated_time" content="2022-02-23T14:30:39.775Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="后端程序员的前端入门手册">
-<meta name="twitter:description" content="基本内容本系列刊文旨在让后端程序员快速上手现代前端开发流程，化繁为简，节省大家宝贵的时间，多多去陪陪家人，做一些内心想做的事情。 vue-cli使用">
-<meta name="twitter:image" content="https://objects.yongtao.wang/images/20220216/20220216192215.png">
+<meta name="twitter:description" content="基本内容本系列刊文旨在让后端程序员快速熟悉上手现代前端开发流程，化繁为简，节省大家宝贵的时间，多陪陪家人，追随内心，做一些想做的事情。 准备工作 安装nodejs，https://nodejs.org/en/ 设置国内源 npm config set registry https://registry.npm.taobao.org/ 全局安装 vue-cli、webpack、webpack-dev">
 
 
 
@@ -394,9 +389,38 @@
       
 
       
-        <h4 id="基本内容"><a href="#基本内容" class="headerlink" title="基本内容"></a>基本内容</h4><p>本系列刊文旨在让后端程序员快速上手现代前端开发流程，化繁为简，节省大家宝贵的时间，多多去陪陪家人，做一些内心想做的事情。</p>
-<h4 id="vue-cli使用"><a href="#vue-cli使用" class="headerlink" title="vue-cli使用"></a>vue-cli使用</h4><a id="more"></a>
-<p><img src="https://objects.yongtao.wang/images/20220216/20220216192215.png" alt="这里写图片描述"><br><img src="https://objects.yongtao.wang/images/20220216/20220216192444.png" alt="这里写图片描述"><br><img src="https://objects.yongtao.wang/images/20220216/20220216192509.png" alt="这里写图片描述"><br><img src="https://objects.yongtao.wang/images/20220216/20220216194509.png" alt="这里写图片描述"></p>
+        <h3 id="基本内容"><a href="#基本内容" class="headerlink" title="基本内容"></a>基本内容</h3><p>本系列刊文旨在让后端程序员快速熟悉上手现代前端开发流程，化繁为简，节省大家宝贵的时间，多陪陪家人，追随内心，做一些想做的事情。</p>
+<h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><ul>
+<li>安装nodejs，<a href="https://nodejs.org/en/" target="_blank" rel="noopener">https://nodejs.org/en/</a></li>
+<li>设置国内源 <code>npm config set registry https://registry.npm.taobao.org/</code></li>
+<li>全局安装 vue-cli、webpack、webpack-dev-serve等<ul>
+<li><code>npm i -g yarn</code></li>
+<li><code>npm install -g vue-cli</code></li>
+<li><code>npm install -g webpack</code></li>
+<li><code>npm install -g webpack-cli</code></li>
+<li><code>npm install -g webpack-dev-server</code></li>
+</ul>
+</li>
+<li>yarn设置国内源 <code>yarn config set registry https://registry.npm.taobao.org/</code></li>
+</ul>
+<a id="more"></a>
+<h3 id="初始化vue项目"><a href="#初始化vue项目" class="headerlink" title="初始化vue项目"></a>初始化vue项目</h3><h4 id="vue-cli初始化"><a href="#vue-cli初始化" class="headerlink" title="vue-cli初始化"></a>vue-cli初始化</h4><p><code>vue ui</code> 或 <code>vue create</code></p>
+<p><a href="https://cli.vuejs.org/zh/guide/creating-a-project.html#vue-create" target="_blank" rel="noopener">https://cli.vuejs.org/zh/guide/creating-a-project.html#vue-create</a></p>
+<h4 id="vite初始化"><a href="#vite初始化" class="headerlink" title="vite初始化"></a>vite初始化</h4><p>Vite 是一个 web 开发构建工具，由于其原生 ES 模块导入方式，可以实现闪电般的冷服务器启动。</p>
+<p>通过在终端中运行以下命令，可以使用 Vite 快速构建 Vue 项目。</p>
+<figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> yarn create vite &lt;project-name&gt; --template vue</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> &lt;project-name&gt;</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> yarn</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> yarn dev</span></span><br></pre></td></tr></table></figure>
+<p><a href="https://v3.cn.vuejs.org/guide/installation.html#%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7-cli" target="_blank" rel="noopener">https://v3.cn.vuejs.org/guide/installation.html#%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7-cli</a></p>
+<a href="!---
+![这里写图片描述](https://objects.yongtao.wang/images/20220216/20220216192215.png)
+![这里写图片描述](https://objects.yongtao.wang/images/20220216/20220216192444.png)
+![这里写图片描述](https://objects.yongtao.wang/images/20220216/20220216192509.png)
+![这里写图片描述](https://objects.yongtao.wang/images/20220216/20220216194509.png)
+--">!---
+![这里写图片描述](https://objects.yongtao.wang/images/20220216/20220216192215.png)
+![这里写图片描述](https://objects.yongtao.wang/images/20220216/20220216192444.png)
+![这里写图片描述](https://objects.yongtao.wang/images/20220216/20220216192509.png)
+![这里写图片描述](https://objects.yongtao.wang/images/20220216/20220216194509.png)
+--</a>
 
       
     </div>
@@ -649,7 +673,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#基本内容"><span class="nav-number">1.</span> <span class="nav-text">基本内容</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#vue-cli使用"><span class="nav-number">2.</span> <span class="nav-text">vue-cli使用</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本内容"><span class="nav-number">1.</span> <span class="nav-text">基本内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#准备工作"><span class="nav-number">2.</span> <span class="nav-text">准备工作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化vue项目"><span class="nav-number">3.</span> <span class="nav-text">初始化vue项目</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#vue-cli初始化"><span class="nav-number">3.1.</span> <span class="nav-text">vue-cli初始化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#vite初始化"><span class="nav-number">3.2.</span> <span class="nav-text">vite初始化</span></a></li></ol></li></ol></div>
             
 
           </div>
