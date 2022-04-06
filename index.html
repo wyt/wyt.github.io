@@ -392,7 +392,8 @@
 
       
         
-          <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><ul>
+          <p>本示例在windows环境下演示，绝大部分命令和linux通用。</p>
+<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><ul>
 <li><a href="https://docs.influxdata.com/telegraf/v1.22/" target="_blank" rel="noopener">telegraf</a>：指标收集工具，可收集中间件暴露的性能指标，本文中我们以收集redis指标为例。</li>
 <li><a href="https://kafka.apache.org/quickstart" target="_blank" rel="noopener">kafka</a>：telegraf收集上来的指标上报到kafka，用于提高系统吞吐量。</li>
 <li><a href="https://vector.dev/docs/" target="_blank" rel="noopener">vector</a>：高性能传输管道，支持多种源和目标，本示例中用于消费kafka消息，转换后，写入到ClickHouse中。</li>
