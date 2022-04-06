@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Telegraf + Kafka + Vector + ClickHouse 指标采集实现]]></title>
+    <url>%2F2022%2F04%2F06%2FTelegraf%20%2B%20Kafka%20%2B%20Vector%20%2B%20Clickhouse%20%E6%8C%87%E6%A0%87%E9%87%87%E9%9B%86%E5%AE%9E%E7%8E%B0%2F</url>
+    <content type="text"><![CDATA[简介 telegraf：指标收集工具，可收集中间件暴露的性能指标，本文中我们以收集redis指标为例。 kafka：telegraf收集上来的指标上报到kafka，用于提高系统吞吐量。 vector：高性能传输管道，支持多种源和目标，本示例中用于消费kafka消息，转换后，写入到ClickHouse中。 clickhouse: 列式存储OLAP数据库，适用于分析型场景。 superset：轻量级BI工具，用于快速接入各种数据源实现数据展现。]]></content>
+      <categories>
+        <category>指标收集</category>
+      </categories>
+      <tags>
+        <tag>telegraf</tag>
+        <tag>kafka</tag>
+        <tag>vector</tag>
+        <tag>clickhouse</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[vue3插槽]]></title>
     <url>%2F2022%2F03%2F02%2Fvue3%E6%8F%92%E6%A7%BD%2F</url>
     <content type="text"><![CDATA[基本内容定义一个组件com，使用slot标签占位：123vm.component('com', &#123; template: `&lt;div&gt;&lt;slot&gt;&lt;/slot&gt;&lt;/div&gt;`&#125;) 使用这个组件com：123&lt;div&gt; &lt;com&gt;是非成败转头空，浪花淘尽英雄。&lt;/com&gt;&lt;/div&gt; 组件com中的slot会被替换成是非成败转头空，浪花淘尽英雄。]]></content>
