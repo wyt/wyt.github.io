@@ -17,7 +17,7 @@ tags:
 * [telegraf](https://docs.influxdata.com/telegraf/v1.22/)：指标收集工具，可收集中间件暴露的性能指标，本文中我们以收集redis指标为例。
 * [kafka](https://kafka.apache.org/quickstart)：telegraf收集上来的指标上报到kafka，用于提高系统吞吐量。
 * [vector](https://vector.dev/docs/)：高性能传输管道，支持多种源和目标，本示例中用于消费kafka消息，转换后，写入到ClickHouse中。
-* [clickhouse](https://clickhouse.com/docs/zh/): 列式存储OLAP数据库，适用于分析型场景。
+* [clickhouse](https://clickhouse.com/docs/zh/): 列式存储数据库，适用于OLAP分析型场景。
 * [superset](https://superset.apache.org/docs/intro)：轻量级BI工具，用于快速接入各种数据源实现数据展现。
 
 <!--more-->
@@ -266,7 +266,6 @@ PS D:\dev_app\collectors\vector-0.20.0>
 clickhouse中要事先创建好相关表，见下节。
 
 ```bash
-
 ### 消费kafka ###
 [sources.kafka_source_001]
 type = "kafka"
@@ -317,11 +316,100 @@ auth.password = "password"
 auth.user = "default"
 table = "t_redis_cmd_stat"
 compression = "gzip"
+
+
+### redis_keyspace ###
+
+[transforms.redis_keyspace]
+type = "filter"
+inputs = [ "transforms_parse_json" ]
+condition = { type = "vrl", source = '.name == "redis_keyspace"' }
+
+[transforms.redis_keyspace_remap]
+type = "remap"
+inputs = [ "redis_keyspace" ]
+source = '''
+.fields.timestamp = .timestamp
+.fields.name = .name
+.fields.database = .tags.database
+.fields.host = .tags.host
+.fields.port = .tags.port
+.fields.replication_role = .tags.replication_role
+.fields.server = .tags.server
+. = .fields
+'''
+
+
+[sinks.redis_keyspace_out]
+type = "clickhouse"
+inputs = [ "redis_cmdstat_remap" ]
+database = "mydb"
+endpoint = "http://localhost:8123"
+auth.strategy = "basic"
+auth.password = "password"
+auth.user = "default"
+table = "t_redis_cmd_stat"
+compression = "gzip"
+
+### redis ###
+
+[transforms.redis]
+type = "filter"
+inputs = [ "transforms_parse_json" ]
+condition = { type = "vrl", source = '.name == "redis"' }
+
+[transforms.redis_remap]
+type = "remap"
+inputs = [ "redis" ]
+source = '''
+.fields.timestamp = .timestamp
+.fields.name = .name
+.fields.host = .tags.host
+.fields.port = .tags.port
+.fields.replication_role = .tags.replication_role
+.fields.server = .tags.server
+. = .fields
+'''
+
+[sinks.redis_out]
+type = "clickhouse"
+inputs = [ "redis_cmdstat_remap" ]
+database = "mydb"
+endpoint = "http://localhost:8123"
+auth.strategy = "basic"
+auth.password = "password"
+auth.user = "default"
+table = "t_redis_cmd_stat"
+compression = "gzip"
 ```
 
 ### clickhouse
 
 #### 创建表语句
+
+t_redis_keyspace_stat
+
+```sql
+CREATE TABLE t_redis_keyspace_stat
+(
+    `timestamp` DateTime64(3, 'Asia/Shanghai'),
+    `host` String,
+    `server` String,
+    `port` String,
+    `replication_role` String,
+    `name` String,
+    `database` String,
+    `avg_ttl` Float64,
+    `expires` Float64,
+    `keys` Float64
+)
+ENGINE = MergeTree()
+PARTITION BY toYYYYMM(timestamp)
+ORDER BY (timestamp)
+;
+```
+
+t_redis_cmd_stat
 
 ```sql
 CREATE TABLE t_redis_cmd_stat
@@ -342,6 +430,84 @@ PARTITION BY toYYYYMM(timestamp)
 ORDER BY (timestamp)
 ;
 ```
+
+t_redis_stat
+
+```sql
+CREATE TABLE t_redis_stat
+(
+    `timestamp` DateTime64(3, 'Asia/Shanghai'),
+    `host` String,
+    `port` String,
+    `server` String,
+    `replication_role` String,
+    `name` String,
+    `aof_current_rewrite_time_sec` Float64,
+    `aof_enabled` Float64,
+    `aof_last_bgrewrite_status` String,
+    `aof_last_rewrite_time_sec` Float64,
+    `aof_last_write_status` String,
+    `aof_rewrite_in_progress` Float64,
+    `aof_rewrite_scheduled` Float64,
+    `blocked_clients` Float64,
+    `client_biggest_input_buf` Float64,
+    `client_longest_output_list` Float64,
+    `clients` Float64,
+    `cluster_enabled` Float64,
+    `connected_slaves` Float64,
+    `evicted_keys` Float64,
+    `expired_keys` Float64,
+    `instantaneous_input_kbps` Float64,
+    `instantaneous_ops_per_sec` Float64,
+    `instantaneous_output_kbps` Float64,
+    `keyspace_hitrate` Float64,
+    `keyspace_hits` Float64,
+    `keyspace_misses` Float64,
+    `latest_fork_usec` Float64,
+    `loading` Float64,
+    `lru_clock` Float64,
+    `master_repl_offset` Float64,
+    `mem_fragmentation_ratio` Float64,
+    `migrate_cached_sockets` Float64,
+    `pubsub_channels` Float64,
+    `pubsub_patterns` Float64,
+    `rdb_bgsave_in_progress` Float64,
+    `rdb_changes_since_last_save` Float64,
+    `rdb_current_bgsave_time_sec` Float64,
+    `rdb_last_bgsave_status` String,
+    `rdb_last_bgsave_time_sec` Float64,
+    `rdb_last_save_time` Float64,
+    `rdb_last_save_time_elapsed` Float64,
+    `redis_version` String,
+    `rejected_connections` Float64,
+    `repl_backlog_active` Float64,
+    `repl_backlog_first_byte_offset` Float64,
+    `repl_backlog_histlen` Float64,
+    `repl_backlog_size` Float64,
+    `sync_full` Float64,
+    `sync_partial_err` Float64,
+    `sync_partial_ok` Float64,
+    `total_commands_processed` Float64,
+    `total_connections_received` Float64,
+    `total_net_input_bytes` Float64,
+    `total_net_output_bytes` Float64,
+    `uptime` Float64,
+    `used_cpu_sys` Float64,
+    `used_cpu_sys_children` Float64,
+    `used_cpu_user` Float64,
+    `used_cpu_user_children` Float64,
+    `used_memory` Float64,
+    `used_memory_lua` Float64,
+    `used_memory_peak` Float64,
+    `used_memory_rss` Float64
+)
+ENGINE = MergeTree()
+PARTITION BY toYYYYMM(timestamp)
+ORDER BY (timestamp)
+;
+```
+
+
 
 
 
