@@ -105,7 +105,7 @@ PS D:\dev_app\collectors\telegraf-1.22.0>
 
 注意指标的格式：
 
-`> redis_cmdstat,command=info,host=myhost,port=6379,replication_role=master,server=localhost calls=3i,usec=248i,usec_per_call=82.67 1649239129000000000`
+`redis_cmdstat,command=info,host=myhost,port=6379,replication_role=master,server=localhost calls=3i,usec=248i,usec_per_call=82.67 1649239129000000000`
 
 分为了四部分，对等的json格式为：
 
@@ -174,7 +174,7 @@ Created topic telegraf.
 ```bash
 ## 列出所有topic
 PS D:\dev_app\kafka_2.13-3.1.0> ./bin/windows/kafka-topics.bat --list --bootstrap-server localhost:9092
-quickstart-events
+telegraf
 ```
 
 ```bash
@@ -194,5 +194,156 @@ PS D:\dev_app\kafka_2.13-3.1.0>
   data_format = "json"
   json_timestamp_units = "1ms"
 ```
+
+### vector
+
+在本示例中，我们使用vector消费kafka中的数据，输出给clickhouse。
+
+#### 快速上手vector
+
+先通过几个小示例感受下vector：
+
+```bash
+PS D:\dev_app\collectors\vector-0.20.0> pwd
+
+Path
+----
+D:\dev_app\collectors\vector-0.20.0
+
+
+PS D:\dev_app\collectors\vector-0.20.0> ls
+
+
+    目录: D:\dev_app\collectors\vector-0.20.0
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----         2022/3/28     16:24                bin
+d-----          2022/4/1     10:56                config
+d-----         2022/3/28     16:24                data
+-a----         2022/2/10     23:54          16811 LICENSE.txt
+-a----          2022/2/9     18:57          17760 README.md.txt
+```
+
+config目录下增加一个配置文件myconfig.toml内容如下：
+表示从标准输入设备接收，输出到控制台
+
+```properties
+[sources.in]
+type = "stdin"
+
+[sinks.out]
+inputs = ["in"]
+type = "console"
+encoding.codec = "json"
+```
+
+执行测试：
+
+```bash
+PS D:\dev_app\collectors\vector-0.20.0> echo 'Hello world!' | ./bin/vector.exe --config ./config/myconfig.toml
+2022-04-06T11:13:23.093723Z  INFO vector::app: Log level is enabled. level="vector=info,codec=info,vrl=info,file_source=info,tower_limit=trace,rdkafka=info,buffers=info"
+2022-04-06T11:13:23.095105Z  INFO vector::app: Loading configs. paths=["config\\myconfig.toml"]
+2022-04-06T11:13:23.100891Z  INFO vector::sources::stdin: Capturing STDIN.
+2022-04-06T11:13:23.101194Z  INFO vector::topology::running: Running healthchecks.
+2022-04-06T11:13:23.101366Z  INFO vector::topology::builder: Healthcheck: Passed.
+2022-04-06T11:13:23.101421Z  INFO vector::topology::running: Starting source. key=in
+2022-04-06T11:13:23.101652Z  INFO vector::topology::running: Starting sink. key=out
+2022-04-06T11:13:23.101947Z  INFO vector: Vector has started. debug="false" version="0.20.0" arch="x86_64" build_id="2a706a3 2022-02-10"
+2022-04-06T11:13:23.102098Z  INFO vector::app: API is disabled, enable by setting `api.enabled` to `true` and use commands like `vector top`.
+2022-04-06T11:13:23.102138Z  INFO source{component_kind="source" component_id=in component_type=stdin component_name=in}: vector::sources::stdin: Finished sending.
+2022-04-06T11:13:23.102229Z  INFO vector::shutdown: All sources have finished.
+2022-04-06T11:13:23.102394Z  INFO vector: Vector has stopped.
+{"host":"wangyt16577","message":"Hello world!\r","source_type":"stdin","timestamp":"2022-04-06T11:13:23.101995900Z"}
+PS D:\dev_app\collectors\vector-0.20.0>
+```
+
+快速入门可参考：https://vector.dev/docs/setup/quickstart/
+
+#### vector配置
+
+clickhouse中要事先创建好相关表，见下节。
+
+```bash
+
+### 消费kafka ###
+[sources.kafka_source_001]
+type = "kafka"
+bootstrap_servers = "localhost:9092"
+group_id = "consumer-group-name"
+key_field = "message_key"
+topics = [ "telegraf" ]
+
+### json字符串转成json对象 ###
+[transforms.transforms_parse_json]
+type = "remap"
+inputs = [ "kafka_source_001" ]
+source = '''
+. = parse_json!(.message)
+'''
+
+### redis_cmdstat 类型数据处理 ###
+
+## 过滤出redis_cmdstat类型数据
+[transforms.redis_cmdstat]
+type = "filter"
+inputs = [ "transforms_parse_json" ]
+condition = { type = "vrl", source = '.name == "redis_cmdstat"' }
+
+## 将redis_cmdstat类型数据转换成一层json结构
+[transforms.redis_cmdstat_remap]
+type = "remap"
+inputs = [ "redis_cmdstat" ]
+source = '''
+.fields.timestamp = .timestamp
+.fields.name = .name
+.fields.command = .tags.command
+.fields.host = .tags.host
+.fields.port = .tags.port
+.fields.replication_role = .tags.replication_role
+.fields.server = .tags.server
+. = .fields
+'''
+
+## 转换好的数据输出到clickhouse中
+[sinks.redis_cmdstat_out]
+type = "clickhouse"
+inputs = [ "redis_cmdstat_remap" ]
+database = "mydb"
+endpoint = "http://localhost:8123"
+auth.strategy = "basic"
+auth.password = "password"
+auth.user = "default"
+table = "t_redis_cmd_stat"
+compression = "gzip"
+```
+
+### clickhouse
+
+#### 创建表语句
+
+```sql
+CREATE TABLE t_redis_cmd_stat
+(
+    `timestamp` DateTime64(3, 'Asia/Shanghai'),
+    `host` String,
+    `server` String,
+    `port` String,
+    `replication_role` String,
+    `name` String,
+    `command` String,
+    `calls` Float64,
+    `usec` Float64,
+    `usec_per_call` Float64
+)
+ENGINE = MergeTree()
+PARTITION BY toYYYYMM(timestamp)
+ORDER BY (timestamp)
+;
+```
+
+
+
 
 
