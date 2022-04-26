@@ -263,6 +263,34 @@ NAME        DESIRED   CURRENT   READY   AGE
 tomcat-rs   3         3         3       7s
 ```
 
+副本集详情：
+
+```shell script
+[wangyt@pseudo-cluster basic]$ kubectl describe replicasets/tomcat-rs
+Name:         tomcat-rs
+Namespace:    default
+Selector:     app=mytomcat
+Labels:       app=mytomcat
+Annotations:  <none>
+Replicas:     3 current / 3 desired
+Pods Status:  3 Running / 0 Waiting / 0 Succeeded / 0 Failed
+Pod Template:
+  Labels:  app=mytomcat
+  Containers:
+   tomcat:
+    Image:        tomcat:8
+    Port:         <none>
+    Host Port:    <none>
+    Environment:  <none>
+    Mounts:       <none>
+  Volumes:        <none>
+Events:
+  Type    Reason            Age   From                   Message
+  ----    ------            ----  ----                   -------
+  Normal  SuccessfulCreate  59m   replicaset-controller  Created pod: tomcat-rs-s9d98
+  Normal  SuccessfulCreate  59m   replicaset-controller  Created pod: tomcat-rs-96cp7
+```
+
 查看Pods：
 
 ```shell script
