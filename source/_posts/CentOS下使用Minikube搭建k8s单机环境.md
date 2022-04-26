@@ -109,3 +109,110 @@ kube-system            storage-provisioner                         1/1     Runni
 kubernetes-dashboard   dashboard-metrics-scraper-58549894f-krr2c   1/1     Running   0               4h40m
 kubernetes-dashboard   kubernetes-dashboard-ccd587f44-84sgj        1/1     Running   0               4h40m
 ```
+
+#### 部署服务示例
+
+我们以tomcat为例，使用k8s来部署服务。
+
+Pod是Kubernetes中的容器组，一个Pod可以包含一个或多个容器（Docker）。我们可以用一个YAML文件来描述如何建立一个Pod。
+
+`tomcat-pod.yaml`：
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: tomcat
+  labels:
+    app: mytomcat
+spec:
+  containers:
+  - name: tomcat
+    image: tomcat:8
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+    ports:
+      - containerPort: 8080
+```
+
+使用`kubectl`部署Pod：
+
+```shell script
+[wangyt@pseudo-cluster tmp]$ kubectl create -f tomcat-pod.yaml
+pod/tomcat created
+```
+
+查看Pod：
+
+```shell script
+[wangyt@pseudo-cluster tmp]$ kubectl get pods -A
+NAMESPACE              NAME                                        READY   STATUS              RESTARTS   AGE
+default                tomcat                                      0/1     ContainerCreating   0          9s
+```
+
+查看Pod详情：
+
+```shell script
+[wangyt@pseudo-cluster ~]$ kubectl describe pod/tomcat
+Name:         tomcat
+Namespace:    default
+Priority:     0
+Node:         minikube/192.168.49.2
+Start Time:   Wed, 13 Apr 2022 04:01:32 +0800
+Labels:       app=mytomcat
+Annotations:  <none>
+Status:       Running
+IP:           172.17.0.5
+IPs:
+  IP:  172.17.0.5
+Containers:
+  tomcat:
+    Container ID:   docker://3cbeae4ab93d5ee0c803391c3435e905efa7dc9ccb305b8ac299c87cfe7e3ccc
+    Image:          tomcat:8
+    Image ID:       docker-pullable://tomcat@sha256:8d7231354284be82ddc4567b209f4fea3a6f42f4f9626005e793953fc0a2d066
+    Port:           8080/TCP
+    Host Port:      0/TCP
+    State:          Running
+      Started:      Wed, 13 Apr 2022 04:01:33 +0800
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:     500m
+      memory:  128Mi
+    Requests:
+      cpu:        500m
+      memory:     128Mi
+    Environment:  <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-zp66r (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  kube-api-access-zp66r:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    ConfigMapOptional:       <nil>
+    DownwardAPI:             true
+QoS Class:                   Guaranteed
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:                      <none>
+```
+
+进入Pod容器：
+
+```shell script
+[wangyt@pseudo-cluster ~]$ kubectl exec -it tomcat -- /bin/bash
+root@tomcat:/usr/local/tomcat# ps -elf | grep java
+4 S root           1       0  0  80   0 - 845824 futex_ 20:01 ?       00:00:28 /usr/local/openjdk-11/bin/java -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager -Djdk.tls.ephemeralDHKeySize=2048 -Djava.protocol.handler.pkgs=org.apache.catalina.webresources -Dorg.apache.catalina.security.SecurityListener.UMASK=0027 -Dignore.endorsed.dirs= -classpath /usr/local/tomcat/bin/bootstrap.jar:/usr/local/tomcat/bin/tomcat-juli.jar -Dcatalina.base=/usr/local/tomcat -Dcatalina.home=/usr/local/tomcat -Djava.io.tmpdir=/usr/local/tomcat/temp org.apache.catalina.startup.Bootstrap start
+0 S root         122     112  0  80   0 -  1264 pipe_w 21:21 pts/0    00:00:00 grep java
+root@tomcat:/usr/local/tomcat#
+```
