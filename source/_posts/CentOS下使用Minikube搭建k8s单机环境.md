@@ -84,7 +84,7 @@ http://127.0.0.1:8899/api/v1/namespaces/kubernetes-dashboard/services/http:kuber
 
 http://192.168.101.146:8899/api/v1/namespaces/kubernetes-dashboard/services/http:kubernetes-dashboard:/proxy/
 
-#### 查看pod
+#### 查看Pod
 ```shell script
 [wangyt@pseudo-cluster ~]$ kubectl get po -A
 NAMESPACE              NAME                                        READY   STATUS    RESTARTS        AGE
@@ -110,7 +110,7 @@ kubernetes-dashboard   dashboard-metrics-scraper-58549894f-krr2c   1/1     Runni
 kubernetes-dashboard   kubernetes-dashboard-ccd587f44-84sgj        1/1     Running   0               4h40m
 ```
 
-#### 部署服务示例
+#### Pod(容器组)
 
 我们以tomcat为例，使用k8s来部署服务。
 
@@ -216,3 +216,58 @@ root@tomcat:/usr/local/tomcat# ps -elf | grep java
 0 S root         122     112  0  80   0 -  1264 pipe_w 21:21 pts/0    00:00:00 grep java
 root@tomcat:/usr/local/tomcat#
 ```
+
+#### Replica Set(副本集)
+
+Replica Set控制Pod副本的运行数量。
+
+`tomcat-rs.yaml`：
+
+```yaml
+apiVersion: apps/v1
+kind: ReplicaSet # 类型为ReplicaSet
+metadata:
+  name: tomcat-rs
+  labels:
+    app: mytomcat
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: mytomcat # 匹配Pod的元数据，将此副本集应用到该Pod
+  template:
+    metadata:
+      labels:
+        app: mytomcat
+    spec:
+      containers:
+        - name: tomcat
+          image: tomcat:8
+```
+
+部署ReplicaSet：
+
+```shell script
+[wangyt@pseudo-cluster basic]$ kubectl create -f tomcat-rs.yaml 
+replicaset.apps/tomcat-rs created
+```
+
+查看rs：
+
+```shell script
+[wangyt@pseudo-cluster basic]$ kubectl get rs
+NAME        DESIRED   CURRENT   READY   AGE
+tomcat-rs   3         3         3       7s
+```
+
+查看Pods：
+
+```shell script
+[wangyt@pseudo-cluster basic]$ kubectl get pods
+NAME              READY   STATUS    RESTARTS   AGE
+tomcat            1/1     Running   0          140m
+tomcat-rs-96cp7   1/1     Running   0          19s
+tomcat-rs-s9d98   1/1     Running   0          19s
+```
+
+
