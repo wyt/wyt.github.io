@@ -21,7 +21,10 @@ tags:
 
 <!--more-->
 
-#### 清理之前遗留的环境(新安装不需要执行)
+#### 清理环境
+
+之前安装过的话，需要清理下环境，新安装的不需要执行。
+
 ```shell script
 [wangyt@pseudo-cluster ~]$ minikube stop
 * Stopping node "minikube"  ...
@@ -270,4 +273,84 @@ tomcat-rs-96cp7   1/1     Running   0          19s
 tomcat-rs-s9d98   1/1     Running   0          19s
 ```
 
+#### Service(服务)
 
+Service将一组Pod组织在一起，然后可以通过Service名来访问，还可以实现Pod的负载均衡。
+
+tomcat-service.yaml：
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: tomcat-service
+  labels:
+    app: mytomcat
+spec:
+  type: NodePort
+  ports:
+    - port: 30000
+      nodePort: 30000
+      targetPort: 8080
+  selector:
+    app: mytomcat
+```
+
+Service有以下三种类型：
+
+* `NodePort`：通过Node的静态端口暴露服务。
+* `LoadBalancer`：使用云平台提供商的Load Balancer(例如阿里云会提供一个公网IP地址)。
+* `ClusterIP`：只能在k8s内部可以访问的服务。
+
+部署Service：
+
+```shell script
+[wangyt@pseudo-cluster basic]$ kubectl create -f tomcat-service.yaml
+service/tomcat-service created
+```
+
+查看Service：
+
+```shell script
+[wangyt@pseudo-cluster basic]$ kubectl get services                
+NAME             TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)           AGE
+kubernetes       ClusterIP   10.96.0.1      <none>        443/TCP           3h6m
+tomcat-service   NodePort    10.111.23.38   <none>        30000:30000/TCP   12s
+```
+
+查看Service详情：
+```shell script
+[wangyt@pseudo-cluster basic]$ kubectl describe services/tomcat-service
+Name:                     tomcat-service
+Namespace:                default
+Labels:                   app=mytomcat
+Annotations:              <none>
+Selector:                 app=mytomcat
+Type:                     NodePort
+IP Family Policy:         SingleStack
+IP Families:              IPv4
+IP:                       10.111.23.38
+IPs:                      10.111.23.38
+Port:                     <unset>  30000/TCP
+TargetPort:               8080/TCP
+NodePort:                 <unset>  30000/TCP
+Endpoints:                172.17.0.5:8080,172.17.0.6:8080,172.17.0.7:8080
+Session Affinity:         None
+External Traffic Policy:  Cluster
+Events:                   <none>
+[wangyt@pseudo-cluster basic]$ 
+```
+
+访问服务：
+
+这里使用NodePort访问服务，可以通过下面的命令获取Node的IP地址：
+
+`minikube ip`
+
+```shell script
+[wangyt@pseudo-cluster basic]$ minikube ip
+192.168.49.2
+[wangyt@pseudo-cluster basic]$ curl 192.168.49.2:30000
+<!doctype html><html lang="en"><head><title>HTTP Status 404 – Not Found</title><style type="text/css">body {font-family:Tahoma,Arial,sans-serif;} h1, h2, h3, b {color:white;background-color:#525D76;} h1 {font-size:22px;} h2 {font-size:16px;} h3 {font-size:14px;} p {font-size:12px;} a {color:black;} .line {height:1px;background-color:#525D76;border:none;}</style></head><body><h1>HTTP Status 404 – Not Found</h1><hr class="line" /><p><b>Type</b> Status Report</p><p><b>Description</b> The origin server did not find a current representation for the target resource or is not willing to disclose that one exists.</p><hr class="line" /><h3>Apache Tomcat/8.5.78</h3></body></html>[wangyt@pseudo-cluster basic]$ 
+[wangyt@pseudo-cluster basic]$
+```
