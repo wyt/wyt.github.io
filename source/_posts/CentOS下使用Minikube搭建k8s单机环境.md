@@ -59,6 +59,15 @@ tags:
 * Done! kubectl is now configured to use "minikube" cluster and "default" namespace by default
 ```
 
+##### 查看集群信息
+```shell script
+[wangyt@pseudo-cluster ~]$ kubectl cluster-info
+Kubernetes control plane is running at https://192.168.49.2:8443
+CoreDNS is running at https://192.168.49.2:8443/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
+
+To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
+```
+
 #### 开启dashboard
 ```shell script
 [wangyt@pseudo-cluster ~]$ minikube dashboard --port=8899 --url=true
