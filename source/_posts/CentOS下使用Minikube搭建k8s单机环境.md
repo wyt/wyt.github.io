@@ -382,3 +382,128 @@ Events:                   <none>
 <!doctype html><html lang="en"><head><title>HTTP Status 404 – Not Found</title><style type="text/css">body {font-family:Tahoma,Arial,sans-serif;} h1, h2, h3, b {color:white;background-color:#525D76;} h1 {font-size:22px;} h2 {font-size:16px;} h3 {font-size:14px;} p {font-size:12px;} a {color:black;} .line {height:1px;background-color:#525D76;border:none;}</style></head><body><h1>HTTP Status 404 – Not Found</h1><hr class="line" /><p><b>Type</b> Status Report</p><p><b>Description</b> The origin server did not find a current representation for the target resource or is not willing to disclose that one exists.</p><hr class="line" /><h3>Apache Tomcat/8.5.78</h3></body></html>[wangyt@pseudo-cluster basic]$ 
 [wangyt@pseudo-cluster basic]$
 ```
+
+#### Deployment(部署)
+
+Deployment可以管理ReplicaSet和Pod的部署，具备更新和回滚的能力。
+
+`tomcat-deployment.yaml`：
+
+```shell script
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tomcat-deployment
+  labels:
+    app: mytomcat
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: mytomcat
+  template:
+    metadata:
+      labels:
+        app: mytomcat
+    spec:
+      containers:
+        - name: tomcat
+          image: tomcat:8
+```
+
+部署Deployment
+
+```shell script
+[wangyt@pseudo-cluster basic]$ kubectl create -f tomcat-deployment.yaml
+deployment.apps/tomcat-deployment created
+[wangyt@pseudo-cluster basic]$ kubectl get pods
+NAME              READY   STATUS    RESTARTS   AGE
+tomcat            1/1     Running   0          4h37m
+tomcat-rs-7sj7h   1/1     Running   0          11s
+tomcat-rs-96cp7   1/1     Running   0          137m
+tomcat-rs-s9d98   1/1     Running   0          137m
+```
+
+查看Deployment：
+
+```shell script
+kubectl get deployments
+kubectl get pods
+```
+
+查看Deployment详情：
+
+```shell script
+[wangyt@pseudo-cluster basic]$ kubectl get deployments
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+tomcat-deployment   4/4     4            4           99s
+[wangyt@pseudo-cluster basic]$ kubectl describe deployments/tomcat-deployment
+Name:                   tomcat-deployment
+Namespace:              default
+CreationTimestamp:      Wed, 13 Apr 2022 08:39:17 +0800
+Labels:                 app=mytomcat
+Annotations:            deployment.kubernetes.io/revision: 1
+Selector:               app=mytomcat
+Replicas:               4 desired | 4 updated | 4 total | 4 available | 0 unavailable
+StrategyType:           RollingUpdate
+MinReadySeconds:        0
+RollingUpdateStrategy:  25% max unavailable, 25% max surge
+Pod Template:
+  Labels:  app=mytomcat
+  Containers:
+   tomcat:
+    Image:        tomcat:8
+    Port:         <none>
+    Host Port:    <none>
+    Environment:  <none>
+    Mounts:       <none>
+  Volumes:        <none>
+Conditions:
+  Type           Status  Reason
+  ----           ------  ------
+  Available      True    MinimumReplicasAvailable
+  Progressing    True    NewReplicaSetAvailable
+OldReplicaSets:  <none>
+NewReplicaSet:   tomcat-rs (4/4 replicas created)
+Events:
+  Type    Reason             Age    From                   Message
+  ----    ------             ----   ----                   -------
+  Normal  ScalingReplicaSet  2m25s  deployment-controller  Scaled up replica set tomcat-rs to 4
+```
+
+更新部署，升级到tomcat9版本。
+
+```shell script
+[wangyt@pseudo-cluster basic]$ kubectl set image deployment/tomcat-deployment tomcat=tomcat:9
+deployment.apps/tomcat-deployment image updated
+[wangyt@pseudo-cluster basic]$ 
+[wangyt@pseudo-cluster basic]$ 
+[wangyt@pseudo-cluster basic]$ 
+[wangyt@pseudo-cluster basic]$ kubectl get pods
+NAME                                READY   STATUS              RESTARTS   AGE
+tomcat                              1/1     Running             0          5h14m
+tomcat-deployment-77895cc49-4jr79   0/1     ContainerCreating   0          12s
+tomcat-deployment-77895cc49-qcrqf   0/1     ContainerCreating   0          12s
+tomcat-rs-96cp7                     1/1     Running             0          174m
+tomcat-rs-s9d98                     1/1     Running             0          174m
+[wangyt@pseudo-cluster basic]$ kubectl get pods
+NAME                                READY   STATUS    RESTARTS   AGE
+tomcat-deployment-77895cc49-4jr79   1/1     Running   0          9m59s
+tomcat-deployment-77895cc49-qcrqf   1/1     Running   0          9m59s
+tomcat-deployment-77895cc49-r7pp5   1/1     Running   0          5m7s
+tomcat-deployment-77895cc49-rgsxw   1/1     Running   0          5m12s
+```
+
+查看版本是否更新：
+
+可以看到版本变成了`Tomcat/9.0.62`
+
+```shell script
+[wangyt@pseudo-cluster basic]$ curl `minikube ip`:30000
+<!doctype html><html lang="en"><head><title>HTTP Status 404 – Not Found</title><style type="text/css">body {font-family:Tahoma,Arial,sans-serif;} h1, h2, h3, b {color:white;background-color:#525D76;} h1 {font-size:22px;} h2 {font-size:16px;} h3 {font-size:14px;} p {font-size:12px;} a {color:black;} .line {height:1px;background-color:#525D76;border:none;}</style></head><body><h1>HTTP Status 404 – Not Found</h1><hr class="line" /><p><b>Type</b> Status Report</p><p><b>Description</b> The origin server did not find a current representation for the target resource or is not willing to disclose that one exists.</p><hr class="line" /><h3>Apache Tomcat/9.0.62</h3></body></html>[wangyt@pseudo-cluster basic]$ 
+[wangyt@pseudo-cluster basic]$
+```
+
+更新Pod数量：
+
+回滚：
