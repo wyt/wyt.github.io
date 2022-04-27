@@ -506,4 +506,48 @@ tomcat-deployment-77895cc49-rgsxw   1/1     Running   0          5m12s
 
 更新Pod数量：
 
+```shell script
+[wangyt@pseudo-cluster tmp]$ kubectl scale deployment tomcat-deployment --replicas 2
+deployment.apps/tomcat-deployment scaled
+[wangyt@pseudo-cluster tmp]$ kubectl get pods      
+NAME                                READY   STATUS    RESTARTS   AGE
+tomcat-deployment-77895cc49-4jr79   1/1     Running   0          15h
+tomcat-deployment-77895cc49-rgsxw   1/1     Running   0          15h
+```
+
 回滚：
+
+查看历史版本：
+
+```shell script
+[wangyt@pseudo-cluster tmp]$ kubectl rollout history deployments/tomcat-deployment 
+deployment.apps/tomcat-deployment 
+REVISION  CHANGE-CAUSE
+1         <none>
+2         <none>
+```
+
+```shell script
+[wangyt@pseudo-cluster tmp]$ kubectl get deployment
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+nginx-deployment    1/1     1            1           19m
+tomcat-deployment   2/2     2            2           16h
+## 回滚到版本1
+[wangyt@pseudo-cluster tmp]$ kubectl rollout undo deployment/tomcat-deployment --to-revision=1
+deployment.apps/tomcat-deployment rolled back
+## 查看回滚状态
+[wangyt@pseudo-cluster tmp]$ kubectl rollout status deployment/tomcat-deployment
+deployment "tomcat-deployment" successfully rolled out
+[wangyt@pseudo-cluster tmp]$ kubectl get pods
+NAME                                READY   STATUS    RESTARTS   AGE
+nginx-deployment-66cc6765b4-zzdmf   1/1     Running   0          21m
+tomcat-rs-4rpwj                     1/1     Running   0          47s
+tomcat-rs-tkjj8                     1/1     Running   0          49s
+[wangyt@pseudo-cluster tmp]$ curl `minikube ip`:30000
+<!doctype html><html lang="en"><head><title>HTTP Status 404 – Not Found</title><style type="text/css">body {font-family:Tahoma,Arial,sans-serif;} h1, h2, h3, b {color:white;background-color:#525D76;} h1 {font-size:22px;} h2 {font-size:16px;} h3 {font-size:14px;} p {font-size:12px;} a {color:black;} .line {height:1px;background-color:#525D76;border:none;}</style></head><body><h1>HTTP Status 404 – Not Found</h1><hr class="line" /><p><b>Type</b> Status Report</p><p><b>Description</b> The origin server did not find a current representation for the target resource or is not willing to disclose that one exists.</p><hr class="line" /><h3>Apache Tomcat/8.5.78</h3></body></html>
+[wangyt@pseudo-cluster tmp]$ 
+```
+
+可以看到版本已变更为：Tomcat/8.5.78
+
+
