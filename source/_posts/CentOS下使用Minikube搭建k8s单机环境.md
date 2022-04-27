@@ -498,7 +498,7 @@ tomcat-deployment-77895cc49-rgsxw   1/1     Running   0          5m12s
 
 可以看到版本变成了`Tomcat/9.0.62`
 
-```shell script
+```bash
 [wangyt@pseudo-cluster basic]$ curl `minikube ip`:30000
 <!doctype html><html lang="en"><head><title>HTTP Status 404 – Not Found</title><style type="text/css">body {font-family:Tahoma,Arial,sans-serif;} h1, h2, h3, b {color:white;background-color:#525D76;} h1 {font-size:22px;} h2 {font-size:16px;} h3 {font-size:14px;} p {font-size:12px;} a {color:black;} .line {height:1px;background-color:#525D76;border:none;}</style></head><body><h1>HTTP Status 404 – Not Found</h1><hr class="line" /><p><b>Type</b> Status Report</p><p><b>Description</b> The origin server did not find a current representation for the target resource or is not willing to disclose that one exists.</p><hr class="line" /><h3>Apache Tomcat/9.0.62</h3></body></html>[wangyt@pseudo-cluster basic]$ 
 [wangyt@pseudo-cluster basic]$
