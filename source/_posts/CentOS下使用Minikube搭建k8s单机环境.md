@@ -550,4 +550,124 @@ tomcat-rs-tkjj8                     1/1     Running   0          49s
 
 可以看到版本已变更为：Tomcat/8.5.78
 
+#### Ingress(访问权)
 
+访问权用来定义外部访问集群内部服务的规则，类似于Gateway。
+
+开启nginx ingress controller，网络失败多试几次，不行开启代理。也可以使用`minikube ssh`登录，再使用`docker pull`手动拉取镜像。
+
+```shell script
+[wangyt@pseudo-cluster spring-boot-book-source-code]$ minikube addons enable ingress
+  - Using image k8s.gcr.io/ingress-nginx/controller:v1.1.0
+  - Using image k8s.gcr.io/ingress-nginx/kube-webhook-certgen:v1.1.1
+  - Using image k8s.gcr.io/ingress-nginx/kube-webhook-certgen:v1.1.1
+* Verifying ingress addon...
+* The 'ingress' addon is enabled
+[wangyt@pseudo-cluster spring-boot-book-source-code]$ minikube addons list
+
+|-----------------------------|----------|--------------|--------------------------------|
+|         ADDON NAME          | PROFILE  |    STATUS    |           MAINTAINER           |
+|-----------------------------|----------|--------------|--------------------------------|
+| ambassador                  | minikube | disabled     | third-party (ambassador)       |
+| auto-pause                  | minikube | disabled     | google                         |
+| csi-hostpath-driver         | minikube | disabled     | kubernetes                     |
+| dashboard                   | minikube | enabled ✅   | kubernetes                     |
+| default-storageclass        | minikube | enabled ✅   | kubernetes                     |
+| efk                         | minikube | disabled     | third-party (elastic)          |
+| freshpod                    | minikube | disabled     | google                         |
+| gcp-auth                    | minikube | disabled     | google                         |
+| gvisor                      | minikube | disabled     | google                         |
+| helm-tiller                 | minikube | disabled     | third-party (helm)             |
+| ingress                     | minikube | enabled ✅   | unknown (third-party)          |
+| ingress-dns                 | minikube | disabled     | google                         |
+| istio                       | minikube | disabled     | third-party (istio)            |
+| istio-provisioner           | minikube | disabled     | third-party (istio)            |
+| kubevirt                    | minikube | disabled     | third-party (kubevirt)         |
+| logviewer                   | minikube | disabled     | unknown (third-party)          |
+| metallb                     | minikube | disabled     | third-party (metallb)          |
+| metrics-server              | minikube | disabled     | kubernetes                     |
+| nvidia-driver-installer     | minikube | disabled     | google                         |
+| nvidia-gpu-device-plugin    | minikube | disabled     | third-party (nvidia)           |
+| olm                         | minikube | disabled     | third-party (operator          |
+|                             |          |              | framework)                     |
+| pod-security-policy         | minikube | disabled     | unknown (third-party)          |
+| portainer                   | minikube | disabled     | portainer.io                   |
+| registry                    | minikube | disabled     | google                         |
+| registry-aliases            | minikube | disabled     | unknown (third-party)          |
+| registry-creds              | minikube | disabled     | third-party (upmc enterprises) |
+| storage-provisioner         | minikube | enabled ✅   | google                         |
+| storage-provisioner-gluster | minikube | disabled     | unknown (third-party)          |
+| volumesnapshots             | minikube | disabled     | kubernetes                     |
+|-----------------------------|----------|--------------|--------------------------------|
+```
+
+`ingress.yaml`:
+
+```yaml
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: my-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /tomcat(.*)
+            backend:
+              serviceName: tomcat-service
+              servicePort: 30000
+```
+
+
+#### 数据存储
+
+
+#### 示例说明
+
+示例中tomcat貌似无论怎么访问都是404，原因如下：
+
+```shell script
+root@tomcat-rs-4rpwj:/usr/local/tomcat# ls -lh
+total 128K
+-rw-r--r-- 1 root root  20K Mar 31 16:05 BUILDING.txt
+-rw-r--r-- 1 root root 6.1K Mar 31 16:05 CONTRIBUTING.md
+-rw-r--r-- 1 root root  56K Mar 31 16:05 LICENSE
+-rw-r--r-- 1 root root 1.7K Mar 31 16:05 NOTICE
+-rw-r--r-- 1 root root 3.3K Mar 31 16:05 README.md
+-rw-r--r-- 1 root root 7.0K Mar 31 16:05 RELEASE-NOTES
+-rw-r--r-- 1 root root  17K Mar 31 16:05 RUNNING.txt
+drwxr-xr-x 2 root root 4.0K Apr  1 19:59 bin
+drwxr-xr-x 1 root root   22 Apr 13 17:00 conf
+drwxr-xr-x 2 root root 4.0K Apr  1 19:59 lib
+drwxrwxrwx 1 root root  220 Apr 14 02:34 logs
+drwxr-xr-x 2 root root  159 Apr  1 19:59 native-jni-lib
+drwxrwxrwx 2 root root   30 Apr  1 19:59 temp
+drwxr-xr-x 2 root root    6 Apr  1 19:59 webapps
+drwxr-xr-x 7 root root   81 Mar 31 16:05 webapps.dist
+drwxrwxrwx 2 root root    6 Mar 31 16:05 work
+root@tomcat-rs-4rpwj:/usr/local/tomcat# 
+root@tomcat-rs-4rpwj:/usr/local/tomcat# 
+root@tomcat-rs-4rpwj:/usr/local/tomcat# cd webapps
+root@tomcat-rs-4rpwj:/usr/local/tomcat/webapps# ls -lh
+total 0
+root@tomcat-rs-4rpwj:/usr/local/tomcat/webapps# cd ../webapps.dist/
+root@tomcat-rs-4rpwj:/usr/local/tomcat/webapps.dist# ls -lh
+total 4.0K
+drwxr-xr-x  3 root root  223 Apr  1 19:59 ROOT
+drwxr-xr-x 15 root root 4.0K Apr  1 19:59 docs
+drwxr-xr-x  7 root root   99 Apr  1 19:59 examples
+drwxr-xr-x  6 root root   79 Apr  1 19:59 host-manager
+drwxr-xr-x  6 root root  114 Apr  1 19:59 manager
+root@tomcat-rs-4rpwj:/usr/local/tomcat/webapps.dist# exit
+exit
+docker@minikube:~$ exit
+logout
+[wangyt@pseudo-cluster basic]$ 
+```
+
+
+
+[Ingress](https://kubernetes.io/zh/docs/concepts/services-networking/ingress/)
