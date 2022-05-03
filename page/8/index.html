@@ -370,14 +370,16 @@
 
       
         
-          
-            <h3 id="监听端口占用"><a href="#监听端口占用" class="headerlink" title="监听端口占用"></a>监听端口占用</h3><p>查找端口被哪个进程占用</p>
+          <h3 id="监听端口占用"><a href="#监听端口占用" class="headerlink" title="监听端口占用"></a>监听端口占用</h3><p>查找端口被哪个进程占用</p>
 <h4 id="linux"><a href="#linux" class="headerlink" title="linux"></a>linux</h4><p>非root账户拿不到对应的进程信息。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[wangyt@localhost ~]$ sudo ss -nltp</span><br><span class="line">State      Recv-Q Send-Q     Local Address:Port             Peer Address:Port              </span><br><span class="line">LISTEN     0      128                    *:9090                 *:*                   users:((<span class="string">"docker-proxy"</span>,pid=2034,fd=4))</span><br><span class="line">LISTEN     0      128        169.254.25.10:9254                 *:*                   users:((<span class="string">"node-cache"</span>,pid=15808,fd=5))</span><br><span class="line">LISTEN     0      128            127.0.0.1:10248                *:*                   users:((<span class="string">"kubelet"</span>,pid=692,fd=25))</span><br><span class="line">LISTEN     0      128            127.0.0.1:10249                *:*                   users:((<span class="string">"kube-proxy"</span>,pid=11046,fd=14))</span><br><span class="line">LISTEN     0      128                 [::]:10250             [::]:*                   users:((<span class="string">"kubelet"</span>,pid=692,fd=33))</span><br><span class="line">LISTEN     0      128                 [::]:6443              [::]:*                   users:((<span class="string">"kube-apiserver"</span>,pid=5425,fd=7))</span><br><span class="line">LISTEN     0      128                 [::]:6379              [::]:*                   users:((<span class="string">"docker-proxy"</span>,pid=1872,fd=4))</span><br></pre></td></tr></table></figure>
-<h3 id="并发请求数"><a href="#并发请求数" class="headerlink" title="并发请求数"></a>并发请求数</h3><h4 id="windows-server"><a href="#windows-server" class="headerlink" title="windows server"></a>windows server</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -ano | findstr <span class="string">"8080"</span> | FIND /v <span class="string">""</span> /c</span><br></pre></td></tr></table></figure>
-<h4 id="linux-server"><a href="#linux-server" class="headerlink" title="linux server"></a>linux server</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -apn | grep :80 | grep -v LISTEN | wc -l</span><br></pre></td></tr></table></figure>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/10/05/常用命令手册/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
