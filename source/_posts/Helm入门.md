@@ -130,9 +130,28 @@ my-tomcat       default         1               2022-05-03 06:03:03.528814348 +0
 ## 卸载chart
 [wangyt@localhost ~]$ helm uninstall my-tomcat
 release "my-tomcat" uninstalled
+```
 
+#### 快速创建自己的chart
 
+```shell script
+[wangyt@localhost ~]$ helm create deis-workflow
+Creating deis-workflow
+[wangyt@localhost ~]$ ls -lh
+drwxr-xr-x   4 wangyt wangyt  93 May  3 06:51 deis-workflow
+[wangyt@localhost ~]$ cd deis-workflow/
+[wangyt@localhost deis-workflow]$ ls -lh
+total 8.0K
+drwxr-xr-x 2 wangyt wangyt    6 May  3 06:51 charts
+-rw-r--r-- 1 wangyt wangyt 1.2K May  3 06:51 Chart.yaml
+drwxr-xr-x 3 wangyt wangyt  162 May  3 06:51 templates
+-rw-r--r-- 1 wangyt wangyt 1.9K May  3 06:51 values.yaml
+[wangyt@localhost ~]$ helm package deis-workflow
+Successfully packaged chart and saved it to: /home/wangyt/deis-workflow-0.1.0.tgz
+[wangyt@localhost ~]$ helm install deis-workflow ./deis-workflow-0.1.0.tgz
 ```
 
 [安装Helm](https://helm.sh/zh/docs/intro/install/)
 [快速入门指南](https://helm.sh/zh/docs/intro/quickstart/)
+[使用Helm](https://helm.sh/zh/docs/intro/using_helm/)
+[Chart开发指南](https://helm.sh/zh/docs/topics/charts/)
