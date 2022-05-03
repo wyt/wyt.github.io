@@ -14,6 +14,8 @@ Helm是k8s的包管理器，我们可以使用Helm来安装部署应用；一个
 
 Helm 3 不再使用服务端。
 
+<!--more-->
+
 #### 安装Helm
 
 选择合适的安装包
@@ -71,12 +73,63 @@ bitnami/argo-workflows                          1.1.12          3.3.4           
 
 #### 安装Chart示例
 
+以安装tomcat为示例：
+
 ```shell script
-[wangyt@localhost ~]$ helm repo update  # 确定我们可以拿到最新的charts列表
+## 更新仓库
+[wangyt@localhost ~]$ helm repo update
 Hang tight while we grab the latest from your chart repositories...
 ...Successfully got an update from the "skywalking" chart repository
 ...Successfully got an update from the "bitnami" chart repository
 Update Complete. ⎈Happy Helming!⎈
+
+## 查找tomcat chart
+[wangyt@localhost ~]$ helm search repo tomcat                      
+NAME            CHART VERSION   APP VERSION     DESCRIPTION                                       
+bitnami/tomcat  10.1.21         10.0.20         Apache Tomcat is an open-source web server desi...
+
+## 查看chart详情
+[wangyt@localhost ~]$ helm show chart bitnami/tomcat
+[wangyt@localhost ~]$ helm show all bitnami/tomcat
+
+## 安装tomcat chart
+[wangyt@localhost ~]$ helm install my-tomcat bitnami/tomcat # 也可以使用`helm install bitnami/tomcat --generate-name`自动生成名字
+NAME: my-tomcat
+LAST DEPLOYED: Tue May  3 06:03:03 2022
+NAMESPACE: default
+STATUS: deployed
+REVISION: 1
+TEST SUITE: None
+NOTES:
+CHART NAME: tomcat
+CHART VERSION: 10.1.21
+APP VERSION: 10.0.20
+
+** Please be patient while the chart is being deployed **
+
+1. Get the Tomcat URL by running:
+
+  NOTE: It may take a few minutes for the LoadBalancer IP to be available.
+        Watch the status with: 'kubectl get svc --namespace default -w my-tomcat'
+
+  export SERVICE_IP=$(kubectl get svc --namespace default my-tomcat --template "{{ range (index .status.loadBalancer.ingress 0) }}{{ . }}{{ end }}")
+  echo "Tomcat URL:            http://$SERVICE_IP:/"
+  echo "Tomcat Management URL: http://$SERVICE_IP:/manager"
+
+2. Login with the following credentials
+
+  echo Username: user
+  echo Password: $(kubectl get secret --namespace default my-tomcat -o jsonpath="{.data.tomcat-password}" | base64 --decode)
+
+## 安装的chart列表
+[wangyt@localhost ~]$ helm list
+NAME            NAMESPACE       REVISION        UPDATED                                 STATUS          CHART           APP VERSION
+my-tomcat       default         1               2022-05-03 06:03:03.528814348 +0800 CST deployed        tomcat-10.1.21  10.0.20
+## 查看chart状态    
+[wangyt@localhost ~]$ helm status my-tomcat
+## 卸载chart
+[wangyt@localhost ~]$ helm uninstall my-tomcat
+release "my-tomcat" uninstalled
 
 
 ```

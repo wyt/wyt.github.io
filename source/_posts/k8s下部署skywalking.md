@@ -20,18 +20,22 @@ export SKYWALKING_RELEASE_NAME=skywalking  # change the release name according t
 export SKYWALKING_RELEASE_NAMESPACE=default  # change the namespace to where you want to install SkyWalking
 ```
 
-使用helm repo安装
+添加仓库
 
 ```shell script
 export REPO=skywalking
 helm repo add ${REPO} https://apache.jfrog.io/artifactory/skywalking-helm                                
+```
+
+<!--more-->
+
+```shell script                           
 helm install "${SKYWALKING_RELEASE_NAME}" ${REPO}/skywalking -n "${SKYWALKING_RELEASE_NAMESPACE}" \
   --set oap.image.tag=8.8.1 \
   --set oap.storageType=elasticsearch \
   --set ui.image.tag=8.8.1 \
   --set elasticsearch.imageTag=6.8.6
 ```
-
 
 
 [skywalking-kubernetes](https://github.com/apache/skywalking-kubernetes)
