@@ -78,8 +78,12 @@ To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
 * Launching proxy ...
 * Verifying proxy health ...
 http://127.0.0.1:8899/api/v1/namespaces/kubernetes-dashboard/services/http:kubernetes-dashboard:/proxy/
+```
 
-# 代理出去
+外面访问不到，可以开proxy：[使用 HTTP 代理访问 Kubernetes API](https://kubernetes.io/zh/docs/tasks/extend-kubernetes/http-proxy-access-api/)
+
+```shell script
+# 启动 Kubernetes API 服务器的代理：
 [wangyt@pseudo-cluster ~]$ kubectl proxy --port=8899 --address='192.168.101.146' --accept-hosts='^.*' &
 ```
 
@@ -382,6 +386,13 @@ Events:                   <none>
 <!doctype html><html lang="en"><head><title>HTTP Status 404 – Not Found</title><style type="text/css">body {font-family:Tahoma,Arial,sans-serif;} h1, h2, h3, b {color:white;background-color:#525D76;} h1 {font-size:22px;} h2 {font-size:16px;} h3 {font-size:14px;} p {font-size:12px;} a {color:black;} .line {height:1px;background-color:#525D76;border:none;}</style></head><body><h1>HTTP Status 404 – Not Found</h1><hr class="line" /><p><b>Type</b> Status Report</p><p><b>Description</b> The origin server did not find a current representation for the target resource or is not willing to disclose that one exists.</p><hr class="line" /><h3>Apache Tomcat/8.5.78</h3></body></html>[wangyt@pseudo-cluster basic]$ 
 [wangyt@pseudo-cluster basic]$
 ```
+
+
+TODO 将tomcat设置为clusterIp模式，测试k8s proxy 方式访问：
+
+http://192.168.101.120:8899/api/v1/proxy/namespaces/<NAMESPACE>/services/<SERVICE-NAME>:<PORT-NAME>/
+
+http://192.168.101.120:8899/api/v1/proxy/namespaces/default/services/skywalking-ui:http/
 
 #### Deployment(部署)
 
