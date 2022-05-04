@@ -12,9 +12,22 @@ tags:
 
 #### 准备linux机器
 
+CentOS 7.x	2 核 CPU，4 GB 内存，40 GB 磁盘空间
+
 #### 容器运行时
 
+Docker	19.3.8 +
+
+提前安装好
+
 #### 依赖项要求
+
+需要安装`socat` & `conntrack`
+
+```shell script
+yum install -y socat
+yum install -y conntrack
+```
 
 #### 网络和 DNS 要求
 
@@ -33,7 +46,28 @@ chmod +x kk
 安装等待过程可能会很慢
 
 ```shell script
+ _   __      _          _   __           
+| | / /     | |        | | / /           
+| |/ / _   _| |__   ___| |/ /  ___ _   _ 
+|    \| | | | '_ \ / _ \    \ / _ \ | | |
+| |\  \ |_| | |_) |  __/ |\  \  __/ |_| |
+\_| \_/\__,_|_.__/ \___\_| \_/\___|\__, |
+                                    __/ |
+                                   |___/
+
+02:01:26 CST [NodePreCheckModule] A pre-check on nodes
+02:01:28 CST success: [localhost.localdomain]
+02:01:28 CST [ConfirmModule] Display confirmation form
++-----------------------+------+------+---------+----------+-------+-------+-----------+--------+----------+------------+-------------+------------------+--------------+
+| name                  | sudo | curl | openssl | ebtables | socat | ipset | conntrack | chrony | docker   | nfs client | ceph client | glusterfs client | time         |
++-----------------------+------+------+---------+----------+-------+-------+-----------+--------+----------+------------+-------------+------------------+--------------+
+| localhost.localdomain | y    | y    | y       | y        | y     | y     | y         |        | 20.10.14 |            |             |                  | CST 02:01:28 |
++-----------------------+------+------+---------+----------+-------+-------+-----------+--------+----------+------------+-------------+------------------+--------------+
+
+## 检查完ok没问题输入yes确认安装
+
 [wangyt@localhost ~]$ sudo ./kk create cluster --with-kubernetes v1.21.5 --with-kubesphere v3.2.1
+
 
 ...
 
