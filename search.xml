@@ -1,8 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Kubesphere快速搭建k8s环境]]></title>
+    <url>%2F2022%2F05%2F04%2FKubesphere%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BAk8s%E7%8E%AF%E5%A2%83%2F</url>
+    <content type="text"><![CDATA[准备linux机器容器运行时依赖项要求网络和 DNS 要求 请确保 /etc/resolv.conf 中的 DNS 地址可用，否则，可能会导致集群中的 DNS 出现问题 下载kubekeyscript123export KKZONE=cncurl -sfL https://get-kk.kubesphere.io | VERSION=v2.0.0 sh -chmod +x kk 安装安装等待过程可能会很慢 script123456789101112131415161718192021222324252627282930313233343536373839404142[wangyt@localhost ~]$ sudo ./kk create cluster --with-kubernetes v1.21.5 --with-kubesphere v3.2.1...To start using your cluster, you need to run the following as a regular user: mkdir -p $HOME/.kube sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config sudo chown $(id -u):$(id -g) $HOME/.kube/configAlternatively, if you are the root user, you can run: export KUBECONFIG=/etc/kubernetes/admin.conf...######################################################## Welcome to KubeSphere! ########################################################Console: http://192.168.101.120:30880Account: adminPassword: P@88w0rdNOTES： 1. After you log into the console, please check the monitoring status of service components in "Cluster Management". If any service is not ready, please wait patiently until all components are up and running. 2. Please change the default password after login.#####################################################https://kubesphere.io 2022-05-03 02:20:17#####################################################02:20:19 CST success: [localhost.localdomain]02:20:19 CST Pipeline[CreateClusterPipeline] execute successfulInstallation is complete.Please check the result using the command: kubectl logs -n kubesphere-system $(kubectl get pod -n kubesphere-system -l app=ks-install -o jsonpath='&#123;.items[0].metadata.name&#125;') -f 安装完成后，如果kubectl命令找不到，需要执行下面命令： script123mkdir -p $HOME/.kubesudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/configsudo chown $(id -u):$(id -g) $HOME/.kube/config 在 Linux 上以 All-in-One 模式安装 KubeSphere]]></content>
+      <categories>
+        <category>kubesphere</category>
+      </categories>
+      <tags>
+        <tag>k8s</tag>
+        <tag>kubesphere</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Helm chart开发指南]]></title>
-    <url>%2F2022%2F05%2F02%2FHelm%20chart%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%972%2F</url>
+    <url>%2F2022%2F05%2F02%2FHelm%20chart%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97%2F</url>
     <content type="text"><![CDATA[参考《Chart开发指南》]]></content>
       <categories>
         <category>helm</category>
