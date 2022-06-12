@@ -33,6 +33,8 @@ yum install -y conntrack
 
 * 请确保 /etc/resolv.conf 中的 DNS 地址可用，否则，可能会导致集群中的 DNS 出现问题
 
+<!--more-->
+
 #### 下载kubekey
 
 ```shell script
