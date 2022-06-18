@@ -1,6 +1,6 @@
 ---
-title: Linux安装Mysql
-date: 2017-08-21 23:52:00
+title: CentOS 7安装Mysql5.7 (yum方式)
+date: 2022/06/18 18:40:00
 categories:
 - 数据库
 - MySQL
@@ -15,11 +15,9 @@ tags:
 ### 系统信息
 
 ``` bash
-[root@localhost ~]# uname -a      
-Linux localhost.localdomain 2.6.32-504.el6.x86_64 #1 SMP Wed Oct 15 04:27:16 UTC 2014 x86_64 x86_64 x86_64 GNU/Linux
-[root@localhost ~]# cat /etc/issue
-CentOS release 6.6 (Final)
-Kernel \r on an \m
+[root@pseudo-cluster ~]# cat /etc/redhat-release 
+CentOS Linux release 7.9.2009 (Core)
+[root@pseudo-cluster ~]#
 ```
 
 ### 查看当前系统是否已经安装Mysql
@@ -33,6 +31,14 @@ mysql.x86_64            5.1.73-8.el6_8  @base
 
 ``` bash
 [root@localhost ~]# yum -y remove mysql.x86_64
+```
+
+### 删除mariadb
+
+如果系统安装了mariadb，需要移除
+
+```bash
+[root@localhost ~]# yum list installed |grep mariadb
 ```
 
 ### 查看yum库上mysql版本
@@ -51,70 +57,52 @@ mysql-server.x86_64                        5.1.73-8.el6_8                @base
 ### yum安装Mysql
 
 ``` bash
-[root@localhost ~]# yum -y install mysql-server mysql mysql-devel
+wget https://repo.mysql.com//mysql80-community-release-el7-6.noarch.rpm
+yum localinstall yum localinstall mysql80-community-release-el7-6.noarch.rpm 
+yum repolist enabled | grep "mysql.*-community.*"
+yum repolist all | grep mysql
+yum repolist enabled | grep mysql
+yum-config-manager --disable mysql80-community
+yum repolist enabled | grep mysql
+yum repolist all | grep mysql
+yum-config-manager --enable mysql57-community
+yum repolist all | grep mysql
+yum repolist enabled | grep mysql
+yum install mysql-community-server
+yum --enablerepo=mysql57-community clean metadata
+yum install mysql-community-server
+yum -y install mysql-community-server
+service mysqld start
+grep 'temporary password' /var/log/mysqld.log
+vim /var/log/mysqld.log 
+grep 'temporary password' /var/log/mysqld.log
+grep 'password' /var/log/mysqld.log
+service mysqld restart
+grep 'password' /var/log/mysqld.log
+mysql -uroot -p
+ps -elf | grep mysqld
+cat /var/run/mysqld/mysql.pid
+cat /var/run/mysqld/mysqld.pid
+cd /var/lib/mysql
+mysql -uroot -p
+service mysqld status
+mysql -uroot
+mysql -uroot -p
+yum list installed | grep mysql
 ```
 
 ### 查看安装后的Mysql信息
 ``` bash
-[root@localhost ~]# rpm -qi mysql-server
-Name        : mysql-server                 Relocations: (not relocatable)
-Version     : 5.1.73                            Vendor: CentOS
-Release     : 8.el6_8                       Build Date: Fri 27 Jan 2017 06:25:43 AM CST
-Install Date: Mon 03 Jul 2017 12:53:49 AM CST      Build Host: c1bm.rdu2.centos.org
-Group       : Applications/Databases        Source RPM: mysql-5.1.73-8.el6_8.src.rpm
-Size        : 25884131                         License: GPLv2 with exceptions
-Signature   : RSA/SHA1, Fri 27 Jan 2017 06:35:28 AM CST, Key ID 0946fca2c105b9de
-Packager    : CentOS BuildSystem <http://bugs.centos.org>
-URL         : http://www.mysql.com
-Summary     : The MySQL server and related files
-Description :
-MySQL is a multi-user, multi-threaded SQL database server. MySQL is a
-client/server implementation consisting of a server daemon (mysqld)
-and many different client programs and libraries. This package contains
-the MySQL server and some accompanying files and directories.
+[wangyt@pseudo-cluster ~]$ yum list installed | grep  mysql
+Repodata is over 2 weeks old. Install yum-cron? Or run: yum makecache fast
+mysql-community-client.x86_64        5.7.38-1.el7             @mysql57-community
+mysql-community-common.x86_64        5.7.38-1.el7             @mysql57-community
+mysql-community-libs.x86_64          5.7.38-1.el7             @mysql57-community
+mysql-community-server.x86_64        5.7.38-1.el7             @mysql57-community
+mysql80-community-release.noarch     el7-6                    @/mysql80-community-release-el7-6.noarch
 ```
 
 ## 禁用linux防火墙 & seLinux
 
 [linux下关闭【防火墙 & seLinux】](./linux下关闭防火墙%20&%20selinux.md) 
-
-
-### 其他设置
-####
-设置Mysql服务开机启动
-``` bash
-[root@localhost ~]# cat /etc/rc.local    
-#!/bin/sh
-#
-# This script will be executed *after* all the other init scripts.
-# You can put your own initialization stuff in here if you don't
-# want to do the full Sys V style init stuff.
-
-touch /var/lock/subsys/local
-service mysqld start
-```
-#### 查看MySQL脚本信息
-
-``` bash
-mysql> select version();
-+-----------+
-| version() |
-+-----------+
-| 5.1.73    |
-+-----------+
-1 row in set
-
-mysql> SHOW VARIABLES LIKE "%version%";
-+-------------------------+---------------------+
-| Variable_name           | Value               |
-+-------------------------+---------------------+
-| protocol_version        | 10                  |
-| version                 | 5.1.73              |
-| version_comment         | Source distribution |
-| version_compile_machine | x86_64              |
-| version_compile_os      | redhat-linux-gnu    |
-+-------------------------+---------------------+
-5 rows in set
-
-mysql> 
-```
+[2.5.1 Installing MySQL on Linux Using the MySQL Yum Repository](https://dev.mysql.com/doc/refman/5.7/en/linux-installation-yum-repo.html)
