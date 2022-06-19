@@ -10,6 +10,10 @@ tags:
 - 数据库
 ---
 
+## 禁用linux防火墙 & seLinux
+
+[linux下关闭【防火墙 & seLinux】](./linux下关闭防火墙%20&%20selinux.md) 
+
 ## 安装Mysql
 
 ### 系统信息
@@ -102,7 +106,20 @@ mysql-community-server.x86_64        5.7.38-1.el7             @mysql57-community
 mysql80-community-release.noarch     el7-6                    @/mysql80-community-release-el7-6.noarch
 ```
 
-## 禁用linux防火墙 & seLinux
+## 授权
 
-[linux下关闭【防火墙 & seLinux】](./linux下关闭防火墙%20&%20selinux.md) 
+```shell script
+mysql -u root -p
+
+mysql>use mysql;
+mysql>update user set host = '%' where user = 'root';
+mysql>select host, user from user;
+
+GRANT ALL PRIVILEGES ON *.* to root@'%' IDENTIFIED BY '123456' WITH GRANT OPTION;
+flush privileges;
+```
+
+
+## 参考
+
 [2.5.1 Installing MySQL on Linux Using the MySQL Yum Repository](https://dev.mysql.com/doc/refman/5.7/en/linux-installation-yum-repo.html)
