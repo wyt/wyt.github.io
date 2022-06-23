@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Elasticsearch快速入门]]></title>
+    <url>%2F2022%2F06%2F23%2FElasticsearch%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%2F</url>
+    <content type="text"><![CDATA[基本概念操作索引ES中访问数据的模式： 1&lt;HTTP Verb&gt;/&lt;Index&gt;/&lt;Endpoint&gt;/&lt;ID&gt; 1234567891011121314&lt;!-- 创建索引 --&gt;PUT /customer&lt;!-- 创建文档 --&gt;PUT /customer/_doc_1&#123; "name":"John Doe"&#125;&lt;!-- 获取文档 --&gt;GET /customer/_doc/1&lt;!-- 删除索引 --&gt;DELETE /customer 修改数据探索数据 Elasticsearch权威指南，赵建亭，清华大学出版，978-7-302-56594-9]]></content>
+      <categories>
+        <category>elasticsearch</category>
+      </categories>
+      <tags>
+        <tag>elasticsearch</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[CentOS 7安装Mysql5.7 (yum方式)]]></title>
     <url>%2F2022%2F06%2F18%2FLinux%E4%B8%8B%E5%AE%89%E8%A3%85Mysql%2F</url>
     <content type="text"><![CDATA[禁用linux防火墙 &amp; seLinuxlinux下关闭【防火墙 &amp; seLinux】 安装Mysql系统信息123[root@pseudo-cluster ~]# cat /etc/redhat-release CentOS Linux release 7.9.2009 (Core)[root@pseudo-cluster ~]# 查看当前系统是否已经安装Mysql12[root@localhost ~]# yum list installed | grep mysqlmysql.x86_64 5.1.73-8.el6_8 @base 删除自带Mysql1[root@localhost ~]# yum -y remove mysql.x86_64 删除mariadb如果系统安装了mariadb，需要移除 1[root@localhost ~]# yum list installed |grep mariadb 查看yum库上mysql版本123456[root@localhost ~]# yum list | grep mysqlmysql.x86_64 5.1.73-8.el6_8 @base mysql-devel.x86_64 5.1.73-8.el6_8 @base mysql-libs.x86_64 5.1.73-8.el6_8 @base mysql-server.x86_64 5.1.73-8.el6_8 @base ... yum安装Mysql1234567891011121314151617181920212223242526272829303132wget https://repo.mysql.com//mysql80-community-release-el7-6.noarch.rpmyum localinstall yum localinstall mysql80-community-release-el7-6.noarch.rpm yum repolist enabled | grep "mysql.*-community.*"yum repolist all | grep mysqlyum repolist enabled | grep mysqlyum-config-manager --disable mysql80-communityyum repolist enabled | grep mysqlyum repolist all | grep mysqlyum-config-manager --enable mysql57-communityyum repolist all | grep mysqlyum repolist enabled | grep mysqlyum install mysql-community-serveryum --enablerepo=mysql57-community clean metadatayum install mysql-community-serveryum -y install mysql-community-serverservice mysqld startgrep 'temporary password' /var/log/mysqld.logvim /var/log/mysqld.log grep 'temporary password' /var/log/mysqld.loggrep 'password' /var/log/mysqld.logservice mysqld restartgrep 'password' /var/log/mysqld.logmysql -uroot -pps -elf | grep mysqldcat /var/run/mysqld/mysql.pidcat /var/run/mysqld/mysqld.pidcd /var/lib/mysqlmysql -uroot -pservice mysqld statusmysql -urootmysql -uroot -pyum list installed | grep mysql 查看安装后的Mysql信息1234567[wangyt@pseudo-cluster ~]$ yum list installed | grep mysqlRepodata is over 2 weeks old. Install yum-cron? Or run: yum makecache fastmysql-community-client.x86_64 5.7.38-1.el7 @mysql57-communitymysql-community-common.x86_64 5.7.38-1.el7 @mysql57-communitymysql-community-libs.x86_64 5.7.38-1.el7 @mysql57-communitymysql-community-server.x86_64 5.7.38-1.el7 @mysql57-communitymysql80-community-release.noarch el7-6 @/mysql80-community-release-el7-6.noarch 授权script12345678mysql -u root -pmysql&gt;use mysql;mysql&gt;update user set host = '%' where user = 'root';mysql&gt;select host, user from user;GRANT ALL PRIVILEGES ON *.* to root@'%' IDENTIFIED BY '123456' WITH GRANT OPTION;flush privileges; 参考2.5.1 Installing MySQL on Linux Using the MySQL Yum Repository]]></content>
@@ -9,9 +20,9 @@
         <category>MySQL</category>
       </categories>
       <tags>
-        <tag>Linux</tag>
         <tag>MySQL</tag>
         <tag>数据库</tag>
+        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
@@ -473,9 +484,9 @@
         <category>MySQL</category>
       </categories>
       <tags>
+        <tag>Windows</tag>
         <tag>MySQL</tag>
         <tag>数据库</tag>
-        <tag>Windows</tag>
       </tags>
   </entry>
   <entry>
