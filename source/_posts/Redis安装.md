@@ -88,5 +88,13 @@ requirepass 123456
 PS E:\dev_app\Redis-x64-3.0.504> .\redis-cli.exe -h 192.168.80.129 -p 6379 -a "123456"
 ```
 
+#### Redis7 安装后配置
+
+```bash
+daemonize yes       ## 进程后台运行
+protected-mode no   ## 关闭保护模式
+bind * -::*         ## 方便连接不限制IP端口
+```
+
 
 Ref: https://redis.io/download
